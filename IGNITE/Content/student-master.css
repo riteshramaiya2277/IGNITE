@@ -1,0 +1,510 @@
+/* ==========================================================================
+   IGNITE — Student Master Page Stylesheet
+   Minimalist Warm Sand / Cream Theme matching Figma UI Specification
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Design Tokens & CSS Variables
+   -------------------------------------------------------------------------- */
+:root {
+    /* Palette: User Specified #EDE9E1 */
+    --bg-app: #F7F5F0;
+    --bg-sidebar: #EDE9E1;
+    --bg-card: #FFFFFF;
+    --bg-btn-pill: #E2DBD0;
+    --bg-btn-pill-hover: #D7CFB4;
+
+    /* Borders */
+    --border-soft: #DDD6CB;
+    --border-pill: #CFC7BA;
+    --border-user-card: #F59E0B;
+    --border-streak: #F97316;
+
+    /* Text Colors */
+    --text-main: #18181B;
+    --text-nav: #57534E;
+    --text-muted: #78716C;
+    --text-subtle: #A8A29E;
+    --text-streak: #EA580C;
+    --text-user-name: #D97706;
+
+    /* Accents */
+    --accent-flame: #EA580C;
+    --accent-xp-fill: #E06D75;
+    --accent-xp-track: #E5DDD3;
+    --accent-red-dot: #EF4444;
+
+    /* Sizing & Radius */
+    --sidebar-width: 240px;
+    --radius-sm: 8px;
+    --radius-md: 10px;
+    --radius-lg: 14px;
+    --radius-pill: 9999px;
+
+    /* Typography */
+    --font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --transition-fast: 150ms ease;
+}
+
+/* --------------------------------------------------------------------------
+   2. Global Resets
+   -------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    min-height: 100vh;
+    background-color: var(--bg-app);
+    color: var(--text-main);
+    font-family: var(--font-family);
+    font-size: 15px;
+    line-height: 1.4;
+    -webkit-font-smoothing: antialiased;
+}
+
+form#form1 {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font-family: inherit;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+/* --------------------------------------------------------------------------
+   3. Main App Layout Grid (Sidebar + Canvas)
+   -------------------------------------------------------------------------- */
+.ignite-app-layout {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   4. Left Sidebar Navigation
+   -------------------------------------------------------------------------- */
+.ignite-sidebar {
+    width: var(--sidebar-width);
+    min-width: var(--sidebar-width);
+    background-color: var(--bg-sidebar);
+    padding: 32px 24px 28px 24px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    position: sticky;
+    top: 0;
+    align-self: flex-start;
+}
+
+/* Brand Logo */
+.sidebar-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 38px;
+    outline: none;
+}
+
+.brand-flame-icon {
+    width: 28px;
+    height: 28px;
+    fill: #18181B;
+    flex-shrink: 0;
+}
+
+.brand-title {
+    font-size: 1.35rem;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    color: #18181B;
+}
+
+/* Sidebar Navigation Items */
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 9px 12px;
+    border-radius: var(--radius-sm);
+    color: var(--text-nav);
+    font-size: 0.92rem;
+    font-weight: 500;
+    transition: all var(--transition-fast);
+}
+
+.nav-item .nav-icon {
+    width: 19px;
+    height: 19px;
+    stroke: var(--text-nav);
+    stroke-width: 2;
+    flex-shrink: 0;
+    transition: stroke var(--transition-fast);
+}
+
+.nav-item:hover {
+    color: var(--text-main);
+    background-color: rgba(0, 0, 0, 0.04);
+}
+
+.nav-item:hover .nav-icon {
+    stroke: var(--text-main);
+}
+
+.nav-item.active {
+    color: var(--text-main);
+    font-weight: 700;
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.nav-item.active .nav-icon {
+    stroke: var(--text-main);
+}
+
+/* Sidebar Footer: Settings & User Profile */
+.sidebar-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: auto;
+    padding-top: 24px;
+}
+
+.settings-pill-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 18px;
+    border-radius: var(--radius-pill);
+    border: 1px solid var(--border-pill);
+    background-color: var(--bg-btn-pill);
+    color: #44403C;
+    font-size: 0.88rem;
+    font-weight: 600;
+    transition: all var(--transition-fast);
+}
+
+.settings-pill-btn svg {
+    stroke: #44403C;
+}
+
+.settings-pill-btn:hover,
+.settings-pill-btn.active {
+    background-color: var(--bg-btn-pill-hover);
+    border-color: #BDB4A8;
+}
+
+/* User Profile Card */
+.user-profile-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    border-radius: var(--radius-lg);
+    border: 1.5px solid var(--border-user-card);
+    background-color: #FFFDF9;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+    position: relative;
+}
+
+.user-avatar-ring {
+    width: 34px;
+    height: 34px;
+    border-radius: var(--radius-pill);
+    border: 2px solid var(--border-user-card);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    background: #FFFBEB;
+}
+
+.avatar-ring-inner {
+    width: 14px;
+    height: 14px;
+    border-radius: var(--radius-pill);
+    background: transparent;
+}
+
+.user-card-info {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    flex: 1;
+}
+
+.user-card-name {
+    font-size: 0.86rem;
+    font-weight: 700;
+    color: var(--text-user-name);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.2;
+}
+
+.user-card-role {
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: var(--text-subtle);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card-logout-btn {
+    color: #BDB4A8;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    transition: color var(--transition-fast);
+}
+
+.card-logout-btn:hover {
+    color: #DC2626;
+}
+
+/* --------------------------------------------------------------------------
+   5. Main Area (Top Bar & Canvas)
+   -------------------------------------------------------------------------- */
+.ignite-main-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 28px 40px 40px 40px;
+    background-color: var(--bg-app);
+}
+
+/* Top Header Bar */
+.topbar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    gap: 24px;
+}
+
+/* Left: Title & Streak */
+.topbar-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.page-title {
+    font-size: 1.75rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--text-main);
+    margin: 0;
+}
+
+.streak-pill-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 12px;
+    border-radius: var(--radius-pill);
+    border: 1px solid var(--border-streak);
+    background-color: #FFFBF7;
+    color: var(--text-streak);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    cursor: default;
+}
+
+.flame-streak-icon {
+    width: 14px;
+    height: 14px;
+    fill: var(--accent-flame);
+}
+
+/* Right: XP, Notification, Search */
+.topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+/* XP Progress Widget */
+.xp-container {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 160px;
+}
+
+.xp-labels {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.7rem;
+}
+
+.lvl-label {
+    font-weight: 800;
+    color: #44403C;
+}
+
+.xp-label {
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+.xp-track {
+    width: 100%;
+    height: 6px;
+    background-color: var(--accent-xp-track);
+    border-radius: var(--radius-pill);
+    overflow: hidden;
+}
+
+.xp-fill {
+    height: 100%;
+    background-color: var(--accent-xp-fill);
+    border-radius: var(--radius-pill);
+    transition: width 0.4s ease;
+}
+
+/* Notification Button Box */
+.icon-box-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-soft);
+    background-color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    color: var(--text-nav);
+    transition: border-color var(--transition-fast), background-color var(--transition-fast);
+}
+
+.icon-box-btn:hover {
+    border-color: #C7BEB3;
+    background-color: #FAFAFA;
+}
+
+.notification-red-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: var(--accent-red-dot);
+    border: 1.5px solid #FFFFFF;
+    position: absolute;
+    top: 6px;
+    right: 6px;
+}
+
+/* Search Input */
+.search-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-input-wrapper svg {
+    position: absolute;
+    left: 12px;
+    stroke: var(--text-subtle);
+    pointer-events: none;
+}
+
+.search-input {
+    width: 140px;
+    padding: 7px 12px 7px 34px;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-soft);
+    background-color: #FFFFFF;
+    font-family: inherit;
+    font-size: 0.82rem;
+    color: var(--text-main);
+    outline: none;
+    transition: border-color var(--transition-fast), width var(--transition-fast);
+}
+
+.search-input:focus {
+    border-color: #A8A29E;
+    width: 180px;
+}
+
+.search-input::placeholder {
+    color: var(--text-subtle);
+}
+
+/* --------------------------------------------------------------------------
+   6. Main Content Canvas
+   -------------------------------------------------------------------------- */
+.page-content-canvas {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --------------------------------------------------------------------------
+   7. Responsive Adaptations
+   -------------------------------------------------------------------------- */
+@media (max-width: 900px) {
+    .ignite-sidebar {
+        width: 76px;
+        min-width: 76px;
+        padding: 24px 12px;
+    }
+
+    .brand-title,
+    .nav-item span,
+    .settings-pill-btn span,
+    .user-card-info,
+    .card-logout-btn {
+        display: none;
+    }
+
+    .sidebar-brand {
+        justify-content: center;
+    }
+
+    .nav-item {
+        justify-content: center;
+        padding: 10px;
+    }
+
+    .settings-pill-btn {
+        justify-content: center;
+        padding: 10px;
+    }
+
+    .user-profile-card {
+        padding: 6px;
+        justify-content: center;
+    }
+
+    .ignite-main-area {
+        padding: 20px 24px;
+    }
+}
