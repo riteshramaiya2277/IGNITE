@@ -1,7 +1,5 @@
 # IGNITE — Implementation Plan
 
-
-
 > **Purpose:** GitHub root-level implementation roadmap for the IGNITE college project.
 >
 > **Target:** ASP.NET Web Forms + SQL Server, with a practical architecture that is achievable for the college submission while remaining extendable toward a production-style application.
