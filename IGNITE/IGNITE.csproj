@@ -85,6 +85,13 @@
     <Compile Include="Student\Tasks.aspx.designer.cs">
       <DependentUpon>Tasks.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Student\TaskDetail.aspx.cs">
+      <DependentUpon>TaskDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student\TaskDetail.aspx.designer.cs">
+      <DependentUpon>TaskDetail.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\student-master.css" />
@@ -96,6 +103,7 @@
     <Content Include="Student\Dashboard.aspx" />
     <Content Include="Student\Habits.aspx" />
     <Content Include="Student\Tasks.aspx" />
+    <Content Include="Student\TaskDetail.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
