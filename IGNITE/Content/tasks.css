@@ -1,0 +1,928 @@
+/* ==========================================================================
+   IGNITE — Student Task Detail Page Stylesheet
+   Matches Figma UI Specification:
+   Warm Stone/Cream Palette (#ECE8E2 on #F7F5F0), Rose/Coral Accents (#DF6A74),
+   Math & Overdue Badges, Due Date, High Priority, XP Indicators, Linked Goal,
+   Task States Visualization, Task Insights, and Impact Finals Warrior Card.
+   ========================================================================== */
+
+/* 1. Page Canvas & Breadcrumb */
+.tasks-canvas {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1360px;
+    margin: 0 auto;
+    gap: 18px;
+}
+
+.tasks-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #78716C;
+}
+
+.breadcrumb-link {
+    color: #78716C;
+    text-decoration: none;
+    transition: color 0.15s ease;
+}
+
+.breadcrumb-link:hover {
+    color: #18181B;
+}
+
+.breadcrumb-sep {
+    color: #A8A29E;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.breadcrumb-current {
+    color: #18181B;
+    font-weight: 700;
+}
+
+/* 2. Main Two-Column Layout Grid */
+.task-detail-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 340px;
+    gap: 24px;
+    align-items: start;
+}
+
+@media (max-width: 1100px) {
+    .task-detail-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ==========================================================================
+   LEFT COLUMN: Main Task Hero Card & Action Bar
+   ========================================================================== */
+.task-main-col {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Main Task Detail Card */
+.task-hero-card {
+    background-color: #ECE7E1;
+    border-radius: 24px;
+    padding: 32px 36px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+    position: relative;
+    border: 1px solid rgba(222, 215, 203, 0.5);
+}
+
+/* Header: Badges & Quick Action Controls */
+.task-hero-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.hero-badges-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* Subject Badges */
+.badge-subject {
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 14px;
+    border-radius: 9999px;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.badge-subject-math {
+    background-color: #FEF3C7;
+    color: #B45309;
+}
+
+.badge-subject-history {
+    background-color: #E0E7FF;
+    color: #4338CA;
+}
+
+.badge-subject-physics {
+    background-color: #EDE9FE;
+    color: #6D28D9;
+}
+
+.badge-subject-sociology {
+    background-color: #DCFCE7;
+    color: #15803D;
+}
+
+/* Status Badges */
+.badge-status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 14px;
+    border-radius: 9999px;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.badge-status-overdue {
+    background-color: #FCE7E7;
+    color: #DC2626;
+}
+
+.badge-status-pending {
+    background-color: #F5F2EC;
+    color: #78716C;
+}
+
+.badge-status-progress {
+    background-color: #FEF3C7;
+    color: #D97706;
+}
+
+.badge-status-completed {
+    background-color: #DCFCE7;
+    color: #16A34A;
+}
+
+.status-dot-circle {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: currentColor;
+    display: inline-block;
+}
+
+/* Header Right Icon Controls */
+.hero-controls-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-hero-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    border: 1px solid #D6CEBE;
+    background-color: rgba(255, 255, 255, 0.45);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #57534E;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.btn-hero-icon:hover {
+    background-color: #FFFFFF;
+    color: #18181B;
+    border-color: #CFC7BA;
+    transform: translateY(-1px);
+}
+
+.btn-hero-icon:active {
+    transform: translateY(0);
+}
+
+/* Task Hero Title */
+.task-hero-title {
+    font-size: 1.85rem;
+    font-weight: 800;
+    color: #18181B;
+    letter-spacing: -0.025em;
+    line-height: 1.25;
+    margin: 0 0 24px 0;
+}
+
+/* Metadata 3-Columns Row */
+.task-stats-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 56px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+}
+
+.task-stat-col {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.stat-label {
+    font-size: 0.72rem;
+    font-weight: 800;
+    color: #78716C;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+}
+
+.stat-value {
+    font-size: 0.98rem;
+    font-weight: 700;
+    color: #18181B;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.stat-value.priority-high {
+    color: #E05353;
+}
+
+.stat-value.priority-medium {
+    color: #D97706;
+}
+
+.stat-value.priority-low {
+    color: #16A34A;
+}
+
+.stat-xp-group {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 4px;
+}
+
+.stat-xp-num {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #18181B;
+}
+
+.stat-xp-unit {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #78716C;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+/* Divider Line */
+.task-hero-divider {
+    height: 1px;
+    background-color: #DFD7CA;
+    border: none;
+    margin: 0 0 24px 0;
+}
+
+/* Description Section */
+.task-desc-section {
+    margin-bottom: 28px;
+}
+
+.desc-label {
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: #18181B;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.desc-body {
+    font-size: 0.94rem;
+    line-height: 1.65;
+    color: #57534E;
+    margin: 0;
+}
+
+/* Collapsible Notes Area */
+.task-notes-extra {
+    display: none;
+    margin-top: 14px;
+    padding: 12px 16px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 12px;
+    border-left: 3px solid #DF6A74;
+    font-size: 0.9rem;
+    color: #57534E;
+}
+
+.task-notes-extra.open {
+    display: block;
+    animation: fadeIn 0.2s ease;
+}
+
+/* Linked Goal Bar */
+.linked-goal-box {
+    background-color: #F6F3ED;
+    border-radius: 16px;
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid rgba(222, 215, 203, 0.7);
+    gap: 16px;
+}
+
+.goal-left-group {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.goal-icon-box {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background-color: #FFFFFF;
+    border: 1px solid #E5DDD3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #DF6A74;
+    flex-shrink: 0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+}
+
+.goal-text-group {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.goal-label-sub {
+    font-size: 0.68rem;
+    font-weight: 800;
+    color: #78716C;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.goal-title-text {
+    font-size: 0.96rem;
+    font-weight: 800;
+    color: #18181B;
+}
+
+.goal-progress-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.goal-progress-track {
+    width: 140px;
+    height: 7px;
+    background-color: #E2DAD0;
+    border-radius: 9999px;
+    overflow: hidden;
+}
+
+.goal-progress-fill {
+    height: 100%;
+    background-color: #DF6A74;
+    border-radius: 9999px;
+    transition: width 0.3s ease;
+}
+
+.goal-progress-percent {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #78716C;
+    min-width: 32px;
+}
+
+/* ==========================================================================
+   Bottom Action Bar (Mark Complete, Edit, Archive)
+   ========================================================================== */
+.task-bottom-bar {
+    background-color: #ECE7E1;
+    border-radius: 20px;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+    border: 1px solid rgba(222, 215, 203, 0.5);
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.bottom-bar-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Mark as Complete Button */
+.btn-mark-complete {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #DF6A74;
+    color: #FFFFFF;
+    font-size: 0.92rem;
+    font-weight: 700;
+    padding: 11px 22px;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(223, 106, 116, 0.28);
+    transition: background-color 0.15s ease, transform 0.1s ease;
+}
+
+.btn-mark-complete:hover {
+    background-color: #D45B65;
+    transform: translateY(-1px);
+}
+
+.btn-mark-complete:active {
+    transform: translateY(0);
+}
+
+.btn-mark-complete.is-done {
+    background-color: #16A34A;
+    box-shadow: 0 2px 6px rgba(22, 163, 74, 0.28);
+}
+
+/* Edit Task Button */
+.btn-edit-task {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #F7F4EE;
+    border: 1px solid #D6CEBE;
+    color: #57534E;
+    font-size: 0.92rem;
+    font-weight: 600;
+    padding: 11px 20px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.btn-edit-task:hover {
+    background-color: #FFFFFF;
+    color: #18181B;
+    border-color: #CFC7BA;
+}
+
+.btn-edit-task svg {
+    color: #DF6A74;
+    stroke: #DF6A74;
+}
+
+/* Archive Task Button */
+.btn-archive-task {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: none;
+    color: #DF6A74;
+    font-size: 0.9rem;
+    font-weight: 700;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: opacity 0.15s ease, background-color 0.15s ease;
+}
+
+.btn-archive-task:hover {
+    opacity: 0.85;
+    background-color: rgba(223, 106, 116, 0.08);
+}
+
+/* ==========================================================================
+   RIGHT COLUMN: Stacked Widgets (States, Insights, Impact)
+   ========================================================================== */
+.task-widgets-col {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.side-widget-card {
+    background-color: #ECE7E1;
+    border-radius: 20px;
+    padding: 22px 24px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+    border: 1px solid rgba(222, 215, 203, 0.5);
+    position: relative;
+}
+
+.widget-card-title {
+    font-size: 0.98rem;
+    font-weight: 800;
+    color: #18181B;
+    margin: 0 0 16px 0;
+    letter-spacing: -0.01em;
+}
+
+/* 1. Task States Visualization */
+.task-states-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.state-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 14px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    border: 1.5px solid transparent;
+}
+
+.state-row:hover:not(.active) {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.state-row-left {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #57534E;
+}
+
+.state-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #A8A29E;
+}
+
+.state-row-right {
+    font-size: 0.78rem;
+    color: #A8A29E;
+    font-weight: 500;
+}
+
+/* Active Highlighted State (Overdue matching screenshot) */
+.state-row.active {
+    border-color: #EF4444;
+    background-color: #FDF3F3;
+}
+
+.state-row.active .state-row-left {
+    color: #18181B;
+    font-weight: 700;
+}
+
+.state-row.active .state-dot {
+    background-color: #DC2626;
+}
+
+.state-row.active .state-row-right {
+    color: #DC2626;
+    font-weight: 700;
+}
+
+/* 2. Task Insights Widget */
+.insights-items-list {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.insight-item-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.insight-icon-bubble {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #FCE7E7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #DF6A74;
+    flex-shrink: 0;
+}
+
+.insight-text-group {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.insight-name-title {
+    font-size: 0.9rem;
+    font-weight: 800;
+    color: #18181B;
+}
+
+.insight-value-desc {
+    font-size: 0.78rem;
+    color: #78716C;
+}
+
+/* 3. Impact Finals Warrior Card */
+.impact-banner-card {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Background Watermark Illustration */
+.impact-bg-watermark {
+    position: absolute;
+    right: -24px;
+    bottom: -28px;
+    width: 140px;
+    height: 140px;
+    color: #E2DBD0;
+    opacity: 0.55;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.impact-sublabel {
+    font-size: 0.7rem;
+    font-weight: 800;
+    color: #EA580C;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    position: relative;
+    z-index: 1;
+}
+
+.impact-title {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #18181B;
+    margin: 0 0 8px 0;
+    letter-spacing: -0.015em;
+    position: relative;
+    z-index: 1;
+}
+
+.impact-desc-text {
+    font-size: 0.82rem;
+    line-height: 1.5;
+    color: #57534E;
+    margin: 0 0 16px 0;
+    position: relative;
+    z-index: 1;
+}
+
+.impact-social-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+    z-index: 1;
+}
+
+.avatar-stack-wrap {
+    display: inline-flex;
+    align-items: center;
+}
+
+.classmate-avatar {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2px solid #ECE7E1;
+    margin-left: -6px;
+    display: inline-block;
+    object-fit: cover;
+    background-color: #DDD6CB;
+    vertical-align: middle;
+}
+
+.classmate-avatar:first-child {
+    margin-left: 0;
+}
+
+.classmate-avatar-extra {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2px solid #ECE7E1;
+    margin-left: -6px;
+    background-color: #DF6A74;
+    color: #FFFFFF;
+    font-size: 0.62rem;
+    font-weight: 800;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.impact-social-count {
+    font-size: 0.75rem;
+    color: #78716C;
+    font-weight: 500;
+}
+
+/* ==========================================================================
+   Interactive Modals & Toast Feedback
+   ========================================================================== */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(24, 24, 27, 0.45);
+    backdrop-filter: blur(4px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 20px;
+}
+
+.modal-overlay.open {
+    display: flex;
+    animation: fadeIn 0.2s ease;
+}
+
+.modal-card {
+    background-color: #FAF8F5;
+    border-radius: 20px;
+    border: 1px solid #DDD6CB;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    max-width: 540px;
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    animation: slideUp 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-title {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #18181B;
+    letter-spacing: -0.015em;
+    margin: 0;
+}
+
+.modal-close-btn {
+    color: #78716C;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 8px;
+    transition: color 0.15s ease, background 0.15s ease;
+}
+
+.modal-close-btn:hover {
+    color: #18181B;
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 14px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+.form-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #57534E;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+    width: 100%;
+    padding: 10px 14px;
+    border-radius: 10px;
+    border: 1px solid #D6CEBE;
+    background-color: #FFFFFF;
+    color: #18181B;
+    font-family: inherit;
+    font-size: 0.92rem;
+    outline: none;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+    border-color: #DF6A74;
+    box-shadow: 0 0 0 3px rgba(223, 106, 116, 0.15);
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.btn-secondary {
+    background-color: #E2DBD0;
+    color: #44403C;
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 9px 18px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.15s ease;
+}
+
+.btn-secondary:hover {
+    background-color: #D7CFB4;
+}
+
+.btn-primary {
+    background-color: #DF6A74;
+    color: #FFFFFF;
+    font-weight: 700;
+    font-size: 0.9rem;
+    padding: 9px 20px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(223, 106, 116, 0.25);
+    transition: background 0.15s ease;
+}
+
+.btn-primary:hover {
+    background-color: #D45B65;
+}
+
+/* Toast Notice */
+.toast-notice {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background-color: #18181B;
+    color: #FFFFFF;
+    border-radius: 12px;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    z-index: 1050;
+    opacity: 0;
+    transform: translateY(12px);
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.toast-notice.show {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(14px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

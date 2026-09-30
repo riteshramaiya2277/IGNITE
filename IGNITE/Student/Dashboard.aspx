@@ -328,6 +328,7 @@
 
 <asp:Content ID="Content4" ContentPlaceHolderID="ScriptsContent" runat="server">
     <script type="text/javascript">
+        // @ts-nocheck
         // 1. Focus Study increment micro-interaction
         var currentFocusHours = 2;
         var maxFocusHours = 4;
@@ -340,12 +341,22 @@
             }
 
             var pct = (currentFocusHours / maxFocusHours) * 100;
-            document.getElementById('lblFocusProgress').innerText = currentFocusHours + ' / ' + maxFocusHours + ' hours';
-            document.getElementById('barFocusProgress').style.width = pct + '%';
+            var lbl = document.getElementById('lblFocusProgress');
+            if (lbl) {
+                lbl.innerText = currentFocusHours + ' / ' + maxFocusHours + ' hours';
+            }
+            var bar = document.getElementById('barFocusProgress');
+            if (bar) {
+                bar.style.width = pct + '%';
+            }
         }
 
-        // 2. Gym Session Mark Done toggle
+        /**
+         * 2. Gym Session Mark Done toggle
+         * @param {HTMLElement} btn
+         */
         function toggleGymSession(btn) {
+            if (!btn) return;
             if (btn.classList.contains('done')) {
                 btn.classList.remove('done');
                 btn.innerText = 'Mark Done';
@@ -355,8 +366,13 @@
             }
         }
 
-        // 3. Task Complete Toggle
+        /**
+         * 3. Task Complete Toggle
+         * @param {HTMLInputElement} checkbox
+         * @param {string} rowId
+         */
         function toggleTaskRow(checkbox, rowId) {
+            if (!checkbox || !rowId) return;
             var row = document.getElementById(rowId);
             if (!row) return;
 

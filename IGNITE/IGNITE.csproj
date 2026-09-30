@@ -78,15 +78,24 @@
     <Compile Include="Student\Habits.aspx.designer.cs">
       <DependentUpon>Habits.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Student\Tasks.aspx.cs">
+      <DependentUpon>Tasks.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student\Tasks.aspx.designer.cs">
+      <DependentUpon>Tasks.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\student-master.css" />
     <Content Include="Content\dashboard.css" />
     <Content Include="Content\habits.css" />
+    <Content Include="Content\tasks.css" />
     <Content Include="Scripts\student-master.js" />
     <Content Include="Student\StudentMaster.master" />
     <Content Include="Student\Dashboard.aspx" />
     <Content Include="Student\Habits.aspx" />
+    <Content Include="Student\Tasks.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

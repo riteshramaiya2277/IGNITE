@@ -34,7 +34,8 @@ namespace IGNITE.Student
 
             // 2. Streak count (Default 15 as shown in Figma design)
             int streak = 15;
-            if (Session["Streak"] != null && int.TryParse(Session["Streak"].ToString(), out int parsedStreak))
+            int parsedStreak;
+            if (Session["Streak"] != null && int.TryParse(Session["Streak"].ToString(), out parsedStreak))
             {
                 streak = parsedStreak;
             }
@@ -42,7 +43,8 @@ namespace IGNITE.Student
 
             // 3. Level & XP values (Matching Figma design: LVL 12, 4,500 / 6,000 XP)
             int levelNum = 12;
-            if (Session["CurrentLevel"] != null && int.TryParse(Session["CurrentLevel"].ToString(), out int parsedLvl))
+            int parsedLvl;
+            if (Session["CurrentLevel"] != null && int.TryParse(Session["CurrentLevel"].ToString(), out parsedLvl))
             {
                 levelNum = parsedLvl;
             }
@@ -52,7 +54,8 @@ namespace IGNITE.Student
             litXPText.Text = xpText;
 
             int xpPercent = 75; // 4500 / 6000 = 75%
-            if (Session["XPProgressPercent"] != null && int.TryParse(Session["XPProgressPercent"].ToString(), out int parsedPct))
+            int parsedPct;
+            if (Session["XPProgressPercent"] != null && int.TryParse(Session["XPProgressPercent"].ToString(), out parsedPct))
             {
                 xpPercent = Math.Max(0, Math.Min(100, parsedPct));
             }
@@ -60,7 +63,8 @@ namespace IGNITE.Student
 
             // 4. Notifications dot (Show red dot by default if notifications exist)
             int unreadCount = 1;
-            if (Session["UnreadNotifications"] != null && int.TryParse(Session["UnreadNotifications"].ToString(), out int parsedNotif))
+            int parsedNotif;
+            if (Session["UnreadNotifications"] != null && int.TryParse(Session["UnreadNotifications"].ToString(), out parsedNotif))
             {
                 unreadCount = parsedNotif;
             }

@@ -426,6 +426,7 @@
 
 <asp:Content ID="Content4" ContentPlaceHolderID="ScriptsContent" runat="server">
     <script type="text/javascript">
+        // @ts-nocheck
         // Real-time habit title and category search filtering
         function filterHabits() {
             var input = document.getElementById('habitSearchInput');
