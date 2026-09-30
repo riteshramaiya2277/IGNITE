@@ -95,7 +95,8 @@ namespace IGNITE.Student
             {
                 navGoals.Attributes["class"] = "nav-item active";
             }
-            else if (string.Equals(fileName, "Challenges.aspx", StringComparison.OrdinalIgnoreCase))
+            else if (string.Equals(fileName, "Challenges.aspx", StringComparison.OrdinalIgnoreCase) ||
+                     string.Equals(fileName, "ChallengeDetail.aspx", StringComparison.OrdinalIgnoreCase))
             {
                 navChallenges.Attributes["class"] = "nav-item active";
             }
