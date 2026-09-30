@@ -85,6 +85,13 @@
     <Compile Include="Student\Goals.aspx.designer.cs">
       <DependentUpon>Goals.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Student\Calendar.aspx.cs">
+      <DependentUpon>Calendar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student\Calendar.aspx.designer.cs">
+      <DependentUpon>Calendar.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\student-master.css" />
@@ -96,6 +103,8 @@
     <Content Include="Student\Habits.aspx" />
     <Content Include="Student\Goals.aspx" />
     <Content Include="Content\goals.css" />
+    <Content Include="Student\Calendar.aspx" />
+    <Content Include="Content\calendar.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
