@@ -106,6 +106,20 @@
     <Compile Include="Student\ChallengeDetail.aspx.designer.cs">
       <DependentUpon>ChallengeDetail.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Student\Profile.aspx.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student\Profile.aspx.designer.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Student\ChangePassword.aspx.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student\ChangePassword.aspx.designer.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\student-master.css" />
@@ -113,6 +127,7 @@
     <Content Include="Content\habits.css" />
     <Content Include="Content\tasks.css" />
     <Content Include="Content\challenges.css" />
+    <Content Include="Content\profile.css" />
     <Content Include="Scripts\student-master.js" />
     <Content Include="Student\StudentMaster.master" />
     <Content Include="Student\Dashboard.aspx" />
@@ -121,6 +136,8 @@
     <Content Include="Student\TaskDetail.aspx" />
     <Content Include="Student\Challenges.aspx" />
     <Content Include="Student\ChallengeDetail.aspx" />
+    <Content Include="Student\Profile.aspx" />
+    <Content Include="Student\ChangePassword.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

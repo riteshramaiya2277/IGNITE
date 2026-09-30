@@ -111,7 +111,9 @@ namespace IGNITE.Student
                 navProgress.Attributes["class"] = "nav-item active";
             }
             else if (string.Equals(fileName, "Profile.aspx", StringComparison.OrdinalIgnoreCase) ||
-                     string.Equals(fileName, "Settings.aspx", StringComparison.OrdinalIgnoreCase))
+                     string.Equals(fileName, "Settings.aspx", StringComparison.OrdinalIgnoreCase) ||
+                     string.Equals(fileName, "ChangePassword.aspx", StringComparison.OrdinalIgnoreCase) ||
+                     string.Equals(fileName, "Security.aspx", StringComparison.OrdinalIgnoreCase))
             {
                 navSettings.Attributes["class"] = "settings-pill-btn active";
             }

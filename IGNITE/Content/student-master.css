@@ -219,10 +219,19 @@ button {
     stroke: #44403C;
 }
 
-.settings-pill-btn:hover,
-.settings-pill-btn.active {
+.settings-pill-btn:hover {
     background-color: var(--bg-btn-pill-hover);
     border-color: #BDB4A8;
+}
+
+.settings-pill-btn.active {
+    background-color: #DF6A74;
+    color: #FFFFFF;
+    border-color: #DF6A74;
+}
+
+.settings-pill-btn.active svg {
+    stroke: #FFFFFF;
 }
 
 /* User Profile Card */
