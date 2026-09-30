@@ -4,17 +4,17 @@ using System.Web.UI;
 
 namespace IGNITE.Student
 {
-    public partial class Dashboard : Page
+    public partial class Habits : Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                LoadDashboardGreeting();
+                LoadStudentInfo();
             }
         }
 
-        private void LoadDashboardGreeting()
+        private void LoadStudentInfo()
         {
             string fullName = Session["FullName"] as string;
             if (string.IsNullOrWhiteSpace(fullName))
@@ -25,14 +25,7 @@ namespace IGNITE.Student
             }
 
             string firstName = fullName.Trim().Split(' ')[0];
-            litGreetingName.Text = string.IsNullOrWhiteSpace(firstName) ? "Alex" : firstName;
-
-            int streak = 15;
-            if (Session["Streak"] != null && int.TryParse(Session["Streak"].ToString(), out int parsedStreak))
-            {
-                streak = parsedStreak;
-            }
-            litGreetingStreak.Text = streak.ToString();
+            litStudentFirstName.Text = string.IsNullOrWhiteSpace(firstName) ? "Alex" : firstName;
         }
     }
 }

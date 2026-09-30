@@ -9,24 +9,15 @@
 
 namespace IGNITE.Student
 {
-    public partial class Dashboard
+    public partial class Habits
     {
         /// <summary>
-        /// litGreetingName control.
+        /// litStudentFirstName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litGreetingName;
-
-        /// <summary>
-        /// litGreetingStreak control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litGreetingStreak;
+        protected global::System.Web.UI.WebControls.Literal litStudentFirstName;
     }
 }

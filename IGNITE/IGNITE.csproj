@@ -71,12 +71,22 @@
     <Compile Include="Student\Dashboard.aspx.designer.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Student\Habits.aspx.cs">
+      <DependentUpon>Habits.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student\Habits.aspx.designer.cs">
+      <DependentUpon>Habits.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\student-master.css" />
+    <Content Include="Content\dashboard.css" />
+    <Content Include="Content\habits.css" />
     <Content Include="Scripts\student-master.js" />
     <Content Include="Student\StudentMaster.master" />
     <Content Include="Student\Dashboard.aspx" />
+    <Content Include="Student\Habits.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

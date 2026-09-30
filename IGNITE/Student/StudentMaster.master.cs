@@ -98,7 +98,9 @@ namespace IGNITE.Student
             {
                 navCalendar.Attributes["class"] = "nav-item active";
             }
-            else if (string.Equals(fileName, "Progress.aspx", StringComparison.OrdinalIgnoreCase))
+            else if (string.Equals(fileName, "Progress.aspx", StringComparison.OrdinalIgnoreCase) ||
+                     string.Equals(fileName, "Journal.aspx", StringComparison.OrdinalIgnoreCase) ||
+                     string.Equals(fileName, "Notes.aspx", StringComparison.OrdinalIgnoreCase))
             {
                 navProgress.Attributes["class"] = "nav-item active";
             }

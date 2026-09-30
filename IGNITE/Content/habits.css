@@ -1,0 +1,738 @@
+/* ==========================================================================
+   IGNITE — Student Habits Stylesheet
+   Matches Figma UI Specification:
+   Warm Sand/Cream palette, Coral/Rose accents (#DF6A74), Stat Cards,
+   Category Badges, Progress Bars, and Action Buttons.
+   ========================================================================== */
+
+/* 1. Main Canvas & Header */
+.habits-canvas {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 22px;
+}
+
+.habits-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.habits-header-text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.habits-title {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #18181B;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    margin: 0;
+}
+
+.habits-subtitle {
+    font-size: 0.95rem;
+    color: #78716C;
+    font-weight: 500;
+    margin: 0;
+}
+
+.btn-create-habit {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #DF6A74;
+    color: #FFFFFF;
+    font-size: 0.88rem;
+    font-weight: 700;
+    padding: 10px 22px;
+    border-radius: 9999px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(223, 106, 116, 0.25);
+    transition: background-color 0.15s ease, transform 0.1s ease;
+}
+
+.btn-create-habit:hover {
+    background-color: #D45B65;
+    transform: translateY(-1px);
+}
+
+.btn-create-habit:active {
+    transform: translateY(0);
+}
+
+/* 2. Search & Filter Bar */
+.habits-filter-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.search-habits-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 320px;
+}
+
+.search-habits-box svg {
+    position: absolute;
+    left: 14px;
+    color: #A8A29E;
+    pointer-events: none;
+}
+
+.input-search-habits {
+    width: 100%;
+    padding: 10px 16px 10px 40px;
+    border-radius: 12px;
+    border: 1px solid #DDD6CB;
+    background-color: #FFFFFF;
+    font-family: inherit;
+    font-size: 0.88rem;
+    color: #18181B;
+    outline: none;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.input-search-habits:focus {
+    border-color: #DF6A74;
+    box-shadow: 0 0 0 3px rgba(223, 106, 116, 0.15);
+}
+
+.input-search-habits::placeholder {
+    color: #A8A29E;
+}
+
+.filter-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.filter-pill-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #FFFFFF;
+    border: 1px solid #DDD6CB;
+    border-radius: 12px;
+    padding: 9px 16px;
+    font-size: 0.84rem;
+    font-weight: 600;
+    color: #57534E;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.filter-pill-btn:hover {
+    border-color: #BDB4A8;
+    background-color: #FAF8F5;
+}
+
+.filter-pill-btn.active-frequency {
+    border-color: #DF6A74;
+    color: #DF6A74;
+    background-color: #FFFFFF;
+}
+
+.filter-pill-btn svg {
+    stroke: currentColor;
+    flex-shrink: 0;
+}
+
+/* 3. Stat Cards Grid (4 Columns) */
+.habits-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+.stat-card {
+    background-color: #ECE7DD;
+    border-radius: 18px;
+    padding: 20px 22px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    border: 1px solid rgba(0, 0, 0, 0.02);
+}
+
+/* Circular ring progress widget */
+.stat-ring-wrap {
+    position: relative;
+    width: 56px;
+    height: 56px;
+    flex-shrink: 0;
+}
+
+.stat-ring-svg {
+    transform: rotate(-90deg);
+    width: 56px;
+    height: 56px;
+}
+
+.stat-ring-bg {
+    fill: none;
+    stroke: #DDD6CB;
+    stroke-width: 5;
+}
+
+.stat-ring-progress {
+    fill: none;
+    stroke: #DF6A74;
+    stroke-width: 5;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 0.5s ease;
+}
+
+.stat-ring-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 0.82rem;
+    font-weight: 800;
+    color: #18181B;
+}
+
+/* Stat card details */
+.stat-card-details {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+}
+
+.stat-card-label {
+    font-size: 0.68rem;
+    font-weight: 800;
+    color: #78716C;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.stat-card-value {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: #18181B;
+    line-height: 1.2;
+}
+
+.stat-card-delta {
+    font-size: 0.74rem;
+    font-weight: 700;
+    color: #D97706;
+}
+
+.stat-card-subtext {
+    font-size: 0.74rem;
+    color: #78716C;
+    font-weight: 500;
+}
+
+.stat-card-icon-box {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    background-color: #F8D8DC;
+    color: #DF6A74;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.stat-card-icon-box svg {
+    stroke: currentColor;
+}
+
+.stat-badge-milestone {
+    display: inline-block;
+    border: 1px solid #D97706;
+    color: #D97706;
+    font-size: 0.62rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-top: 3px;
+    width: fit-content;
+}
+
+.stat-card-delta-gold {
+    font-size: 0.68rem;
+    font-weight: 800;
+    color: #D97706;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+/* 4. Tab Navigation */
+.habits-tabs-bar {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    border-bottom: 1.5px solid #DDD6CB;
+    padding-bottom: 2px;
+    margin-top: 6px;
+}
+
+.habit-tab {
+    background: none;
+    border: none;
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: #78716C;
+    padding: 8px 4px 12px 4px;
+    cursor: pointer;
+    position: relative;
+    transition: color 0.15s ease;
+}
+
+.habit-tab:hover {
+    color: #18181B;
+}
+
+.habit-tab.active {
+    color: #DF6A74;
+    font-weight: 700;
+}
+
+.habit-tab.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #DF6A74;
+    border-radius: 3px 3px 0 0;
+}
+
+/* 5. Habits List & Cards */
+.habits-cards-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.habit-card-item {
+    background-color: #ECE7DD;
+    border-radius: 18px;
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.02);
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+}
+
+.habit-card-item:hover {
+    background-color: #E8E2D7;
+}
+
+/* Completed / Active Highlighted Card */
+.habit-card-highlight {
+    background-color: #FAF3F4;
+    border: 1.5px solid #F5C6CB;
+}
+
+.habit-card-highlight:hover {
+    background-color: #F8ECEE;
+}
+
+/* Left part: Action circle + Details */
+.habit-card-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex: 1;
+    min-width: 0;
+}
+
+/* Circle Action Buttons */
+.btn-habit-action-circle {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    cursor: pointer;
+    transition: transform 0.1s ease, background-color 0.15s ease;
+    border: none;
+}
+
+.btn-habit-check {
+    background-color: #DF6A74;
+    color: #FFFFFF;
+}
+
+.btn-habit-check:hover {
+    background-color: #D45B65;
+    transform: scale(1.05);
+}
+
+.btn-habit-plus-circle {
+    background-color: #FFFFFF;
+    color: #DF6A74;
+    border: 1.5px solid #DDD6CB;
+}
+
+.btn-habit-plus-circle:hover {
+    border-color: #DF6A74;
+    background-color: #FFF7F8;
+    transform: scale(1.05);
+}
+
+/* Habit text info */
+.habit-card-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+}
+
+.habit-info-top {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.habit-card-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #18181B;
+    line-height: 1.25;
+}
+
+/* Category Pills */
+.badge-category {
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    padding: 3px 8px;
+    border-radius: 9999px;
+    text-transform: uppercase;
+    display: inline-block;
+}
+
+.badge-cat-mental {
+    background-color: #FDF4D4;
+    color: #B47818;
+}
+
+.badge-cat-academic {
+    background-color: #FADBDD;
+    color: #C74856;
+}
+
+.badge-cat-physical {
+    background-color: #FADBDD;
+    color: #C74856;
+}
+
+.badge-cat-personal {
+    background-color: #E6DFD4;
+    color: #78716C;
+}
+
+.habit-info-meta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 0.78rem;
+    color: #78716C;
+}
+
+.habit-meta-streak {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    color: #D97706;
+    font-weight: 700;
+}
+
+.habit-meta-streak svg {
+    fill: #D97706;
+}
+
+/* Right part: Progress + Tool buttons */
+.habit-card-right {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-shrink: 0;
+}
+
+.habit-progress-column {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 140px;
+}
+
+.habit-progress-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.habit-progress-label {
+    font-size: 0.64rem;
+    font-weight: 800;
+    color: #78716C;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.habit-progress-fraction {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #18181B;
+}
+
+.habit-progress-track {
+    width: 100%;
+    height: 5px;
+    background-color: #DDD6CA;
+    border-radius: 9999px;
+    overflow: hidden;
+}
+
+.habit-progress-fill {
+    height: 100%;
+    background-color: #DF6A74;
+    border-radius: 9999px;
+    transition: width 0.3s ease;
+}
+
+/* Action tool buttons (gear, lock, calendar) */
+.habit-action-tools {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-tool-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+    border: 1px solid #DDD6CA;
+    background-color: #FFFFFF;
+    color: #A8A29E;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.btn-tool-icon:hover {
+    color: #DF6A74;
+    border-color: #DF6A74;
+    background-color: #FFF8F9;
+}
+
+.btn-tool-icon svg {
+    stroke: currentColor;
+}
+
+/* 6. Bottom View All Button */
+.habits-bottom-action {
+    display: flex;
+    justify-content: center;
+    margin-top: 8px;
+    margin-bottom: 24px;
+}
+
+.btn-view-all-habits {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #E2DBD0;
+    color: #44403C;
+    border: none;
+    border-radius: 9999px;
+    padding: 10px 24px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.15s ease, transform 0.1s ease;
+}
+
+.btn-view-all-habits:hover {
+    background-color: #D7CFB4;
+    transform: translateY(-1px);
+}
+
+/* 7. Create Habit Modal Dialog */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(4px);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-overlay.open {
+    display: flex;
+}
+
+.modal-container {
+    background-color: #FAF8F5;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 520px;
+    padding: 28px 32px;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.15);
+    border: 1px solid #DDD6CA;
+    animation: modalPop 0.2s ease-out;
+}
+
+@keyframes modalPop {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.modal-title {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: #18181B;
+}
+
+.btn-close-modal {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #78716C;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.modal-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 16px;
+}
+
+.modal-label {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #44403C;
+}
+
+.modal-input,
+.modal-select {
+    padding: 10px 14px;
+    border-radius: 10px;
+    border: 1px solid #DDD6CA;
+    background-color: #FFFFFF;
+    font-family: inherit;
+    font-size: 0.88rem;
+    color: #18181B;
+    outline: none;
+}
+
+.modal-input:focus,
+.modal-select:focus {
+    border-color: #DF6A74;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.btn-modal-cancel {
+    background: none;
+    border: 1px solid #DDD6CA;
+    border-radius: 9999px;
+    padding: 9px 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #78716C;
+    cursor: pointer;
+}
+
+.btn-modal-submit {
+    background-color: #DF6A74;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 9999px;
+    padding: 9px 24px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* 8. Responsive Adaptations */
+@media (max-width: 1100px) {
+    .habits-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .habits-header {
+        flex-direction: column;
+    }
+
+    .btn-create-habit {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .habits-stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .habit-card-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+    }
+
+    .habit-card-right {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .search-habits-box {
+        width: 100%;
+    }
+}

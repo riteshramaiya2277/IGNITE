@@ -173,13 +173,23 @@ button {
 }
 
 .nav-item.active {
-    color: var(--text-main);
+    color: #FFFFFF;
     font-weight: 700;
-    background-color: rgba(0, 0, 0, 0.05);
+    background-color: #DF6A74;
+    border-radius: 12px;
 }
 
 .nav-item.active .nav-icon {
-    stroke: var(--text-main);
+    stroke: #FFFFFF;
+}
+
+.nav-item.active:hover {
+    color: #FFFFFF;
+    background-color: #D65A65;
+}
+
+.nav-item.active:hover .nav-icon {
+    stroke: #FFFFFF;
 }
 
 /* Sidebar Footer: Settings & User Profile */
@@ -222,8 +232,8 @@ button {
     gap: 12px;
     padding: 10px 14px;
     border-radius: var(--radius-lg);
-    border: 1.5px solid var(--border-user-card);
-    background-color: #FFFDF9;
+    border: 1.5px solid #F5C6CB;
+    background-color: #FAF2F2;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
     position: relative;
 }
@@ -232,12 +242,12 @@ button {
     width: 34px;
     height: 34px;
     border-radius: var(--radius-pill);
-    border: 2px solid var(--border-user-card);
+    border: 2px solid #DF6A74;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    background: #FFFBEB;
+    background: #FDE8EA;
 }
 
 .avatar-ring-inner {
@@ -257,7 +267,7 @@ button {
 .user-card-name {
     font-size: 0.86rem;
     font-weight: 700;
-    color: var(--text-user-name);
+    color: #DF6A74;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
