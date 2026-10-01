@@ -50,7 +50,7 @@
                         <p class="entry-preview">Today's lecture on algorithms</p>
                         <div class="entry-meta">
                             <span>10:45 AM</span>
-                            <span class="emotion-tag happy">😊 HAPPY</span>
+                            <span class="emotion-tag happy">&#128522; HAPPY</span>
                         </div>
                     </div>
                 </div>
@@ -62,7 +62,7 @@
                         <p class="entry-preview">Feeling productive after...</p>
                         <div class="entry-meta">
                             <span>4:20 PM</span>
-                            <span class="emotion-tag energetic">⚡ ENERGETIC</span>
+                            <span class="emotion-tag energetic">&#9889; ENERGETIC</span>
                         </div>
                     </div>
                 </div>
@@ -74,7 +74,7 @@
                         <p class="entry-preview">I need to manage my time...</p>
                         <div class="entry-meta">
                             <span>11:15 PM</span>
-                            <span class="emotion-tag anxious">😰 ANXIOUS</span>
+                            <span class="emotion-tag anxious">&#128560; ANXIOUS</span>
                         </div>
                     </div>
                 </div>
@@ -99,27 +99,27 @@
                     <span class="selector-label">HOW ARE YOU FEELING?</span>
                     <div class="emotion-icons">
                         <div class="emotion-item active">
-                            <span class="emoji-circle happy">😊</span>
+                            <span class="emoji-circle happy">&#128522;</span>
                             <span class="emoji-label happy">HAPPY</span>
                         </div>
                         <div class="emotion-item">
-                            <span class="emoji-circle calm">😌</span>
+                            <span class="emoji-circle calm">&#128524;</span>
                             <span class="emoji-label calm">CALM</span>
                         </div>
                         <div class="emotion-item">
-                            <span class="emoji-circle neutral">😐</span>
+                            <span class="emoji-circle neutral">&#128528;</span>
                             <span class="emoji-label neutral">NEUTRAL</span>
                         </div>
                         <div class="emotion-item">
-                            <span class="emoji-circle focus">⚡</span>
+                            <span class="emoji-circle focus">&#9889;</span>
                             <span class="emoji-label focus">FOCUS</span>
                         </div>
                         <div class="emotion-item">
-                            <span class="emoji-circle tired">🥱</span>
+                            <span class="emoji-circle tired">&#129393;</span>
                             <span class="emoji-label tired">TIRED</span>
                         </div>
                         <div class="emotion-item">
-                            <span class="emoji-circle anxious">😰</span>
+                            <span class="emoji-circle anxious">&#128560;</span>
                             <span class="emoji-label anxious">ANXIOUS</span>
                         </div>
                     </div>
