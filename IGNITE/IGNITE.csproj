@@ -119,6 +119,19 @@
     </Compile>
     <Compile Include="Student\ChangePassword.aspx.designer.cs">
       <DependentUpon>ChangePassword.aspx</DependentUpon>
+    <Compile Include="Student\Goals.aspx.cs">
+      <DependentUpon>Goals.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student\Goals.aspx.designer.cs">
+      <DependentUpon>Goals.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Student\Calendar.aspx.cs">
+      <DependentUpon>Calendar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student\Calendar.aspx.designer.cs">
+      <DependentUpon>Calendar.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -138,6 +151,10 @@
     <Content Include="Student\ChallengeDetail.aspx" />
     <Content Include="Student\Profile.aspx" />
     <Content Include="Student\ChangePassword.aspx" />
+    <Content Include="Student\Goals.aspx" />
+    <Content Include="Content\goals.css" />
+    <Content Include="Student\Calendar.aspx" />
+    <Content Include="Content\calendar.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
