@@ -136,6 +136,14 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\Container.svg" />
+    <Content Include="assets\Frame 21.svg" />
+    <Content Include="assets\HabitQuest.svg" />
+    <Content Include="assets\L1 1.svg" />
+    <Content Include="assets\L2 1.svg" />
+    <Content Include="assets\L3 1.svg" />
+    <Content Include="assets\name.json" />
+    <Content Include="MainScreen\Splash.aspx" />
     <Content Include="Content\student-master.css" />
     <Content Include="Content\dashboard.css" />
     <Content Include="Content\habits.css" />
