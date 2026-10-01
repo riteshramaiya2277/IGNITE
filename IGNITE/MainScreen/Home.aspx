@@ -17,7 +17,7 @@
       <nav class="main-nav" aria-label="Main navigation">
         <a href="#features">Features</a>
         <a href="#how-it-works">How it Works</a>
-        <a href="#about">About Us</a>
+        <a href="About.aspx">About Us</a>
       </nav>
       <div class="header-actions">
         <a class="login-link" href="#how-it-works">Login</a>
@@ -326,22 +326,22 @@
         </div>
         <div class="footer-links">
           <h2>Company</h2>
-          <a href="#about">About Us</a><a href="#about">Careers</a
-          ><a href="#features">Blog</a><a href="#features">Press</a>
+          <a href="About.aspx">About Us</a><a href="About.aspx#values-title">Our Values</a
+          ><a href="#features">Features</a><a href="#how-it-works">How it Works</a>
         </div>
         <div class="footer-links">
           <h2>Support</h2>
-          <a href="#how-it-works">Help Center</a
-          ><a href="#how-it-works">Contact Us</a
-          ><a href="#how-it-works">Privacy Policy</a
-          ><a href="#how-it-works">Terms</a>
+          <a href="Support.aspx">Help Center</a
+          ><a href="Support.aspx#contact">Contact Us</a
+          ><a href="Support.aspx#policies">Privacy Policy</a
+          ><a href="Support.aspx#policies">Terms</a>
         </div>
       </div>
       <div class="footer-bottom">
         <p>© 2024 Ignite Productivity Inc. All rights reserved.</p>
         <nav aria-label="Legal links">
-          <a href="#how-it-works">Privacy</a><a href="#how-it-works">Cookies</a
-          ><a href="#how-it-works">Security</a>
+          <a href="Support.aspx#policies">Privacy</a><a href="Support.aspx#policies">Cookies</a
+          ><a href="Support.aspx#policies">Security</a>
         </nav>
       </div>
     </footer>

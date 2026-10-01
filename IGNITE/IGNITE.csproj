@@ -156,6 +156,8 @@
     <Content Include="assets\name.json" />
     <Content Include="MainScreen\Splash.aspx" />
     <Content Include="MainScreen\Home.aspx" />
+    <Content Include="MainScreen\About.aspx" />
+    <Content Include="MainScreen\Support.aspx" />
     <Content Include="Content\main-screen.css" />
     <Content Include="Content\splash-screen.css" />
     <Content Include="Content\student-master.css" />
