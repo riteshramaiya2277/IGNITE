@@ -169,6 +169,13 @@
     <Compile Include="Student\Notes.aspx.designer.cs">
       <DependentUpon>Notes.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Student\AddNote.aspx.cs">
+      <DependentUpon>AddNote.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student\AddNote.aspx.designer.cs">
+      <DependentUpon>AddNote.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="auth-onboarding\Login.aspx" />
@@ -213,6 +220,8 @@
     <Content Include="Content\journal.css" />
     <Content Include="Student\Notes.aspx" />
     <Content Include="Content\notes.css" />
+    <Content Include="Student\AddNote.aspx" />
+    <Content Include="Content\add-note.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
