@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{03C301C4-FD04-46BD-AD86-1E02078F5218}</ProjectGuid>
+    <ProjectGuid>{B2CFF5D0-9B81-0219-8D87-0819CDE8EEBB}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -119,6 +119,7 @@
     </Compile>
     <Compile Include="Student\ChangePassword.aspx.designer.cs">
       <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Student\Goals.aspx.cs">
       <DependentUpon>Goals.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
