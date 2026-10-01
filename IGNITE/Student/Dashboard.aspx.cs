@@ -28,7 +28,8 @@ namespace IGNITE.Student
             litGreetingName.Text = string.IsNullOrWhiteSpace(firstName) ? "Alex" : firstName;
 
             int streak = 15;
-            if (Session["Streak"] != null && int.TryParse(Session["Streak"].ToString(), out int parsedStreak))
+            int parsedStreak;
+            if (Session["Streak"] != null && int.TryParse(Session["Streak"].ToString(), out parsedStreak))
             {
                 streak = parsedStreak;
             }
