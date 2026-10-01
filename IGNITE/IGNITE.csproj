@@ -56,6 +56,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="auth-onboarding\AuthSecurity.cs" />
+    <Compile Include="auth-onboarding\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="auth-onboarding\SignUp.aspx.cs">
+      <DependentUpon>SignUp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="auth-onboarding\ForgotPassword.aspx.cs">
+      <DependentUpon>ForgotPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="auth-onboarding\Onboarding.aspx.cs">
+      <DependentUpon>Onboarding.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="MainScreen\Splash.aspx.cs">
       <DependentUpon>Splash.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -147,6 +164,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="auth-onboarding\Login.aspx" />
+    <Content Include="auth-onboarding\SignUp.aspx" />
+    <Content Include="auth-onboarding\ForgotPassword.aspx" />
+    <Content Include="auth-onboarding\Onboarding.aspx" />
+    <Content Include="Content\auth-onboarding.css" />
     <Content Include="assets\Container.svg" />
     <Content Include="assets\Frame 21.svg" />
     <Content Include="assets\HabitQuest.svg" />
