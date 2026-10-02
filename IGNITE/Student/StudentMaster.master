@@ -118,7 +118,7 @@
                     </a>
 
                     <!-- User Profile Card -->
-                    <div class="user-profile-card">
+                    <div class="user-profile-card" onclick="window.location.href='<%= ResolveUrl("~/Student/Profile.aspx") %>';" style="cursor: pointer;" title="View Profile">
                         <div class="user-avatar-ring">
                             <span class="avatar-ring-inner"></span>
                         </div>
@@ -130,7 +130,7 @@
                                 <asp:Literal ID="litStudentLevelTitle" runat="server">Level 12 Scholar</asp:Literal>
                             </div>
                         </div>
-                        <asp:LinkButton ID="btnLogout" runat="server" OnClick="btnLogout_Click" CssClass="card-logout-btn" title="Sign Out" CausesValidation="false">
+                        <asp:LinkButton ID="btnLogout" runat="server" OnClick="btnLogout_Click" OnClientClick="event.stopPropagation();" CssClass="card-logout-btn" title="Sign Out" CausesValidation="false">
                             <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/>
                             </svg>
@@ -160,7 +160,7 @@
                     <!-- Right: XP Meter, Notification Bell, Search -->
                     <div class="topbar-right">
                         <!-- Level & XP Widget -->
-                        <div class="xp-container">
+                        <div class="xp-container" onclick="window.location.href='<%= ResolveUrl("~/Student/XP.aspx") %>';" style="cursor: pointer;" title="View XP & Level Details">
                             <div class="xp-labels">
                                 <span class="lvl-label">LVL <asp:Literal ID="litLevelNum" runat="server">12</asp:Literal></span>
                                 <span class="xp-label"><asp:Literal ID="litXPText" runat="server">4,500 / 6,000 XP</asp:Literal></span>

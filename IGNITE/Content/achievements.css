@@ -1,0 +1,322 @@
+/* ==========================================================================
+   IGNITE — Achievements & Badges Stylesheet
+   Matches IGNITE theme and master page layout:
+   - Header with stats summary (Total Badges Unlocked, Trophies, Rank)
+   - Filter Tabs (All Badges, Academic, Habit, Community, Special)
+   - Achievements Grid with unlocked & locked badges, progress, dates, and rarities
+   - Achievement Spotlight Card for featured/recent trophy
+   ========================================================================== */
+
+.achievements-canvas {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+    padding-bottom: 50px;
+}
+
+.achievements-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.achievements-header-text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.achievements-title {
+    font-size: 2.1rem;
+    font-weight: 800;
+    color: #18181B;
+    letter-spacing: -0.025em;
+    line-height: 1.2;
+    margin: 0;
+}
+
+.achievements-subtitle {
+    font-size: 0.95rem;
+    color: #78716C;
+    font-weight: 500;
+    margin: 0;
+}
+
+/* Stats Row */
+.achievements-summary-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    width: 100%;
+}
+
+@media (max-width: 992px) {
+    .achievements-summary-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 560px) {
+    .achievements-summary-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.summary-stat-box {
+    background-color: #FAF8F5;
+    border: 1px solid #E5DFD5;
+    border-radius: 18px;
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.stat-icon-wrapper {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.stat-icon-wrapper svg {
+    width: 22px;
+    height: 22px;
+}
+
+.icon-amber {
+    background-color: #FEF3C7;
+    color: #D97706;
+}
+
+.icon-rose {
+    background-color: #FDE8EA;
+    color: #DF6A74;
+}
+
+.icon-orange {
+    background-color: #FFF0E6;
+    color: #EA580C;
+}
+
+.icon-green {
+    background-color: #DCFCE7;
+    color: #16A34A;
+}
+
+.stat-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.stat-num {
+    font-size: 1.55rem;
+    font-weight: 800;
+    color: #18181B;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+}
+
+.stat-lbl {
+    font-size: 0.74rem;
+    font-weight: 700;
+    color: #78716C;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Category Filter Pills */
+.badge-category-pills {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 4px;
+}
+
+.badge-pill-btn {
+    padding: 8px 20px;
+    border-radius: 9999px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #78716C;
+    background-color: #FFFFFF;
+    border: 1px solid #E2DBD0;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.15s ease;
+}
+
+.badge-pill-btn:hover {
+    color: #18181B;
+    border-color: #CFC7BA;
+}
+
+.badge-pill-btn.active {
+    background-color: #DF6A74;
+    color: #FFFFFF;
+    border-color: #DF6A74;
+    font-weight: 700;
+    box-shadow: 0 2px 8px rgba(223, 106, 116, 0.25);
+}
+
+/* Badges Grid */
+.badges-main-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+@media (max-width: 1024px) {
+    .badges-main-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 680px) {
+    .badges-main-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.badge-card {
+    background-color: #FAF8F5;
+    border: 1px solid #E5DFD5;
+    border-radius: 20px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 18px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+    transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.badge-card:hover {
+    transform: translateY(-2px);
+    border-color: #DF6A74;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.04);
+}
+
+.badge-card.locked {
+    opacity: 0.72;
+    background-color: #F8F5F0;
+}
+
+.badge-card-top {
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+}
+
+.badge-avatar-circle {
+    width: 62px;
+    height: 62px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.badge-avatar-circle svg {
+    width: 28px;
+    height: 28px;
+}
+
+.bg-flame {
+    background: #FFF0E6;
+    color: #EA580C;
+    border: 1.5px solid #FED7AA;
+}
+
+.bg-brain {
+    background: #FCE7E9;
+    color: #DF6A74;
+    border: 1.5px solid #FBCFE8;
+}
+
+.bg-star {
+    background: #FEF3C7;
+    color: #D97706;
+    border: 1.5px solid #FDE68A;
+}
+
+.bg-target {
+    background: #DCFCE7;
+    color: #16A34A;
+    border: 1.5px solid #BBF7D0;
+}
+
+.bg-locked {
+    background: #ECE5DC;
+    color: #9CA3AF;
+    border: 1.5px solid #DDD6CB;
+}
+
+.badge-info-col {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.badge-name {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: #18181B;
+    margin: 0;
+}
+
+.badge-desc {
+    font-size: 0.83rem;
+    color: #78716C;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.badge-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 14px;
+    border-top: 1px solid #EFE8DE;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.badge-unlocked-date {
+    color: #16A34A;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.badge-unlocked-date svg {
+    width: 14px;
+    height: 14px;
+}
+
+.badge-xp-reward {
+    color: #DF6A74;
+}
+
+.badge-lock-status {
+    color: #78716C;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.badge-lock-status svg {
+    width: 14px;
+    height: 14px;
+}
