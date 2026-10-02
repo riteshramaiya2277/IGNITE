@@ -191,7 +191,6 @@
     <Compile Include="Student\AddNote.aspx.designer.cs">
       <DependentUpon>AddNote.aspx</DependentUpon>
     </Compile>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="auth-onboarding\Login.aspx" />
