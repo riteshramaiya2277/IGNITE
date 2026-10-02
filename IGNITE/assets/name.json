@@ -4,7 +4,8 @@
     "name_logo": "HabitQuest.svg",
     "colored_logo": "L1 1.svg",
     "black_logo": "L2 1.svg",
-    "white_logo": "L3 2.svg"
+    "white_logo": "L3 2.svg",
+    "navbar_logo": "Container.svg"
   },
   "variants": {
     "all_variants": "Frame 21"

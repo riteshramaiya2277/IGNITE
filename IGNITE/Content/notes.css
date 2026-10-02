@@ -1,0 +1,178 @@
+/* notes.css - Matches the Notes grid design */
+
+.notes-canvas {
+    padding: 0 10px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: #333;
+}
+
+.notes-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.notes-search {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border: 1px solid #f1eeeb;
+    border-radius: 12px;
+    padding: 10px 16px;
+    width: 320px;
+    color: #999;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.01);
+}
+
+.notes-search svg {
+    margin-right: 10px;
+}
+
+.notes-search-input {
+    border: none;
+    outline: none;
+    background: transparent;
+    width: 100%;
+    font-size: 14px;
+    color: #333;
+    font-family: inherit;
+}
+
+.notes-search-input::placeholder {
+    color: #aaa;
+}
+
+.btn-new-note {
+    background-color: #e28795;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-new-note:hover {
+    background-color: #cc7986;
+}
+
+/* Notes Grid */
+.notes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.note-card {
+    background-color: #fbfbf9;
+    border-radius: 16px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    min-height: 200px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.01);
+    border: 1px solid transparent;
+}
+
+.note-card-create {
+    background-color: transparent;
+    border: 2px dashed #ddd;
+    align-items: center;
+    justify-content: center;
+    color: #555;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.note-card-create:hover {
+    border-color: #aaa;
+    background-color: rgba(255,255,255,0.3);
+}
+
+.create-icon {
+    width: 48px;
+    height: 48px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+    color: #999;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.note-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+
+.note-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #222;
+    margin: 0;
+    line-height: 1.3;
+}
+
+.btn-more {
+    background: none;
+    border: none;
+    color: #aaa;
+    cursor: pointer;
+    padding: 0;
+    margin-top: 2px;
+}
+
+.note-preview {
+    font-size: 13px;
+    color: #777;
+    line-height: 1.5;
+    margin: 0;
+    flex-grow: 1;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.note-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.note-date {
+    font-size: 10px;
+    font-weight: 600;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.note-tag {
+    font-size: 9px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 12px;
+    text-transform: uppercase;
+}
+
+.tag-academic { background-color: #fcebeb; color: #c97171; }
+.tag-ideas { background-color: #fcebeb; color: #c97171; }
+.tag-meetings { background-color: #fcebeb; color: #c97171; }
+.tag-personal { background-color: #fcebeb; color: #c97171; }
+.tag-reading { background-color: #fcebeb; color: #c97171; }
+
+/* Just for link tag styling on Journal/Notes toggle */
+.journal-mode-toggle .btn-toggle {
+    text-decoration: none;
+}

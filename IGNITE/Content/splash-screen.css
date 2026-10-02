@@ -1,0 +1,88 @@
+:root {
+  color-scheme: light;
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+  color: #171b2b;
+  background: #fff8ee;
+}
+
+* {
+  box-sizing: border-box;
+}
+html,
+body,
+form {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+}
+body {
+  min-height: 100vh;
+}
+.splash-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 24px;
+  text-align: center;
+  background: radial-gradient(
+    ellipse at 50% 42%,
+    #fff 0,
+    #fff6e8 48%,
+    #ffe7d5 100%
+  );
+}
+.splash-logo-section {
+  width: 76px;
+  height: 76px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(239, 87, 92, 0.12);
+  border-radius: 24px;
+  background: #fff;
+  box-shadow: 0 14px 35px rgba(35, 27, 37, 0.08);
+}
+.splash-logo-img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+.splash-app-name {
+  margin: 18px 0 2px;
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+.splash-tagline {
+  margin: 0;
+  color: #687085;
+  font-size: 13px;
+}
+.splash-progress-section {
+  width: min(260px, 100%);
+  margin-top: 38px;
+}
+.progress-label {
+  margin-bottom: 9px;
+  color: #a34e48;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+.progress-track {
+  height: 6px;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #f1ded5;
+}
+.progress-fill {
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #f39163, #ef575c);
+}
+.progress-percentage {
+  margin-top: 7px;
+  color: #778094;
+  font-size: 10px;
+}

@@ -56,6 +56,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="auth-onboarding\AuthSecurity.cs" />
+    <Compile Include="auth-onboarding\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="auth-onboarding\SignUp.aspx.cs">
+      <DependentUpon>SignUp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="auth-onboarding\ForgotPassword.aspx.cs">
+      <DependentUpon>ForgotPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="auth-onboarding\Onboarding.aspx.cs">
+      <DependentUpon>Onboarding.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MainScreen\Splash.aspx.cs">
+      <DependentUpon>Splash.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Student\StudentMaster.master.cs">
       <DependentUpon>StudentMaster.master</DependentUpon>
@@ -155,8 +176,42 @@
     <Compile Include="Student\Achievements.aspx.designer.cs">
       <DependentUpon>Achievements.aspx</DependentUpon>
     </Compile>
+
+    <Compile Include="Student\Notes.aspx.cs">
+      <DependentUpon>Notes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student\Notes.aspx.designer.cs">
+      <DependentUpon>Notes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Student\AddNote.aspx.cs">
+      <DependentUpon>AddNote.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student\AddNote.aspx.designer.cs">
+      <DependentUpon>AddNote.aspx</DependentUpon>
+    </Compile>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="auth-onboarding\Login.aspx" />
+    <Content Include="auth-onboarding\SignUp.aspx" />
+    <Content Include="auth-onboarding\ForgotPassword.aspx" />
+    <Content Include="auth-onboarding\Onboarding.aspx" />
+    <Content Include="Content\auth-onboarding.css" />
+    <Content Include="assets\Container.svg" />
+    <Content Include="assets\Frame 21.svg" />
+    <Content Include="assets\HabitQuest.svg" />
+    <Content Include="assets\L1 1.svg" />
+    <Content Include="assets\L2 1.svg" />
+    <Content Include="assets\L3 1.svg" />
+    <Content Include="assets\name.json" />
+    <Content Include="MainScreen\Splash.aspx" />
+    <Content Include="MainScreen\Home.aspx" />
+    <Content Include="MainScreen\About.aspx" />
+    <Content Include="MainScreen\Support.aspx" />
+    <Content Include="Content\main-screen.css" />
+    <Content Include="Content\splash-screen.css" />
     <Content Include="Content\student-master.css" />
     <Content Include="Content\dashboard.css" />
     <Content Include="Content\habits.css" />
@@ -183,6 +238,11 @@
     <Content Include="Content\journal.css" />
     <Content Include="Student\XP.aspx" />
     <Content Include="Student\Achievements.aspx" />
+    <Content Include="Student\Notes.aspx" />
+    <Content Include="Content\notes.css" />
+    <Content Include="Student\AddNote.aspx" />
+    <Content Include="Content\add-note.css" />
+
     <Content Include="Web.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

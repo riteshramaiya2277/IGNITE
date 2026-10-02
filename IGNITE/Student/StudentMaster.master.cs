@@ -148,7 +148,7 @@ namespace IGNITE.Student
                 Response.Cookies.Add(authCookie);
             }
 
-            Response.Redirect(ResolveUrl("~/Account/Login.aspx"), true);
+            Response.Redirect(ResolveUrl("~/auth-onboarding/Login"), true);
         }
     }
 }
