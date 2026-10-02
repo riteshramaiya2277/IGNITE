@@ -162,6 +162,21 @@
     <Compile Include="Student\Journal.aspx.designer.cs">
       <DependentUpon>Journal.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Student\XP.aspx.cs">
+      <DependentUpon>XP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student\XP.aspx.designer.cs">
+      <DependentUpon>XP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Student\Achievements.aspx.cs">
+      <DependentUpon>Achievements.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student\Achievements.aspx.designer.cs">
+      <DependentUpon>Achievements.aspx</DependentUpon>
+    </Compile>
+
     <Compile Include="Student\Notes.aspx.cs">
       <DependentUpon>Notes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -175,6 +190,7 @@
     </Compile>
     <Compile Include="Student\AddNote.aspx.designer.cs">
       <DependentUpon>AddNote.aspx</DependentUpon>
+    </Compile>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -202,6 +218,8 @@
     <Content Include="Content\tasks.css" />
     <Content Include="Content\challenges.css" />
     <Content Include="Content\profile.css" />
+    <Content Include="Content\xp.css" />
+    <Content Include="Content\achievements.css" />
     <Content Include="Scripts\student-master.js" />
     <Content Include="Student\StudentMaster.master" />
     <Content Include="Student\Dashboard.aspx" />
@@ -218,10 +236,13 @@
     <Content Include="Content\calendar.css" />
     <Content Include="Student\Journal.aspx" />
     <Content Include="Content\journal.css" />
+    <Content Include="Student\XP.aspx" />
+    <Content Include="Student\Achievements.aspx" />
     <Content Include="Student\Notes.aspx" />
     <Content Include="Content\notes.css" />
     <Content Include="Student\AddNote.aspx" />
     <Content Include="Content\add-note.css" />
+
     <Content Include="Web.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

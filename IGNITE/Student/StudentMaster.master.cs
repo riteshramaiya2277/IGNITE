@@ -96,7 +96,8 @@ namespace IGNITE.Student
                 navGoals.Attributes["class"] = "nav-item active";
             }
             else if (string.Equals(fileName, "Challenges.aspx", StringComparison.OrdinalIgnoreCase) ||
-                     string.Equals(fileName, "ChallengeDetail.aspx", StringComparison.OrdinalIgnoreCase))
+                     string.Equals(fileName, "ChallengeDetail.aspx", StringComparison.OrdinalIgnoreCase) ||
+                     string.Equals(fileName, "Achievements.aspx", StringComparison.OrdinalIgnoreCase))
             {
                 navChallenges.Attributes["class"] = "nav-item active";
             }
@@ -113,7 +114,8 @@ namespace IGNITE.Student
             else if (string.Equals(fileName, "Profile.aspx", StringComparison.OrdinalIgnoreCase) ||
                      string.Equals(fileName, "Settings.aspx", StringComparison.OrdinalIgnoreCase) ||
                      string.Equals(fileName, "ChangePassword.aspx", StringComparison.OrdinalIgnoreCase) ||
-                     string.Equals(fileName, "Security.aspx", StringComparison.OrdinalIgnoreCase))
+                     string.Equals(fileName, "Security.aspx", StringComparison.OrdinalIgnoreCase) ||
+                     string.Equals(fileName, "XP.aspx", StringComparison.OrdinalIgnoreCase))
             {
                 navSettings.Attributes["class"] = "settings-pill-btn active";
             }

@@ -2,8 +2,8 @@
     CodeBehind="Goals.aspx.cs" Inherits="IGNITE.Student.Goals" %>
 
     <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-        <link href="<%= ResolveUrl(" ~/Content/dashboard.css") %>" rel="stylesheet" type="text/css" />
-        <link href="<%= ResolveUrl(" ~/Content/goals.css") %>" rel="stylesheet" type="text/css" />
+        <link href="<%= ResolveUrl("~/Content/dashboard.css") %>" rel="stylesheet" type="text/css" />
+        <link href="<%= ResolveUrl("~/Content/goals.css") %>" rel="stylesheet" type="text/css" />
     </asp:Content>
 
     <asp:Content ID="Content2" ContentPlaceHolderID="PageTitleContent" runat="server">

@@ -12,75 +12,123 @@ namespace IGNITE.Student
     public partial class Profile
     {
         /// <summary>
+        /// pnlProfileOverview control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Panel pnlProfileOverview;
+
+        /// <summary>
+        /// litHeroInitials control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Literal litHeroInitials;
+
+        /// <summary>
+        /// litHeroLvlBadge control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Literal litHeroLvlBadge;
+
+        /// <summary>
+        /// litHeroName control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Literal litHeroName;
+
+        /// <summary>
+        /// litHeroInstitution control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Literal litHeroInstitution;
+
+        /// <summary>
+        /// litHeroMajor control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Literal litHeroMajor;
+
+        /// <summary>
+        /// litHeroSemester control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Literal litHeroSemester;
+
+        /// <summary>
+        /// litAcademicUniv control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Literal litAcademicUniv;
+
+        /// <summary>
+        /// litAcademicMajor control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Literal litAcademicMajor;
+
+        /// <summary>
+        /// litAcademicYear control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Literal litAcademicYear;
+
+        /// <summary>
+        /// litAcademicSemester control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Literal litAcademicSemester;
+
+        /// <summary>
+        /// litTotalStreak control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Literal litTotalStreak;
+
+        /// <summary>
+        /// litTotalChallenges control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Literal litTotalChallenges;
+
+        /// <summary>
+        /// litTotalXP control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Literal litTotalXP;
+
+        /// <summary>
+        /// litBadgeCount control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Literal litBadgeCount;
+
+        /// <summary>
+        /// pnlPreferencesSection control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Panel pnlPreferencesSection;
+
+        /// <summary>
         /// txtFullName control.
         /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtFullName;
 
         /// <summary>
         /// txtEmailAddress control.
         /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtEmailAddress;
 
         /// <summary>
         /// ddlCollege control.
         /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlCollege;
 
         /// <summary>
         /// ddlCourse control.
         /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlCourse;
 
         /// <summary>
         /// ddlAcademicYear control.
         /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlAcademicYear;
 
         /// <summary>
         /// ddlSemester control.
         /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlSemester;
 
         /// <summary>
         /// btnSaveProfile control.
         /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSaveProfile;
 
         /// <summary>
         /// btnLogoutSecurity control.
         /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton btnLogoutSecurity;
     }
 }
