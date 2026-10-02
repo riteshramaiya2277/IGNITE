@@ -11,6 +11,15 @@ namespace IGNITE.Student
         {
             if (!IsPostBack)
             {
+                string mode = (Request.QueryString["mode"] ?? string.Empty).ToLowerInvariant();
+                string edit = (Request.QueryString["edit"] ?? string.Empty).ToLowerInvariant();
+                if (mode == "settings" || edit == "true")
+                {
+                    pnlProfileOverview.Style["display"] = "none";
+                    pnlPreferencesSection.Style["display"] = "block";
+                    litTopPageTitle.Text = "Settings";
+                }
+
                 LoadProfileData();
             }
         }
@@ -142,7 +151,7 @@ namespace IGNITE.Student
                 Response.Cookies.Add(authCookie);
             }
 
-            Response.Redirect("~/Login.aspx");
+            Response.Redirect("~/auth-onboarding/Login.aspx");
         }
     }
 }

@@ -12,6 +12,26 @@ namespace IGNITE.Student
     public partial class Achievements
     {
         /// <summary>
+        /// litUnlockedCount control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Literal litUnlockedCount;
+
+        /// <summary>
+        /// litTotalCount control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Literal litTotalCount;
+
+        /// <summary>
+        /// litRemainingCount control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Literal litRemainingCount;
+
+        /// <summary>
+        /// litProgressPercent control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Literal litProgressPercent;
+
+        /// <summary>
         /// litBadgesUnlocked control.
         /// </summary>
         protected global::System.Web.UI.WebControls.Literal litBadgesUnlocked;

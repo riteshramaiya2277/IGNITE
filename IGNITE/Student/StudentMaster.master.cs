@@ -111,11 +111,18 @@ namespace IGNITE.Student
             {
                 navProgress.Attributes["class"] = "nav-item active";
             }
-            else if (string.Equals(fileName, "Profile.aspx", StringComparison.OrdinalIgnoreCase) ||
-                     string.Equals(fileName, "Settings.aspx", StringComparison.OrdinalIgnoreCase) ||
+            else if (string.Equals(fileName, "Profile.aspx", StringComparison.OrdinalIgnoreCase))
+            {
+                string mode = (Request.QueryString["mode"] ?? string.Empty).ToLowerInvariant();
+                string edit = (Request.QueryString["edit"] ?? string.Empty).ToLowerInvariant();
+                if (mode == "settings" || edit == "true")
+                {
+                    navSettings.Attributes["class"] = "settings-pill-btn active";
+                }
+            }
+            else if (string.Equals(fileName, "Settings.aspx", StringComparison.OrdinalIgnoreCase) ||
                      string.Equals(fileName, "ChangePassword.aspx", StringComparison.OrdinalIgnoreCase) ||
-                     string.Equals(fileName, "Security.aspx", StringComparison.OrdinalIgnoreCase) ||
-                     string.Equals(fileName, "XP.aspx", StringComparison.OrdinalIgnoreCase))
+                     string.Equals(fileName, "Security.aspx", StringComparison.OrdinalIgnoreCase))
             {
                 navSettings.Attributes["class"] = "settings-pill-btn active";
             }
@@ -148,7 +155,7 @@ namespace IGNITE.Student
                 Response.Cookies.Add(authCookie);
             }
 
-            Response.Redirect(ResolveUrl("~/auth-onboarding/Login"), true);
+            Response.Redirect(ResolveUrl("~/auth-onboarding/Login.aspx"), true);
         }
     }
 }

@@ -12,6 +12,11 @@ namespace IGNITE.Student
     public partial class Profile
     {
         /// <summary>
+        /// litTopPageTitle control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Literal litTopPageTitle;
+
+        /// <summary>
         /// pnlProfileOverview control.
         /// </summary>
         protected global::System.Web.UI.WebControls.Panel pnlProfileOverview;

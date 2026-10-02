@@ -34,6 +34,11 @@ namespace IGNITE.AuthOnboarding
             }
 
             Session["IGNITE.Authenticated"] = true;
+            if (Session["IGNITE.FullName"] != null)
+            {
+                Session["FullName"] = Session["IGNITE.FullName"];
+            }
+            Session["Email"] = EmailValue;
             string destination = Session["IGNITE.ProfileComplete"] is bool complete && complete
                 ? "~/Student/Dashboard.aspx"
                 : "~/auth-onboarding/Onboarding.aspx";
@@ -43,11 +48,16 @@ namespace IGNITE.AuthOnboarding
 
         private static bool IsValidEmail(string value)
         {
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                return false;
+            }
+
             try
             {
                 return string.Equals(new MailAddress(value).Address, value, StringComparison.OrdinalIgnoreCase);
             }
-            catch (FormatException)
+            catch (Exception)
             {
                 return false;
             }
