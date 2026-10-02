@@ -1,0 +1,170 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="AdminMaster.master.cs" Inherits="IGNITE.Admin.AdminMaster" %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IGNITE — Admin</title>
+
+    <!-- Google Fonts: Plus Jakarta Sans for crisp modern typography matching design -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+    <!-- IGNITE Admin Master Stylesheet -->
+    <link href="<%= ResolveUrl("~/Content/admin-master.css") %>" rel="stylesheet" type="text/css" />
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePageMethods="true" />
+
+        <!-- Mobile Drawer Backdrop -->
+        <div id="adminSidebarBackdrop" class="admin-sidebar-backdrop"></div>
+
+        <div class="admin-app-layout">
+            <!-- Left Sidebar Navigation -->
+            <aside id="adminSidebar" class="admin-sidebar">
+                <!-- Brand / Logo -->
+                <a href="<%= ResolveUrl("~/Admin/Overview.aspx") %>" class="admin-sidebar-brand" title="IGNITE Admin Portal">
+                    <svg class="brand-flame-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2C10.5 4.5 10 6.5 10 8.5C10 10.5 11 11.5 11 13C11 14 10 15 9 15C8 15 7 14 7 12.5C7 10 5.5 8.5 4.5 8C4.5 12 6.5 15.5 9 18C11.5 20.5 14.5 21.5 17 20C19.5 18.5 20.5 15.5 20 13C19.5 10.5 18 9 17 8C17 9.5 16 10.5 15 10.5C14 10.5 13.5 9.5 13.5 8C13.5 5.5 15 3.5 16 2.5C14.5 2 13 2 12 2Z" />
+                    </svg>
+                    <span class="brand-title">IGNITE</span>
+                </a>
+
+                <!-- Section Category -->
+                <div class="sidebar-category-header">
+                    <span class="category-title">MANAGEMENT</span>
+                </div>
+
+                <!-- Navigation Modules -->
+                <nav class="admin-sidebar-nav">
+                    <!-- Overview -->
+                    <a id="navOverview" runat="server" href="~/Admin/Overview.aspx" class="admin-nav-item">
+                        <svg class="admin-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 10.5L12 3l9 7.5V20a1.5 1.5 0 0 1-1.5 1.5h-5a1 1 0 0 1-1-1v-4.5a1.5 1.5 0 0 0-1.5-1.5h-2a1.5 1.5 0 0 0-1.5 1.5V20a1 1 0 0 1-1 1h-5A1.5 1.5 0 0 1 3 20v-9.5z"/>
+                        </svg>
+                        <span>Overview</span>
+                    </a>
+
+                    <!-- Students -->
+                    <a id="navStudents" runat="server" href="~/Admin/Students.aspx" class="admin-nav-item">
+                        <svg class="admin-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                            <circle cx="12" cy="7" r="4"/>
+                        </svg>
+                        <span>Students</span>
+                    </a>
+
+                    <!-- Challenges -->
+                    <a id="navChallenges" runat="server" href="~/Admin/Challenges.aspx" class="admin-nav-item">
+                        <svg class="admin-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/>
+                            <line x1="4" y1="22" x2="4" y2="15"/>
+                        </svg>
+                        <span>Challenges</span>
+                    </a>
+
+                    <!-- Quests -->
+                    <a id="navQuests" runat="server" href="~/Admin/Quests.aspx" class="admin-nav-item">
+                        <svg class="admin-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                            <line x1="16" y1="2" x2="16" y2="6"/>
+                            <line x1="8" y1="2" x2="8" y2="6"/>
+                            <line x1="3" y1="10" x2="21" y2="10"/>
+                        </svg>
+                        <span>Quests</span>
+                    </a>
+
+                    <!-- Achievements -->
+                    <a id="navAchievements" runat="server" href="~/Admin/Achievements.aspx" class="admin-nav-item">
+                        <svg class="admin-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/>
+                            <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/>
+                            <path d="M4 22h16"/>
+                            <path d="M10 14.66V17c0 .55-.45 1-1 1H8c-.55 0-1 .45-1 1v1h10v-1c0-.55-.45-1-1-1h-1c-.55 0-1-.45-1-1v-2.34"/>
+                            <path d="M6 4h12v5c0 3.31-2.69 6-6 6s-6-2.69-6-6V4z"/>
+                        </svg>
+                        <span>Achievements</span>
+                    </a>
+                </nav>
+
+                <!-- Bottom Section: Settings & Admin Profile Card -->
+                <div class="admin-sidebar-footer">
+                    <!-- Settings Button -->
+                    <a id="navSettings" runat="server" href="~/Admin/Settings.aspx" class="admin-settings-pill-btn" title="Admin Settings">
+                        <svg class="pill-btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="3"></circle>
+                            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                        </svg>
+                        <span>Settings</span>
+                    </a>
+
+                    <!-- Admin Profile Card -->
+                    <div class="admin-profile-card" onclick="window.location.href='<%= ResolveUrl("~/Admin/Settings.aspx") %>';" title="Admin Profile">
+                        <div class="admin-avatar-ring"></div>
+                        <span class="admin-card-title">
+                            <asp:Literal ID="litAdminTitle" runat="server">Admin</asp:Literal>
+                        </span>
+                        <asp:LinkButton ID="btnAdminLogout" runat="server" OnClick="btnAdminLogout_Click" OnClientClick="event.stopPropagation();" CssClass="admin-card-logout-btn" title="Sign Out" CausesValidation="false">
+                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/>
+                            </svg>
+                        </asp:LinkButton>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Main Content Area -->
+            <div class="admin-main-area">
+                <!-- Top Header Bar -->
+                <header class="admin-topbar-header">
+                    <!-- Mobile Hamburger Toggle -->
+                    <button type="button" id="adminMobileNavToggle" class="mobile-nav-toggle" aria-label="Toggle Navigation">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="3" y1="12" x2="21" y2="12"></line>
+                            <line x1="3" y1="6" x2="21" y2="6"></line>
+                            <line x1="3" y1="18" x2="21" y2="18"></line>
+                        </svg>
+                    </button>
+
+                    <!-- Topbar Right Controls -->
+                    <div class="admin-topbar-right">
+                        <!-- System Status Badge -->
+                        <div class="admin-status-badge" title="System Status: Operational">
+                            <span class="status-dot"></span>
+                            <span class="status-label">
+                                <asp:Literal ID="litSystemStatus" runat="server">SYSTEM OPERATIONAL</asp:Literal>
+                            </span>
+                        </div>
+
+                        <!-- Search Bar -->
+                        <div class="admin-search-wrapper" role="search">
+                            <svg class="admin-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                            </svg>
+                            <input type="text" id="adminSearchInput" class="admin-search-input" placeholder="Search students, quests..." autocomplete="off" />
+                        </div>
+                    </div>
+                </header>
+
+                <!-- Page Canvas Container -->
+                <main class="admin-page-canvas">
+                    <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                    </asp:ContentPlaceHolder>
+                </main>
+            </div>
+        </div>
+
+        <script src="<%= ResolveUrl("~/Scripts/admin-master.js") %>" type="text/javascript"></script>
+
+        <asp:ContentPlaceHolder ID="ScriptsContent" runat="server">
+        </asp:ContentPlaceHolder>
+    </form>
+</body>
+</html>

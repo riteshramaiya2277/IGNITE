@@ -78,6 +78,27 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Admin\AdminMaster.master.cs">
+      <DependentUpon>AdminMaster.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminMaster.master.designer.cs">
+      <DependentUpon>AdminMaster.master</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Overview.aspx.cs">
+      <DependentUpon>Overview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Overview.aspx.designer.cs">
+      <DependentUpon>Overview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Student\StudentMaster.master.cs">
       <DependentUpon>StudentMaster.master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -241,6 +262,11 @@
     <Content Include="Content\notes.css" />
     <Content Include="Student\AddNote.aspx" />
     <Content Include="Content\add-note.css" />
+    <Content Include="Content\admin-master.css" />
+    <Content Include="Scripts\admin-master.js" />
+    <Content Include="Admin\AdminMaster.master" />
+    <Content Include="Admin\Overview.aspx" />
+    <Content Include="Admin\Login.aspx" />
 
     <Content Include="Web.config" />
   </ItemGroup>

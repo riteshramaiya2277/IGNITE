@@ -25,7 +25,7 @@ namespace IGNITE.Student
             {
                 name = (HttpContext.Current.User != null && HttpContext.Current.User.Identity.IsAuthenticated)
                     ? HttpContext.Current.User.Identity.Name
-                    : "Alex Mercer";
+                    : "Ritesh Ramaiya";
             }
             litStudentName.Text = name;
 

@@ -35,7 +35,7 @@
 
                         <div class="profile-hero-meta">
                             <h2 class="profile-hero-name">
-                                <asp:Literal ID="litHeroName" runat="server">Alex Mercer</asp:Literal>
+                                <asp:Literal ID="litHeroName" runat="server">Ritesh Ramaiya</asp:Literal>
                             </h2>
                             <p class="profile-hero-institution">
                                 <asp:Literal ID="litHeroInstitution" runat="server">Stanford University</asp:Literal>
@@ -336,7 +336,7 @@
                             <!-- Full Name -->
                             <div class="pref-field-group">
                                 <label class="pref-field-label">Full Name</label>
-                                <asp:TextBox ID="txtFullName" runat="server" CssClass="pref-input" Text="Alex Mercer"
+                                <asp:TextBox ID="txtFullName" runat="server" CssClass="pref-input" Text="Ritesh Ramaiya"
                                     placeholder="Enter your full name" />
                             </div>
 
@@ -344,7 +344,7 @@
                             <div class="pref-field-group">
                                 <label class="pref-field-label">Email Address</label>
                                 <asp:TextBox ID="txtEmailAddress" runat="server" CssClass="pref-input"
-                                    Text="alex.mercer@university.edu" TextMode="Email"
+                                    Text="riteshramaiya2277@gmail.com" TextMode="Email"
                                     placeholder="Enter your university email" />
                             </div>
                         </div>

@@ -31,11 +31,11 @@ namespace IGNITE.Student
             {
                 fullName = (HttpContext.Current.User != null && HttpContext.Current.User.Identity.IsAuthenticated)
                     ? HttpContext.Current.User.Identity.Name
-                    : "Alex Mercer";
+                    : "Ritesh Ramaiya";
             }
             txtFullName.Text = fullName;
 
-            string email = Session["Email"] as string ?? "alex.mercer@university.edu";
+            string email = Session["Email"] as string ?? "riteshramaiya2277@gmail.com";
             txtEmailAddress.Text = email;
 
             if (Session["College"] != null)

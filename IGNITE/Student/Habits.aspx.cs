@@ -21,11 +21,11 @@ namespace IGNITE.Student
             {
                 fullName = (HttpContext.Current.User != null && HttpContext.Current.User.Identity.IsAuthenticated)
                     ? HttpContext.Current.User.Identity.Name
-                    : "Alex Mercer";
+                    : "Ritesh Ramaiya";
             }
 
             string firstName = fullName.Trim().Split(' ')[0];
-            litStudentFirstName.Text = string.IsNullOrWhiteSpace(firstName) ? "Alex" : firstName;
+            litStudentFirstName.Text = string.IsNullOrWhiteSpace(firstName) ? "Ritesh" : firstName;
         }
     }
 }

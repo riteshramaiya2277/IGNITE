@@ -21,7 +21,7 @@ namespace IGNITE.Student
             {
                 fullName = (HttpContext.Current.User != null && HttpContext.Current.User.Identity.IsAuthenticated)
                     ? HttpContext.Current.User.Identity.Name
-                    : "Alex Mercer";
+                    : "Ritesh Ramaiya";
             }
 
             string firstName = fullName.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)[0];

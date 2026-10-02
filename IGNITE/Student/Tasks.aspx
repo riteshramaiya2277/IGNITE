@@ -280,7 +280,7 @@
                         <div class="avatar-stack">
                             <div class="avatar-bubble" title="Liam Chen">LC</div>
                             <div class="avatar-bubble" title="Sarah Jenkins">SJ</div>
-                            <div class="avatar-bubble" title="Alex Mercer">AM</div>
+                            <div class="avatar-bubble" title="Ritesh Ramaiya">RR</div>
                         </div>
                         <span class="milestone-social-text">14 classmates earned this</span>
                     </div>

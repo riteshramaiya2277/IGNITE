@@ -124,7 +124,7 @@
                         </div>
                         <div class="user-card-info">
                             <div class="user-card-name">
-                                <asp:Literal ID="litStudentName" runat="server">Alex Mercer</asp:Literal>
+                                <asp:Literal ID="litStudentName" runat="server">Ritesh Ramaiya</asp:Literal>
                             </div>
                             <div class="user-card-role">
                                 <asp:Literal ID="litStudentLevelTitle" runat="server">Level 12 Scholar</asp:Literal>
