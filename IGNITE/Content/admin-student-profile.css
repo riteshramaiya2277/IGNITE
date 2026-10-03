@@ -1,0 +1,347 @@
+/* Student Profile specific styles */
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 0 32px 32px 32px;
+}
+
+/* Back Link */
+.back-link-wrapper {
+    margin-bottom: 8px;
+    margin-top: 16px;
+}
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #666;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+.back-link:hover {
+    color: #1a1a1a;
+}
+.back-link svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* Header Card */
+.profile-header-card {
+    background: #EAE6DF;
+    border-radius: 16px;
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.profile-header-left {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+.profile-avatar-large {
+    width: 80px;
+    height: 80px;
+    background: #E2ACAC;
+    border-radius: 16px;
+    position: relative;
+}
+.profile-avatar-large .status-dot {
+    position: absolute;
+    bottom: -4px;
+    right: -4px;
+    width: 16px;
+    height: 16px;
+    background: #10B981;
+    border: 3px solid #EAE6DF;
+    border-radius: 50%;
+}
+.profile-info h1 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+}
+.badge-outline {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 12px;
+    border: 1px solid #D96A77;
+    color: #D96A77;
+}
+.student-id {
+    font-size: 14px;
+    color: #666;
+    margin: 8px 0;
+    font-weight: 500;
+}
+.profile-meta {
+    display: flex;
+    gap: 16px;
+    font-size: 13px;
+    color: #888;
+}
+.profile-meta span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+.btn-primary {
+    background: #D96A77;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.2s;
+}
+.btn-primary:hover {
+    background: #C45A66;
+}
+
+/* Stats Row */
+.stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+.stat-card {
+    background: #EAE6DF;
+    border-radius: 12px;
+    padding: 20px;
+}
+.stat-card-title {
+    font-size: 11px;
+    font-weight: 700;
+    color: #888;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+.stat-card-value {
+    font-size: 28px;
+    font-weight: 800;
+    color: #1a1a1a;
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+}
+.stat-card-sub {
+    font-size: 12px;
+    font-weight: 600;
+    color: #666;
+}
+.stat-card-sub.highlight {
+    color: #D96A77;
+}
+.progress-bar {
+    height: 4px;
+    background: #D8D4CC;
+    border-radius: 2px;
+    margin-top: 12px;
+    overflow: hidden;
+}
+.progress-fill {
+    height: 100%;
+    background: #D96A77;
+    width: 65%;
+}
+.flame-icons {
+    display: flex;
+    gap: 4px;
+    margin-top: 8px;
+    color: #D96A77;
+}
+.flame-icons svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* Two Column Layout */
+.profile-grid {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 24px;
+}
+
+/* Sections */
+.section-card {
+    background: #EAE6DF;
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 24px;
+}
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+.section-title {
+    font-size: 13px;
+    font-weight: 800;
+    color: #1a1a1a;
+    text-transform: uppercase;
+}
+.badge-filled {
+    background: #FDF6E3;
+    color: #B48811;
+    font-size: 10px;
+    font-weight: 800;
+    padding: 4px 10px;
+    border-radius: 12px;
+    text-transform: uppercase;
+}
+
+/* Data List */
+.data-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.data-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.data-label {
+    font-size: 13px;
+    color: #888;
+    font-weight: 500;
+}
+.data-value {
+    font-size: 13px;
+    color: #1a1a1a;
+    font-weight: 700;
+}
+
+/* Achievements */
+.achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    text-align: center;
+}
+.achievement-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+.ach-icon-circle {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+.ach-icon-circle.locked {
+    background: #D8D4CC;
+    color: #aaa;
+    box-shadow: none;
+}
+.ach-name {
+    font-size: 12px;
+    font-weight: 700;
+    color: #1a1a1a;
+}
+.ach-name.locked {
+    color: #888;
+}
+
+/* Academic Profile */
+.academic-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.academic-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.academic-row-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+.academic-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: #888;
+    text-transform: uppercase;
+}
+.academic-value {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1a1a1a;
+}
+.gpa-value {
+    font-size: 24px;
+    font-weight: 800;
+    color: #1a1a1a;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+}
+.badge-green {
+    background: #E0F2E9;
+    color: #10B981;
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-weight: 700;
+}
+
+/* Account Management */
+.account-notice {
+    font-size: 12px;
+    color: #888;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+.btn-danger-outline {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #D96A77;
+    background: transparent;
+    color: #D96A77;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-bottom: 16px;
+}
+.btn-danger-outline:hover {
+    background: #D96A77;
+    color: white;
+}
+.btn-text-muted {
+    width: 100%;
+    padding: 8px;
+    background: none;
+    border: none;
+    color: #888;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.btn-text-muted:hover {
+    color: #1a1a1a;
+}

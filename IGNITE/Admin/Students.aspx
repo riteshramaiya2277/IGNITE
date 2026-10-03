@@ -107,7 +107,7 @@
                         <td class="text-grey">2 hours ago</td>
                         <td>
                             <div class="action-buttons">
-                                <button type="button" class="btn-view">VIEW</button>
+                                <a href="StudentProfile.aspx" class="btn-view" style="text-decoration:none;">VIEW</a>
                                 <button type="button" class="btn-more"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg></button>
                             </div>
                         </td>
@@ -137,7 +137,7 @@
                         <td class="text-grey">3 days ago</td>
                         <td>
                             <div class="action-buttons">
-                                <button type="button" class="btn-view">VIEW</button>
+                                <a href="StudentProfile.aspx" class="btn-view" style="text-decoration:none;">VIEW</a>
                                 <button type="button" class="btn-more"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg></button>
                             </div>
                         </td>
@@ -167,7 +167,7 @@
                         <td class="text-grey">1 week ago</td>
                         <td>
                             <div class="action-buttons">
-                                <button type="button" class="btn-view">VIEW</button>
+                                <a href="StudentProfile.aspx" class="btn-view" style="text-decoration:none;">VIEW</a>
                                 <button type="button" class="btn-more"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg></button>
                             </div>
                         </td>
@@ -197,7 +197,7 @@
                         <td class="text-grey">Just now</td>
                         <td>
                             <div class="action-buttons">
-                                <button type="button" class="btn-view">VIEW</button>
+                                <a href="StudentProfile.aspx" class="btn-view" style="text-decoration:none;">VIEW</a>
                                 <button type="button" class="btn-more"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg></button>
                             </div>
                         </td>
