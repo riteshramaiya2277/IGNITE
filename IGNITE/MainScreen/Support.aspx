@@ -20,8 +20,8 @@
         <a href="About.aspx">About Us</a>
       </nav>
       <div class="header-actions">
-        <a class="login-link" href="Home.aspx#how-it-works">Login</a>
-        <a class="button button-small" href="Home.aspx#preview">Get Started</a>
+        <a class="login-link" href="../auth-onboarding/Login.aspx">Login</a>
+        <a class="button button-small" href="../auth-onboarding/SignUp.aspx">Get Started</a>
       </div>
     </header>
 

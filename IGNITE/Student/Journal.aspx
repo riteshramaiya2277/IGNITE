@@ -27,14 +27,14 @@
             </div>
             
             <div class="journal-mode-toggle">
-                <button class="btn-toggle active" type="button">
+                <a href="<%= ResolveUrl("~/Student/Journal.aspx") %>" class="btn-toggle active">
                     <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
                     Journal
-                </button>
-                <button class="btn-toggle" type="button">
+                </a>
+                <a href="<%= ResolveUrl("~/Student/Notes.aspx") %>" class="btn-toggle">
                     <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
                     Notes
-                </button>
+                </a>
             </div>
         </div>
 
@@ -50,7 +50,7 @@
                         <p class="entry-preview">Today's lecture on algorithms</p>
                         <div class="entry-meta">
                             <span>10:45 AM</span>
-                            <span class="emotion-tag happy">😊 HAPPY</span>
+                            <span class="emotion-tag happy">&#128522; HAPPY</span>
                         </div>
                     </div>
                 </div>
@@ -62,7 +62,7 @@
                         <p class="entry-preview">Feeling productive after...</p>
                         <div class="entry-meta">
                             <span>4:20 PM</span>
-                            <span class="emotion-tag energetic">⚡ ENERGETIC</span>
+                            <span class="emotion-tag energetic">&#9889; ENERGETIC</span>
                         </div>
                     </div>
                 </div>
@@ -74,7 +74,7 @@
                         <p class="entry-preview">I need to manage my time...</p>
                         <div class="entry-meta">
                             <span>11:15 PM</span>
-                            <span class="emotion-tag anxious">😰 ANXIOUS</span>
+                            <span class="emotion-tag anxious">&#128560; ANXIOUS</span>
                         </div>
                     </div>
                 </div>
@@ -99,27 +99,27 @@
                     <span class="selector-label">HOW ARE YOU FEELING?</span>
                     <div class="emotion-icons">
                         <div class="emotion-item active">
-                            <span class="emoji-circle happy">😊</span>
+                            <span class="emoji-circle happy">&#128522;</span>
                             <span class="emoji-label happy">HAPPY</span>
                         </div>
                         <div class="emotion-item">
-                            <span class="emoji-circle calm">😌</span>
+                            <span class="emoji-circle calm">&#128524;</span>
                             <span class="emoji-label calm">CALM</span>
                         </div>
                         <div class="emotion-item">
-                            <span class="emoji-circle neutral">😐</span>
+                            <span class="emoji-circle neutral">&#128528;</span>
                             <span class="emoji-label neutral">NEUTRAL</span>
                         </div>
                         <div class="emotion-item">
-                            <span class="emoji-circle focus">⚡</span>
+                            <span class="emoji-circle focus">&#9889;</span>
                             <span class="emoji-label focus">FOCUS</span>
                         </div>
                         <div class="emotion-item">
-                            <span class="emoji-circle tired">🥱</span>
+                            <span class="emoji-circle tired">&#129393;</span>
                             <span class="emoji-label tired">TIRED</span>
                         </div>
                         <div class="emotion-item">
-                            <span class="emoji-circle anxious">😰</span>
+                            <span class="emoji-circle anxious">&#128560;</span>
                             <span class="emoji-label anxious">ANXIOUS</span>
                         </div>
                     </div>

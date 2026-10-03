@@ -1,0 +1,655 @@
+/* ==========================================================================
+   IGNITE — XP & Level Management Stylesheet
+   Matches Figma UI screenshot:
+   - Level 12 Hero Card with active streak badge, XP progress bar, XP needed
+   - XP Sources 3-card row (Habits, Tasks, Challenges)
+   - Left Column: Upcoming Milestones (Level milestones with unlock perks)
+   - Right Column: Recent Trophies & XP Activity Feed with filters & load more
+   ========================================================================== */
+
+/* Main Page Canvas */
+.xp-canvas {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+    padding-bottom: 50px;
+}
+
+/* Header */
+.xp-page-header {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.xp-page-title {
+    font-size: 2.1rem;
+    font-weight: 800;
+    color: #18181B;
+    letter-spacing: -0.025em;
+    line-height: 1.2;
+    margin: 0;
+}
+
+.xp-page-subtitle {
+    font-size: 0.95rem;
+    color: #78716C;
+    font-weight: 500;
+    margin: 0;
+}
+
+/* Two-column Main Grid */
+.xp-main-grid {
+    display: grid;
+    grid-template-columns: 1.55fr 1fr;
+    gap: 24px;
+    align-items: start;
+}
+
+@media (max-width: 1024px) {
+    .xp-main-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.xp-left-column {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.xp-right-column {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* 1. Level Hero Card (Level 12 / Total Experience / Streak / Progress) */
+.xp-hero-card {
+    background-color: #FAF8F5;
+    border: 1px solid #E5DFD5;
+    border-radius: 20px;
+    padding: 34px 38px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    position: relative;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.xp-hero-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.xp-hero-title-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.xp-hero-level {
+    font-size: 2.6rem;
+    font-weight: 900;
+    color: #18181B;
+    margin: 0;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+}
+
+.xp-hero-total {
+    font-size: 0.95rem;
+    color: #78716C;
+    font-weight: 600;
+    margin: 0;
+}
+
+/* Active Streak Chip */
+.xp-hero-streak-chip {
+    background-color: #FFFFFF;
+    border: 1px solid #F3EBE1;
+    border-radius: 12px;
+    padding: 10px 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+}
+
+.xp-hero-streak-label {
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    color: #8C827A;
+    text-transform: uppercase;
+}
+
+.xp-hero-streak-val {
+    font-size: 1.15rem;
+    font-weight: 900;
+    color: #DF6A74;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* Progress Track and Milestone Indicators */
+.xp-hero-progress-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.xp-hero-markers {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.xp-marker-curr {
+    color: #DF6A74;
+}
+
+.xp-marker-needed {
+    color: #A8A29E;
+    font-weight: 600;
+}
+
+.xp-marker-next {
+    color: #D97706;
+}
+
+.xp-hero-bar-track {
+    width: 100%;
+    height: 12px;
+    background-color: #F0E8DC;
+    border-radius: 9999px;
+    overflow: hidden;
+}
+
+.xp-hero-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #DF6A74 0%, #D45B65 100%);
+    border-radius: 9999px;
+    transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* 2. XP Sources Row (Habits, Tasks, Challenges) */
+.xp-sources-section {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.xp-section-heading {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #18181B;
+    margin: 0;
+    letter-spacing: -0.015em;
+}
+
+.xp-sources-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+@media (max-width: 768px) {
+    .xp-sources-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.xp-source-card {
+    background-color: #FAF8F5;
+    border: 1px solid #E5DFD5;
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 16px;
+    text-decoration: none;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+    cursor: pointer;
+}
+
+.xp-source-card:hover {
+    transform: translateY(-2px);
+    border-color: #DF6A74;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+}
+
+.xp-source-top {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.xp-source-icon-wrap {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.xp-source-icon-wrap svg {
+    width: 20px;
+    height: 20px;
+}
+
+.icon-habits {
+    background-color: #FDE8EA;
+    color: #DF6A74;
+}
+
+.icon-tasks {
+    background-color: #FFF0E6;
+    color: #EA580C;
+}
+
+.icon-challenges {
+    background-color: #FDE8EA;
+    color: #DF6A74;
+}
+
+.xp-source-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.xp-source-title {
+    font-size: 0.96rem;
+    font-weight: 800;
+    color: #18181B;
+    margin: 0;
+}
+
+.xp-source-desc {
+    font-size: 0.78rem;
+    color: #78716C;
+    font-weight: 500;
+    margin: 0;
+}
+
+.xp-source-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: #DF6A74;
+}
+
+.xp-source-bottom svg {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.15s ease;
+}
+
+.xp-source-card:hover .xp-source-bottom svg {
+    transform: translateX(3px);
+}
+
+/* 3. Upcoming Milestones List */
+.xp-milestones-card {
+    background-color: #FAF8F5;
+    border: 1px solid #E5DFD5;
+    border-radius: 20px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.milestones-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.milestone-item {
+    background-color: #FFFFFF;
+    border: 1px solid #EFE8DC;
+    border-radius: 14px;
+    padding: 18px 22px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    transition: all 0.15s ease;
+}
+
+.milestone-item:hover {
+    border-color: #DF6A74;
+}
+
+.milestone-lvl-badge {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: #FAF4EB;
+    border: 2px solid #E5DFD5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: #44403C;
+    flex-shrink: 0;
+}
+
+.milestone-lvl-badge.next-up {
+    border-color: #DF6A74;
+    color: #DF6A74;
+    background-color: #FDE8EA;
+}
+
+.milestone-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.milestone-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.milestone-name {
+    font-size: 0.98rem;
+    font-weight: 800;
+    color: #18181B;
+    margin: 0;
+}
+
+.milestone-next-tag {
+    font-size: 0.65rem;
+    font-weight: 800;
+    background-color: #FDE8EA;
+    color: #DF6A74;
+    padding: 3px 8px;
+    border-radius: 6px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.milestone-unlock-info {
+    font-size: 0.8rem;
+    color: #78716C;
+    font-weight: 600;
+    margin: 0;
+}
+
+.milestone-tags-row {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 2px;
+}
+
+.milestone-tag {
+    font-size: 0.72rem;
+    font-weight: 600;
+    background-color: #F5EFE6;
+    color: #57534E;
+    padding: 3px 10px;
+    border-radius: 6px;
+}
+
+/* 4. Right Column: Recent Trophies Card */
+.xp-trophies-card {
+    background-color: #FAF8F5;
+    border: 1px solid #E5DFD5;
+    border-radius: 20px;
+    padding: 26px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.xp-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.xp-card-title {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #18181B;
+    margin: 0;
+    letter-spacing: -0.015em;
+}
+
+.xp-card-link {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #DF6A74;
+    text-decoration: none;
+}
+
+.xp-card-link:hover {
+    text-decoration: underline;
+}
+
+.trophies-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+.trophy-item-box {
+    background-color: #FAF4EB;
+    border: 1px solid #EFE6D8;
+    border-radius: 14px;
+    padding: 20px 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    text-align: center;
+}
+
+.trophy-circle-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: #FFFFFF;
+    color: #DF6A74;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.trophy-circle-icon.star {
+    color: #D97706;
+}
+
+.trophy-circle-icon svg {
+    width: 22px;
+    height: 22px;
+}
+
+.trophy-title {
+    font-size: 0.82rem;
+    font-weight: 800;
+    color: #18181B;
+    margin: 0;
+}
+
+.trophy-sub {
+    font-size: 0.72rem;
+    color: #78716C;
+    font-weight: 500;
+    margin: 0;
+}
+
+/* 5. Right Column: XP Activity Feed */
+.xp-activity-card {
+    background-color: #FAF8F5;
+    border: 1px solid #E5DFD5;
+    border-radius: 20px;
+    padding: 26px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.activity-filter-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: transparent;
+    border: none;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #78716C;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.activity-filter-btn:hover {
+    color: #18181B;
+}
+
+.activity-filter-btn svg {
+    width: 14px;
+    height: 14px;
+}
+
+.activity-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.activity-item {
+    background-color: #FFFFFF;
+    border: 1px solid #EFE8DC;
+    border-radius: 12px;
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    transition: all 0.15s ease;
+}
+
+.activity-item:hover {
+    border-color: #E2DBD0;
+    transform: translateX(2px);
+}
+
+.activity-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.activity-icon-wrap {
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.activity-icon-wrap svg {
+    width: 16px;
+    height: 16px;
+}
+
+.act-plus {
+    background-color: #FDE8EA;
+    color: #DF6A74;
+}
+
+.act-habit {
+    background-color: #FDE8EA;
+    color: #DF6A74;
+}
+
+.act-trophy {
+    background-color: #FDE8EA;
+    color: #DF6A74;
+}
+
+.activity-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.activity-title {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: #18181B;
+    margin: 0;
+}
+
+.activity-sub {
+    font-size: 0.72rem;
+    color: #78716C;
+    font-weight: 500;
+    margin: 0;
+}
+
+.activity-amount {
+    font-size: 0.9rem;
+    font-weight: 800;
+    color: #DF6A74;
+    white-space: nowrap;
+}
+
+/* Skeleton Loading Placeholder */
+.activity-skeleton-item {
+    background-color: #FAF4EB;
+    border-radius: 10px;
+    height: 38px;
+    width: 100%;
+    opacity: 0.6;
+}
+
+.activity-loading-text {
+    font-size: 0.76rem;
+    font-style: italic;
+    color: #A8A29E;
+    text-align: center;
+    margin: 4px 0;
+}
+
+.btn-load-history {
+    width: 100%;
+    background-color: #FFFFFF;
+    border: 1.5px solid #E2DBD0;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: #44403C;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.15s ease;
+}
+
+.btn-load-history:hover {
+    background-color: #FAF5EE;
+    border-color: #DF6A74;
+    color: #DF6A74;
+}

@@ -11,6 +11,15 @@ namespace IGNITE.Student
         {
             if (!IsPostBack)
             {
+                string mode = (Request.QueryString["mode"] ?? string.Empty).ToLowerInvariant();
+                string edit = (Request.QueryString["edit"] ?? string.Empty).ToLowerInvariant();
+                if (mode == "settings" || edit == "true")
+                {
+                    pnlProfileOverview.Style["display"] = "none";
+                    pnlPreferencesSection.Style["display"] = "block";
+                    litTopPageTitle.Text = "Settings";
+                }
+
                 LoadProfileData();
             }
         }
@@ -22,11 +31,11 @@ namespace IGNITE.Student
             {
                 fullName = (HttpContext.Current.User != null && HttpContext.Current.User.Identity.IsAuthenticated)
                     ? HttpContext.Current.User.Identity.Name
-                    : "Alex Mercer";
+                    : "Ritesh Ramaiya";
             }
             txtFullName.Text = fullName;
 
-            string email = Session["Email"] as string ?? "alex.mercer@university.edu";
+            string email = Session["Email"] as string ?? "riteshramaiya2277@gmail.com";
             txtEmailAddress.Text = email;
 
             if (Session["College"] != null)
@@ -59,14 +68,50 @@ namespace IGNITE.Student
                 }
             }
 
-            if (Session["Semester"] != null)
+            // Overview Hero & Stats binding
+            litHeroName.Text = fullName;
+            string[] nameParts = fullName.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+            if (nameParts.Length > 1)
             {
-                var item = ddlSemester.Items.FindByValue(Session["Semester"].ToString());
-                if (item != null)
-                {
-                    ddlSemester.ClearSelection();
-                    item.Selected = true;
-                }
+                litHeroInitials.Text = (nameParts[0].Substring(0, 1) + nameParts[nameParts.Length - 1].Substring(0, 1)).ToUpper();
+            }
+            else if (nameParts.Length == 1 && nameParts[0].Length > 0)
+            {
+                litHeroInitials.Text = nameParts[0].Substring(0, Math.Min(2, nameParts[0].Length)).ToUpper();
+            }
+
+            string institution = Session["College"] as string ?? ddlCollege.SelectedValue;
+            litHeroInstitution.Text = institution;
+            litAcademicUniv.Text = institution;
+
+            string major = Session["Course"] as string ?? ddlCourse.SelectedValue;
+            litHeroMajor.Text = major;
+            litAcademicMajor.Text = major;
+
+            string academicYear = Session["AcademicYear"] as string ?? ddlAcademicYear.SelectedValue;
+            litAcademicYear.Text = academicYear;
+
+            string semester = Session["Semester"] as string ?? ddlSemester.SelectedValue;
+            litHeroSemester.Text = semester;
+            litAcademicSemester.Text = semester;
+
+            int levelNum = 12;
+            if (Session["CurrentLevel"] != null && int.TryParse(Session["CurrentLevel"].ToString(), out int parsedLvl))
+            {
+                levelNum = parsedLvl;
+            }
+            litHeroLvlBadge.Text = "LVL " + levelNum;
+
+            int streak = 15;
+            if (Session["Streak"] != null && int.TryParse(Session["Streak"].ToString(), out int parsedStreak))
+            {
+                streak = parsedStreak;
+            }
+            litTotalStreak.Text = streak + " Days";
+
+            if (Session["TotalXP"] != null)
+            {
+                litTotalXP.Text = Session["TotalXP"].ToString();
             }
         }
 
@@ -106,7 +151,7 @@ namespace IGNITE.Student
                 Response.Cookies.Add(authCookie);
             }
 
-            Response.Redirect("~/Login.aspx");
+            Response.Redirect("~/auth-onboarding/Login.aspx");
         }
     }
 }

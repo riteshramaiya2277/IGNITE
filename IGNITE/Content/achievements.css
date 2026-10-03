@@ -1,0 +1,517 @@
+/* ==========================================================================
+   IGNITE — My Achievements Stylesheet
+   Matches IGNITE theme and Figma design:
+   - Header with Total Progress bar & remaining count
+   - Milestone Achievements (Foundation)
+   - Monthly Challenges (Expert)
+   - Hidden Achievements (Discovery)
+   ========================================================================== */
+
+.achievements-canvas {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    width: 100%;
+    padding-bottom: 60px;
+}
+
+/* 1. Top Row: Title + Progress Card */
+.achievements-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.achievements-title-block {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.achievements-main-title {
+    font-size: 1.85rem;
+    font-weight: 800;
+    color: #18181B;
+    letter-spacing: -0.025em;
+    line-height: 1.2;
+    margin: 0;
+}
+
+.achievements-sub-title {
+    font-size: 0.95rem;
+    color: #78716C;
+    font-weight: 500;
+    margin: 0;
+}
+
+/* Total Progress Box on Top Right */
+.achievements-top-progress {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 6px;
+    min-width: 220px;
+}
+
+.progress-header-nums {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #78716C;
+}
+
+.progress-score {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #10B981;
+}
+
+.progress-score .total-denom {
+    color: #78716C;
+    font-weight: 600;
+    font-size: 1.05rem;
+}
+
+.progress-bar-wrap {
+    width: 180px;
+    height: 9px;
+    background-color: #EFE9DF;
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #DF6A74, #E57373);
+    border-radius: 999px;
+    transition: width 0.4s ease;
+}
+
+.progress-discover-note {
+    font-size: 0.75rem;
+    color: #A8A29E;
+    font-style: italic;
+    font-weight: 500;
+}
+
+/* 2. Section Headers with Vertical Accent & Tag */
+.achievements-section {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.achievements-section-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.section-accent-bar {
+    width: 3.5px;
+    height: 18px;
+    border-radius: 2px;
+    flex-shrink: 0;
+}
+
+.accent-green {
+    background-color: #16A34A;
+}
+
+.accent-blue {
+    background-color: #2563EB;
+}
+
+.accent-purple {
+    background-color: #7C3AED;
+}
+
+.section-heading-text {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #18181B;
+    letter-spacing: -0.01em;
+    margin: 0;
+}
+
+.section-category-badge {
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+
+.badge-foundation {
+    background-color: #DCFCE7;
+    color: #15803D;
+}
+
+.badge-expert {
+    background-color: #DBEAFE;
+    color: #1D4ED8;
+}
+
+.badge-discovery {
+    background-color: #EDE9FE;
+    color: #6D28D9;
+}
+
+/* 3. Milestone Achievements - 3 Column Grid */
+.milestones-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+@media (max-width: 992px) {
+    .milestones-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.milestone-card {
+    background-color: #FFFFFF;
+    border: 1px solid #ECE7DE;
+    border-radius: 18px;
+    padding: 28px 24px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.milestone-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+}
+
+.milestone-card.card-featured {
+    border: 1.5px solid #F87171;
+}
+
+.milestone-card.card-locked {
+    background-color: #FAF9F6;
+    opacity: 0.85;
+}
+
+.new-tag-pill {
+    position: absolute;
+    top: -10px;
+    right: 18px;
+    background-color: #EF4444;
+    color: #FFFFFF;
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    padding: 2px 10px;
+    border-radius: 999px;
+    text-transform: uppercase;
+    box-shadow: 0 2px 6px rgba(239, 68, 68, 0.35);
+}
+
+.milestone-icon-circle {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 14px;
+}
+
+.circle-green {
+    background-color: #DCFCE7;
+    color: #16A34A;
+}
+
+.circle-amber {
+    background-color: #FEF3C7;
+    color: #D97706;
+}
+
+.circle-muted {
+    background-color: #F3F4F6;
+    color: #9CA3AF;
+}
+
+.milestone-card-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #18181B;
+    margin: 0 0 6px 0;
+}
+
+.milestone-card.card-locked .milestone-card-title {
+    color: #6B7280;
+}
+
+.milestone-card-desc {
+    font-size: 0.84rem;
+    color: #78716C;
+    line-height: 1.4;
+    margin: 0;
+    max-width: 280px;
+}
+
+.milestone-card.card-locked .milestone-card-desc {
+    color: #9CA3AF;
+}
+
+.milestone-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 24px;
+    padding-top: 14px;
+    border-top: 1px solid #F3EFEA;
+    font-size: 0.74rem;
+    font-weight: 600;
+}
+
+.milestone-card.card-locked .milestone-card-footer {
+    justify-content: center;
+}
+
+.footer-date-lbl {
+    color: #A8A29E;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.footer-xp-lbl {
+    color: #059669;
+    font-weight: 700;
+    font-size: 0.8rem;
+}
+
+.footer-locked-lbl {
+    color: #9CA3AF;
+    font-style: italic;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+}
+
+/* 4. Monthly Challenges - 2 Column Wide Cards */
+.challenges-two-col {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+@media (max-width: 860px) {
+    .challenges-two-col {
+        grid-template-columns: 1fr;
+    }
+}
+
+.challenge-row-card {
+    background-color: #FFFFFF;
+    border: 1px solid #ECE7DE;
+    border-radius: 18px;
+    padding: 22px 24px;
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    position: relative;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.challenge-row-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+}
+
+.challenge-badge-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.challenge-badge-blue {
+    background-color: #EFF6FF;
+    color: #3B82F6;
+}
+
+.challenge-badge-grey {
+    background-color: #F3F4F6;
+    color: #9CA3AF;
+}
+
+.challenge-body {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    gap: 4px;
+    padding-right: 70px;
+}
+
+.challenge-body-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #18181B;
+    margin: 0;
+}
+
+.challenge-row-card.card-locked .challenge-body-title {
+    color: #4B5563;
+}
+
+.challenge-body-desc {
+    font-size: 0.84rem;
+    color: #78716C;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.challenge-status-row {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 10px;
+    font-size: 0.76rem;
+    font-weight: 600;
+}
+
+.status-unlocked {
+    color: #059669;
+}
+
+.status-inprogress {
+    color: #9CA3AF;
+    letter-spacing: 0.03em;
+}
+
+.challenge-xp-badge {
+    position: absolute;
+    top: 20px;
+    right: 22px;
+    font-size: 0.74rem;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 999px;
+}
+
+.xp-badge-amber {
+    background-color: #FEF3C7;
+    color: #B45309;
+}
+
+.xp-badge-grey {
+    background-color: #F3F4F6;
+    color: #6B7280;
+}
+
+/* 5. Hidden Achievements - 4 Column Grid */
+.hidden-four-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+@media (max-width: 992px) {
+    .hidden-four-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 540px) {
+    .hidden-four-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.hidden-item-card {
+    background-color: #FFFFFF;
+    border: 1px solid #ECE7DE;
+    border-radius: 18px;
+    padding: 26px 18px 22px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hidden-item-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+}
+
+.hidden-item-card.discovered {
+    border: 1px solid #EDE9FE;
+    background-color: #FFFFFF;
+}
+
+.hidden-item-card.undiscovered {
+    background-color: transparent;
+    border: 1.5px dashed #D6D3D1;
+    box-shadow: none;
+}
+
+.hidden-icon-wrap {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 14px;
+}
+
+.icon-purple-circle {
+    background-color: #EDE9FE;
+    color: #7C3AED;
+}
+
+.icon-mystery-circle {
+    background-color: #F3F4F6;
+    color: #9CA3AF;
+}
+
+.hidden-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #18181B;
+    margin: 0 0 6px 0;
+}
+
+.hidden-item-card.undiscovered .hidden-title {
+    color: #6B7280;
+}
+
+.hidden-desc {
+    font-size: 0.8rem;
+    color: #78716C;
+    line-height: 1.35;
+    margin: 0;
+}
+
+.hidden-item-card.undiscovered .hidden-desc {
+    color: #9CA3AF;
+}
+
+.hidden-xp-pill {
+    margin-top: 16px;
+    background-color: #EDE9FE;
+    color: #7C3AED;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 999px;
+}

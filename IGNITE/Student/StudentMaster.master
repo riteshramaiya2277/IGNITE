@@ -109,7 +109,7 @@
 
                 <!-- Bottom Section: Settings & User Profile Card -->
                 <div class="sidebar-footer">
-                    <a id="navSettings" runat="server" href="~/Student/Profile.aspx" class="settings-pill-btn">
+                    <a id="navSettings" runat="server" href="~/Student/Profile.aspx?mode=settings" class="settings-pill-btn">
                         <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
                             <circle cx="12" cy="12" r="3"></circle>
                             <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
@@ -118,19 +118,19 @@
                     </a>
 
                     <!-- User Profile Card -->
-                    <div class="user-profile-card">
+                    <div class="user-profile-card" onclick="window.location.href='<%= ResolveUrl("~/Student/Profile.aspx") %>';" style="cursor: pointer;" title="View Profile">
                         <div class="user-avatar-ring">
                             <span class="avatar-ring-inner"></span>
                         </div>
                         <div class="user-card-info">
                             <div class="user-card-name">
-                                <asp:Literal ID="litStudentName" runat="server">Alex Mercer</asp:Literal>
+                                <asp:Literal ID="litStudentName" runat="server">Ritesh Ramaiya</asp:Literal>
                             </div>
                             <div class="user-card-role">
                                 <asp:Literal ID="litStudentLevelTitle" runat="server">Level 12 Scholar</asp:Literal>
                             </div>
                         </div>
-                        <asp:LinkButton ID="btnLogout" runat="server" OnClick="btnLogout_Click" CssClass="card-logout-btn" title="Sign Out" CausesValidation="false">
+                        <asp:LinkButton ID="btnLogout" runat="server" OnClick="btnLogout_Click" OnClientClick="event.stopPropagation();" CssClass="card-logout-btn" title="Sign Out" CausesValidation="false">
                             <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/>
                             </svg>
@@ -160,7 +160,7 @@
                     <!-- Right: XP Meter, Notification Bell, Search -->
                     <div class="topbar-right">
                         <!-- Level & XP Widget -->
-                        <div class="xp-container">
+                        <div class="xp-container" onclick="window.location.href='<%= ResolveUrl("~/Student/XP.aspx") %>';" style="cursor: pointer;" title="View XP & Level Details">
                             <div class="xp-labels">
                                 <span class="lvl-label">LVL <asp:Literal ID="litLevelNum" runat="server">12</asp:Literal></span>
                                 <span class="xp-label"><asp:Literal ID="litXPText" runat="server">4,500 / 6,000 XP</asp:Literal></span>

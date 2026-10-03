@@ -1,8 +1,10 @@
 /* ==========================================================================
-   IGNITE — Student Manage Preferences / Profile Stylesheet
-   Faithfully matches Figma UI:
-   Warm Sand/Cream palette, Coral/Rose accents (#DF6A74),
-   Profile Information Form, Password & Security row, and Danger Zone.
+   IGNITE — Student Profile & Manage Preferences Stylesheet
+   Matches Figma UI faithfully:
+   - Profile Hero Banner Card with avatar, level badge, tags, Edit Profile button
+   - Two-column grid: Academic Profile card with metadata & goals
+   - Right column: Overall Progress card & Recent Achievements badges
+   - Manage Preferences form card with toggles, inputs, and actions
    ========================================================================== */
 
 /* 1. Main Canvas */
@@ -37,7 +39,467 @@
     margin: 0;
 }
 
-/* 3. Section Cards */
+/* ==========================================================================
+   Profile Overview: Hero Banner Card (Matches exact Figma screenshot)
+   ========================================================================== */
+.profile-hero-card {
+    background-color: #FAF8F5;
+    border: 1px solid #E5DFD5;
+    border-radius: 20px;
+    padding: 32px 36px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.profile-hero-left {
+    display: flex;
+    align-items: center;
+    gap: 26px;
+    flex-wrap: wrap;
+}
+
+.profile-hero-avatar-wrap {
+    position: relative;
+    width: 96px;
+    height: 96px;
+    flex-shrink: 0;
+}
+
+.profile-hero-avatar {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: #DF6A74;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    font-size: 2.2rem;
+    font-weight: 800;
+    overflow: hidden;
+    box-shadow: 0 4px 14px rgba(223, 106, 116, 0.25);
+}
+
+.profile-hero-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-hero-lvl-badge {
+    position: absolute;
+    bottom: -2px;
+    right: -4px;
+    background-color: #DF6A74;
+    color: #FFFFFF;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    padding: 3px 8px;
+    border-radius: 9999px;
+    border: 2px solid #FAF8F5;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.12);
+}
+
+.profile-hero-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.profile-hero-name {
+    font-size: 1.65rem;
+    font-weight: 800;
+    color: #18181B;
+    margin: 0;
+    letter-spacing: -0.02em;
+}
+
+.profile-hero-institution {
+    font-size: 0.95rem;
+    color: #78716C;
+    font-weight: 600;
+    margin: 0 0 6px 0;
+}
+
+.profile-hero-tags {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.profile-hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.86rem;
+    font-weight: 600;
+    color: #DF6A74;
+}
+
+.profile-hero-tag svg {
+    color: #DF6A74;
+    flex-shrink: 0;
+}
+
+.profile-hero-right {
+    display: flex;
+    align-items: center;
+}
+
+.btn-edit-profile-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #FFFFFF;
+    border: 1.5px solid #E2DBD0;
+    border-radius: 9999px;
+    padding: 10px 22px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: #292524;
+    cursor: pointer;
+    font-family: inherit;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    transition: all 0.15s ease;
+}
+
+.btn-edit-profile-pill:hover {
+    border-color: #DF6A74;
+    color: #DF6A74;
+    background-color: #FAF5EE;
+    transform: translateY(-1px);
+}
+
+.btn-edit-profile-pill svg {
+    width: 15px;
+    height: 15px;
+}
+
+/* ==========================================================================
+   Two Column Profile Overview Grid
+   ========================================================================== */
+.profile-overview-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    gap: 24px;
+    align-items: start;
+}
+
+@media (max-width: 980px) {
+    .profile-overview-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.profile-section-card {
+    background-color: #FAF8F5;
+    border: 1px solid #E5DFD5;
+    border-radius: 20px;
+    padding: 28px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.profile-section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.profile-section-title-wrap {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.profile-section-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background-color: #FAF0E4;
+    color: #EA580C;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.profile-section-icon svg {
+    width: 18px;
+    height: 18px;
+}
+
+.profile-section-title {
+    font-size: 1.18rem;
+    font-weight: 800;
+    color: #18181B;
+    margin: 0;
+    letter-spacing: -0.015em;
+}
+
+.profile-section-subtitle {
+    font-size: 0.85rem;
+    color: #78716C;
+    font-weight: 600;
+    margin: 2px 0 0 0;
+}
+
+.profile-section-link {
+    font-size: 0.84rem;
+    font-weight: 700;
+    color: #DF6A74;
+    text-decoration: none;
+    transition: color 0.15s ease;
+}
+
+.profile-section-link:hover {
+    color: #C85660;
+    text-decoration: underline;
+}
+
+/* Academic Fields Grid */
+.academic-fields-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 24px;
+}
+
+.academic-field-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.academic-field-label {
+    font-size: 0.7rem;
+    font-weight: 800;
+    color: #A8A29E;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+}
+
+.academic-field-value {
+    font-size: 1.02rem;
+    font-weight: 800;
+    color: #18181B;
+}
+
+/* Academic Goals */
+.academic-goals-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 6px;
+}
+
+.academic-goals-label {
+    font-size: 0.7rem;
+    font-weight: 800;
+    color: #A8A29E;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    margin-bottom: 2px;
+}
+
+.academic-goal-item {
+    background-color: #FAF4EB;
+    border: 1px solid #EFE6D8;
+    border-radius: 12px;
+    padding: 13px 18px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    transition: all 0.15s ease;
+}
+
+.academic-goal-item:hover {
+    background-color: #F6EDE0;
+}
+
+.goal-checkbox-custom {
+    width: 20px;
+    height: 20px;
+    border-radius: 6px;
+    border: 1.5px solid #D6CEBE;
+    background-color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.goal-checkbox-custom.checked {
+    background-color: #DF6A74;
+    border-color: #DF6A74;
+    color: #FFFFFF;
+}
+
+.goal-checkbox-custom.checked svg {
+    width: 14px;
+    height: 14px;
+    stroke: #FFFFFF;
+    stroke-width: 3;
+}
+
+.academic-goal-text {
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: #292524;
+}
+
+/* Overall Progress Card */
+.overall-progress-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.progress-stat-row {
+    background-color: #FAF4EB;
+    border: 1px solid #EFE6D8;
+    border-radius: 14px;
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.15s ease;
+}
+
+.progress-stat-row:hover {
+    background-color: #F6EDE0;
+}
+
+.progress-stat-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.progress-stat-icon-wrap {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.icon-wrap-streak {
+    background-color: #FDE8EA;
+    color: #DF6A74;
+}
+
+.icon-wrap-challenges {
+    background-color: #FCE7D8;
+    color: #EA580C;
+}
+
+.icon-wrap-xp {
+    background-color: #FDE8EA;
+    color: #DF6A74;
+}
+
+.progress-stat-label {
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: #292524;
+}
+
+.progress-stat-value {
+    font-size: 1.05rem;
+    font-weight: 800;
+}
+
+.value-streak {
+    color: #DF6A74;
+}
+
+.value-challenges {
+    color: #18181B;
+}
+
+.value-xp {
+    color: #18181B;
+}
+
+/* Recent Achievements Badges Row */
+.achievements-badges-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin-top: 4px;
+}
+
+.achievement-badge-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+}
+
+.achievement-badge-circle {
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    cursor: pointer;
+}
+
+.achievement-badge-circle:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.badge-bg-flame {
+    background: #FFF0E6;
+    color: #EA580C;
+    border: 1px solid #FED7AA;
+}
+
+.badge-bg-brain {
+    background: #FCE7E9;
+    color: #DF6A74;
+    border: 1px solid #FBCFE8;
+}
+
+.badge-bg-star {
+    background: #FEF3C7;
+    color: #D97706;
+    border: 1px solid #FDE68A;
+}
+
+.badge-bg-locked {
+    background: #F1ECE4;
+    color: #9CA3AF;
+    border: 1px solid #E5DFD5;
+}
+
+.achievement-badge-label {
+    font-size: 0.74rem;
+    font-weight: 700;
+    color: #44403C;
+    line-height: 1.25;
+}
+
+/* ==========================================================================
+   Edit Profile / Manage Preferences Section
+   ========================================================================== */
 .pref-card {
     background-color: #FAF8F5;
     border: 1px solid #E5DFD5;
@@ -56,7 +518,6 @@
     letter-spacing: -0.015em;
 }
 
-/* 4. Avatar & Profile Top Row */
 .profile-info-grid {
     display: flex;
     flex-direction: column;
@@ -132,7 +593,6 @@
     height: 13px;
 }
 
-/* 5. Form Fields Grid */
 .pref-form-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -179,7 +639,6 @@
     box-shadow: 0 0 0 3px rgba(223, 106, 116, 0.12);
 }
 
-/* Custom Dropdown Select */
 .pref-select-wrap {
     position: relative;
     width: 100%;
@@ -223,7 +682,6 @@
     height: 16px;
 }
 
-/* 6. Form Action Buttons */
 .pref-actions-row {
     display: flex;
     align-items: center;
@@ -269,7 +727,7 @@
     color: #18181B;
 }
 
-/* 7. Password & Security Card */
+/* Security & Password Card */
 .security-card {
     background-color: #FAF8F5;
     border: 1px solid #E5DFD5;
@@ -358,7 +816,7 @@
     height: 15px;
 }
 
-/* 8. Danger Zone Card */
+/* Danger Zone Card */
 .danger-zone-card {
     background-color: #FFF8F8;
     border: 1.5px solid #FBCFE8;
@@ -429,7 +887,7 @@
     color: #FFFFFF;
 }
 
-/* 9. Modals for Change Password & Delete Account */
+/* Modals */
 .pref-modal-overlay {
     position: fixed;
     top: 0;
@@ -518,112 +976,35 @@
     margin-top: 6px;
 }
 
-/* ==========================================================================
-   Security & Password Card (Exact User Screenshot)
-   ========================================================================== */
-.security-password-panel {
-    background-color: #FAF8F5;
-    border: 1px solid #E5DFD5;
-    border-radius: 20px;
-    padding: 30px 34px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    transition: all 0.3s ease;
-}
-
-.security-password-title {
-    font-size: 1.25rem;
-    font-weight: 800;
-    color: #18181B;
-    margin: 0;
-    letter-spacing: -0.015em;
-}
-
-.security-password-row {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    margin-top: 4px;
-}
-
-@media (max-width: 900px) {
-    .security-password-row {
-        grid-template-columns: 1fr;
-    }
-}
-
-.password-input-wrapper {
-    position: relative;
-    display: flex;
-    align-items: center;
-    width: 100%;
-}
-
-.password-input-field {
-    width: 100%;
-    background-color: #FFFFFF;
-    border: 1px solid #E2DBD0;
-    border-radius: 12px;
-    padding: 13px 44px 13px 16px;
-    font-family: inherit;
-    font-size: 0.95rem;
-    color: #18181B;
-    transition: border-color 0.15s ease, box-shadow 0.15s ease;
-    box-sizing: border-box;
-}
-
-.password-input-field:focus {
-    border-color: #DF6A74;
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(223, 106, 116, 0.12);
-}
-
-.btn-toggle-eye {
-    position: absolute;
-    right: 14px;
-    top: 50%;
-    transform: translateY(-50%);
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: #9CA3AF;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 4px;
-    transition: color 0.15s ease;
-}
-
-.btn-toggle-eye:hover {
-    color: #4B5563;
-}
-
-.btn-toggle-eye svg {
-    width: 18px;
-    height: 18px;
-}
-
-.security-password-actions {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 6px;
-}
-
-.btn-update-security {
-    background-color: #FAF5EE;
-    border: 1.5px solid #DF6A74;
-    color: #DF6A74;
-    font-size: 0.92rem;
-    font-weight: 700;
-    padding: 10px 24px;
-    border-radius: 10px;
-    cursor: pointer;
-    font-family: inherit;
-    transition: all 0.15s ease;
-}
-
-.btn-update-security:hover {
-    background-color: #DF6A74;
+/* Toast */
+.toast-notice {
+    position: fixed;
+    bottom: 28px;
+    right: 32px;
+    background-color: #18181B;
     color: #FFFFFF;
+    padding: 14px 22px;
+    border-radius: 12px;
+    font-size: 0.92rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    z-index: 10000;
+    transform: translateY(80px);
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: none;
+}
+
+.toast-notice.show {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.toast-notice svg {
+    color: #10B981;
+    flex-shrink: 0;
 }

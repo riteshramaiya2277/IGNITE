@@ -17,12 +17,18 @@ namespace IGNITE.AuthOnboarding
             }
 
             EmailValue = (Request.Form["email"] ?? string.Empty).Trim();
+            if (string.IsNullOrWhiteSpace(EmailValue))
+            {
+                StatusMessage = "Enter a valid email address.";
+                return;
+            }
+
             try
             {
                 new MailAddress(EmailValue);
                 StatusMessage = "Password recovery is not connected yet. Return to sign in or create a new prototype account.";
             }
-            catch (FormatException)
+            catch (Exception)
             {
                 StatusMessage = "Enter a valid email address.";
             }

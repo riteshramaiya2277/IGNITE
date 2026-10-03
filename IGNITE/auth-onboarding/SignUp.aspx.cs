@@ -52,6 +52,8 @@ namespace IGNITE.AuthOnboarding
             Session["IGNITE.Auth.Salt"] = salt;
             Session["IGNITE.Auth.PasswordHash"] = AuthSecurity.HashPassword(password, salt);
             Session["IGNITE.FullName"] = FullNameValue;
+            Session["FullName"] = FullNameValue;
+            Session["Email"] = EmailValue;
             Session["IGNITE.Authenticated"] = true;
             Session["IGNITE.ProfileComplete"] = false;
 
@@ -61,11 +63,16 @@ namespace IGNITE.AuthOnboarding
 
         private static bool IsValidEmail(string value)
         {
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                return false;
+            }
+
             try
             {
                 return string.Equals(new MailAddress(value).Address, value, StringComparison.OrdinalIgnoreCase);
             }
-            catch (FormatException)
+            catch (Exception)
             {
                 return false;
             }
