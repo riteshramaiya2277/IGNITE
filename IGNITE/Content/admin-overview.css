@@ -1,0 +1,527 @@
+.overview-container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 24px 32px;
+}
+
+/* Page Header & Actions */
+.overview-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.overview-title {
+    font-size: 24px;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin: 0;
+}
+
+.header-actions {
+    display: flex;
+    gap: 12px;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s ease;
+}
+
+.btn svg {
+    width: 16px;
+    height: 16px;
+}
+
+.btn-primary {
+    background-color: #E27B8A;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #d16978;
+}
+
+.btn-secondary {
+    background-color: #E8E5DF;
+    color: #1a1a1a;
+}
+
+.btn-secondary:hover {
+    background-color: #d9d5cd;
+}
+
+.btn-outline {
+    background-color: transparent;
+    border: 1px solid #d9d5cd;
+    color: #1a1a1a;
+}
+
+/* Stats Grid */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 16px;
+}
+
+.stat-card {
+    background: #EBE8E1;
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.stat-title {
+    font-size: 11px;
+    font-weight: 700;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.stat-value {
+    font-size: 28px;
+    font-weight: 800;
+    color: #1a1a1a;
+    line-height: 1;
+}
+
+.stat-value.highlight {
+    color: #E27B8A;
+}
+
+.stat-subtext {
+    font-size: 12px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.text-green {
+    color: #2E8B57;
+}
+
+.text-grey {
+    color: #888;
+}
+
+.text-orange {
+    color: #D28833;
+}
+
+/* Main Content Grid */
+.main-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 24px;
+}
+
+.panel {
+    background: #EBE8E1;
+    border-radius: 12px;
+    padding: 24px;
+    border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.panel-title {
+    font-size: 13px;
+    font-weight: 800;
+    color: #1a1a1a;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.panel-action {
+    font-size: 12px;
+    font-weight: 600;
+    color: #E27B8A;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.panel-action:hover {
+    text-decoration: underline;
+}
+
+/* Table */
+.activity-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.activity-table th {
+    text-align: left;
+    font-size: 10px;
+    font-weight: 700;
+    color: #999;
+    text-transform: uppercase;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.activity-table td {
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    vertical-align: middle;
+}
+
+.student-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #E27B8A;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.student-name {
+    font-weight: 700;
+    color: #1a1a1a;
+    font-size: 14px;
+}
+
+.student-email,
+.course-year {
+    font-size: 12px;
+    color: #888;
+}
+
+.course-name {
+    font-weight: 600;
+    color: #444;
+    font-size: 13px;
+}
+
+.level-badge {
+    background: #FFF3E0;
+    color: #F57C00;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.xp-text {
+    font-size: 12px;
+    color: #888;
+    margin-left: 8px;
+}
+
+.streak-text {
+    font-size: 13px;
+    font-weight: 700;
+    color: #D28833;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.streak-text.zero {
+    color: #888;
+}
+
+.status-badge {
+    font-size: 10px;
+    font-weight: 800;
+    padding: 4px 8px;
+    border-radius: 12px;
+}
+
+.status-badge.active {
+    color: #2E8B57;
+    background: rgba(46, 139, 87, 0.1);
+}
+
+.status-badge.inactive {
+    color: #666;
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.action-link {
+    font-size: 12px;
+    font-weight: 700;
+    color: #E27B8A;
+    text-decoration: none;
+}
+
+/* Pagination */
+.pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 24px;
+}
+
+.pagination-text {
+    font-size: 12px;
+    color: #888;
+}
+
+.pagination-controls {
+    display: flex;
+    gap: 8px;
+}
+
+.page-btn {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #666;
+    border: none;
+    cursor: pointer;
+}
+
+.page-btn.active {
+    background: #E27B8A;
+    color: white;
+}
+
+/* Stats List */
+.stats-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.stat-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+}
+
+.stat-label {
+    color: #666;
+}
+
+.stat-val {
+    font-weight: 700;
+    color: #1a1a1a;
+}
+
+.stat-val.green {
+    color: #2E8B57;
+}
+
+/* Recent Achievement */
+.recent-achievement {
+    background: white;
+    border-radius: 8px;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.ach-icon {
+    width: 32px;
+    height: 32px;
+    background: #FFF3E0;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+}
+
+.ach-title {
+    font-weight: 700;
+    font-size: 13px;
+    color: #1a1a1a;
+}
+
+.ach-date {
+    font-size: 11px;
+    color: #888;
+}
+
+/* Active Challenges */
+.challenge-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.challenge-card {
+    background: white;
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.challenge-info {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.challenge-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.challenge-icon.code {
+    background: #E3F2FD;
+    color: #1976D2;
+}
+
+.challenge-icon.creative {
+    background: #F3E5F5;
+    color: #8E24AA;
+}
+
+.challenge-title {
+    font-weight: 700;
+    font-size: 14px;
+    color: #1a1a1a;
+    margin-bottom: 4px;
+}
+
+.challenge-meta {
+    font-size: 11px;
+    font-weight: 700;
+    color: #888;
+    text-transform: uppercase;
+}
+
+.challenge-meta span {
+    color: #1976D2;
+}
+
+.challenge-meta span.purple {
+    color: #8E24AA;
+}
+
+.challenge-stats {
+    text-align: right;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.participants {
+    font-size: 13px;
+    font-weight: 700;
+    color: #1a1a1a;
+}
+
+.ends-in {
+    font-size: 11px;
+    color: #888;
+    font-weight: 400;
+}
+
+/* Quests List */
+.quest-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.quest-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.quest-info {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.quest-icon {
+    font-size: 16px;
+    margin-top: 2px;
+}
+
+.quest-title {
+    font-weight: 700;
+    font-size: 13px;
+    color: #1a1a1a;
+    margin-bottom: 2px;
+}
+
+.quest-desc {
+    font-size: 11px;
+    color: #888;
+}
+
+.quest-stats {
+    text-align: right;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.quest-participants {
+    font-size: 12px;
+    font-weight: 700;
+    color: #1a1a1a;
+}
+
+.quest-trend {
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.quest-trend.stable {
+    color: #2E8B57;
+}
+
+.quest-trend.dropping {
+    color: #E27B8A;
+}
+
+.quest-trend.rising {
+    color: #2E8B57;
+}
+
+.quest-trend.queued {
+    color: #888;
+    font-weight: 500;
+}

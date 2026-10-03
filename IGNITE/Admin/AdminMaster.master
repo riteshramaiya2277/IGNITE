@@ -30,10 +30,7 @@
             <aside id="adminSidebar" class="admin-sidebar">
                 <!-- Brand / Logo -->
                 <a href="<%= ResolveUrl("~/Admin/Overview.aspx") %>" class="admin-sidebar-brand" title="IGNITE Admin Portal">
-                    <svg class="brand-flame-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 2C10.5 4.5 10 6.5 10 8.5C10 10.5 11 11.5 11 13C11 14 10 15 9 15C8 15 7 14 7 12.5C7 10 5.5 8.5 4.5 8C4.5 12 6.5 15.5 9 18C11.5 20.5 14.5 21.5 17 20C19.5 18.5 20.5 15.5 20 13C19.5 10.5 18 9 17 8C17 9.5 16 10.5 15 10.5C14 10.5 13.5 9.5 13.5 8C13.5 5.5 15 3.5 16 2.5C14.5 2 13 2 12 2Z" />
-                    </svg>
-                    <span class="brand-title">IGNITE</span>
+                    <img src="<%= ResolveUrl("~/assets/Container.svg") %>" alt="IGNITE" class="brand-container-logo" style="height: 32px; width: auto;" />
                 </a>
 
                 <!-- Section Category -->
