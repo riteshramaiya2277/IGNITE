@@ -4,15 +4,24 @@
     <link href="<%= ResolveUrl("~/Content/admin-student-profile.css") %>" rel="stylesheet" type="text/css" />
 </asp:Content>
 
+<asp:Content ID="TopbarContent" ContentPlaceHolderID="TopbarContent" runat="server">
+    <div style="display:flex; justify-content:space-between; align-items:center; width:100%; margin-right:auto;">
+        <a href="<%= ResolveUrl("~/Admin/Students.aspx") %>" class="back-link" style="color:#666; font-size:14px; font-weight:600; text-decoration:none; display:inline-flex; align-items:center; gap:8px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px; height:16px;"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            Back to Students
+        </a>
+        <div class="admin-profile-card" style="margin-left:auto; display:flex; align-items:center; gap:14px; background:transparent; border:none; box-shadow:none;">
+            <div style="text-align:right;">
+                <div style="font-weight:700; color:#1a1a1a; font-size:14px;">Admin User</div>
+                <div style="font-weight:600; color:#888; font-size:10px; text-transform:uppercase;">System Admin</div>
+            </div>
+            <img src="<%= ResolveUrl("~/assets/Avatar.png") %>" alt="User" style="width:34px; height:34px; border-radius:50%;" />
+        </div>
+    </div>
+</asp:Content>
+
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="profile-container">
-        
-        <div class="back-link-wrapper">
-            <a href="<%= ResolveUrl("~/Admin/Students.aspx") %>" class="back-link">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
-                Back to Students
-            </a>
-        </div>
 
         <!-- Header Card -->
         <div class="profile-header-card">

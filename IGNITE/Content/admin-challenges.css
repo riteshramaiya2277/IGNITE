@@ -1,0 +1,307 @@
+/* Challenges Page Styles */
+.challenges-container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 24px 32px;
+}
+
+/* Page Header */
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+.page-title {
+    font-size: 24px;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin: 0;
+}
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+.search-wrapper-local {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.search-wrapper-local svg {
+    position: absolute;
+    left: 12px;
+    width: 16px;
+    height: 16px;
+    color: #888;
+}
+.search-input-local {
+    padding: 10px 10px 10px 36px;
+    border: 1px solid #E0DCD3;
+    border-radius: 8px;
+    background: #fff;
+    font-size: 13px;
+    width: 240px;
+    outline: none;
+    font-family: inherit;
+}
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #D96A77;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.btn-primary:hover {
+    background: #C45A66;
+}
+.btn-primary svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* Filter Bar */
+.filter-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.filter-left, .filter-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.select-box {
+    padding: 8px 32px 8px 12px;
+    background: #fff;
+    border: 1px solid #E0DCD3;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #1a1a1a;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    cursor: pointer;
+}
+.sort-label {
+    font-size: 13px;
+    color: #666;
+}
+
+/* Table Container */
+.table-container {
+    background: #EAE6DF;
+    border-radius: 16px;
+    padding: 24px;
+}
+.challenges-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.challenges-table th {
+    text-align: left;
+    font-size: 11px;
+    font-weight: 800;
+    color: #888;
+    text-transform: uppercase;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #D8D4CC;
+}
+.challenges-table td {
+    padding: 20px 0;
+    border-bottom: 1px solid #D8D4CC;
+    vertical-align: middle;
+}
+.challenges-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* Table Cell Styling */
+.chal-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 4px;
+}
+.chal-ref {
+    font-size: 11px;
+    color: #888;
+}
+.chal-category, .chal-req {
+    font-size: 13px;
+    color: #555;
+}
+.chal-timeline {
+    font-size: 11px;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Badges */
+.badge-diff {
+    font-size: 10px;
+    font-weight: 800;
+    padding: 4px 8px;
+    border-radius: 12px;
+    text-transform: uppercase;
+}
+.badge-hard {
+    border: 1px solid #E24A4A;
+    color: #E24A4A;
+    background: #FDF3F4;
+}
+.badge-medium {
+    border: 1px solid #D4AF37;
+    color: #D4AF37;
+    background: #FDFDF3;
+}
+.badge-easy {
+    border: 1px solid #10B981;
+    color: #10B981;
+    background: #F3FDF8;
+}
+
+.xp-reward {
+    font-size: 13px;
+    font-weight: 700;
+    color: #1a1a1a;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+.xp-dot {
+    width: 6px;
+    height: 6px;
+    background: #F59E0B;
+    border-radius: 50%;
+}
+
+.status {
+    font-size: 12px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+.status.published { color: #10B981; }
+.status.draft { color: #888; }
+.status.archived { color: #E24A4A; }
+.status-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+}
+.published .status-dot { background: #10B981; }
+.draft .status-dot { background: #888; }
+.archived .status-dot { background: #E24A4A; }
+
+.action-btns {
+    display: flex;
+    gap: 12px;
+    color: #888;
+}
+.action-btns svg {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+.action-btns svg:hover {
+    color: #1a1a1a;
+}
+
+/* Pagination */
+.pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid #D8D4CC;
+}
+.pagination-text {
+    font-size: 13px;
+    color: #666;
+}
+.pagination-controls {
+    display: flex;
+    gap: 6px;
+}
+.page-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    border: none;
+    background: #fff;
+    color: #1a1a1a;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.page-btn.active {
+    background: #D96A77;
+    color: #fff;
+}
+.page-btn:hover:not(.active) {
+    background: #F4F1EC;
+}
+
+/* Bottom Stats Row */
+.stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+.stat-card {
+    background: #EAE6DF;
+    border-radius: 12px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+}
+.stat-card-title {
+    font-size: 11px;
+    font-weight: 800;
+    color: #888;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+.stat-card-value {
+    font-size: 28px;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin-bottom: 8px;
+}
+.stat-card-sub {
+    font-size: 12px;
+    color: #666;
+}
+.stat-card-sub.highlight {
+    color: #D96A77;
+    font-weight: 600;
+}
+.progress-bar {
+    height: 4px;
+    background: #D8D4CC;
+    border-radius: 2px;
+    margin-top: 12px;
+    overflow: hidden;
+}
+.progress-fill {
+    height: 100%;
+    background: #D96A77;
+    width: 64%;
+}

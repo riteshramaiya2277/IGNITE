@@ -129,25 +129,9 @@
                         </svg>
                     </button>
 
-                    <!-- Topbar Right Controls -->
-                    <div class="admin-topbar-right">
-                        <!-- System Status Badge -->
-                        <div class="admin-status-badge" title="System Status: Operational">
-                            <span class="status-dot"></span>
-                            <span class="status-label">
-                                <asp:Literal ID="litSystemStatus" runat="server">SYSTEM OPERATIONAL</asp:Literal>
-                            </span>
-                        </div>
-
-                        <!-- Search Bar -->
-                        <div class="admin-search-wrapper" role="search">
-                            <svg class="admin-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <circle cx="11" cy="11" r="8"></circle>
-                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                            </svg>
-                            <input type="text" id="adminSearchInput" class="admin-search-input" placeholder="Search students, quests..." autocomplete="off" />
-                        </div>
-                    </div>
+                    <!-- Topbar Content -->
+                    <asp:ContentPlaceHolder ID="TopbarContent" runat="server">
+                    </asp:ContentPlaceHolder>
                 </header>
 
                 <!-- Page Canvas Container -->

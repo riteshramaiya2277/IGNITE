@@ -28,10 +28,6 @@ namespace IGNITE.Admin
                     : "Admin";
             }
             litAdminTitle.Text = adminName;
-
-            // System Operational Status
-            string status = Session["SystemStatus"] as string ?? "SYSTEM OPERATIONAL";
-            litSystemStatus.Text = status;
         }
 
         private void HighlightActiveNavigation()
@@ -90,11 +86,7 @@ namespace IGNITE.Admin
             Response.Redirect(ResolveUrl("~/auth-onboarding/Login.aspx"), true);
         }
 
-        public string SystemStatus
-        {
-            get { return litSystemStatus.Text; }
-            set { litSystemStatus.Text = value; }
-        }
+
 
         public string AdminTitle
         {

@@ -4,6 +4,30 @@
     <link href="<%= ResolveUrl("~/Content/admin-students.css") %>" rel="stylesheet" type="text/css" />
 </asp:Content>
 
+<asp:Content ID="TopbarContent" ContentPlaceHolderID="TopbarContent" runat="server">
+    <div style="display:flex; justify-content:flex-end; align-items:center; width:100%; gap:24px;">
+        
+        <!-- Search Bar -->
+        <div style="display:flex; align-items:center; background:#fff; border-radius:24px; padding:8px 16px; width:280px; box-shadow:0 1px 2px rgba(0,0,0,0.02);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px; height:16px;">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" placeholder="Search platform..." style="border:none; outline:none; font-size:13px; margin-left:10px; width:100%; background:transparent; font-family:inherit;" />
+        </div>
+
+        <!-- Admin Profile -->
+        <div style="display:flex; align-items:center; gap:12px; cursor:pointer;">
+            <div style="text-align:right;">
+                <div style="font-weight:700; color:#1a1a1a; font-size:13px; line-height:1.2;">Admin User</div>
+                <div style="font-weight:700; color:#888; font-size:9px; text-transform:uppercase; letter-spacing:0.5px;">System Admin</div>
+            </div>
+            <div style="width:36px; height:36px; border-radius:50%; background:#1a1a1a url('<%= ResolveUrl("~/assets/Avatar.png") %>') center/cover; border:2px solid #D96A77;"></div>
+        </div>
+
+    </div>
+</asp:Content>
+
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="students-container">
         
