@@ -212,6 +212,13 @@
     <Compile Include="Student\AddNote.aspx.designer.cs">
       <DependentUpon>AddNote.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Database\test.aspx.cs">
+      <DependentUpon>test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Database\test.aspx.designer.cs">
+      <DependentUpon>test.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="auth-onboarding\Login.aspx" />
@@ -279,6 +286,7 @@
     <Content Include="Admin\ChallengeDetails.aspx" />
     <Content Include="Admin\CreateChallenge.aspx" />
     <Content Include="Admin\EditChallenge.aspx" />
+    <Content Include="Database\test.aspx" />
 
     <Content Include="Web.config" />
   </ItemGroup>
