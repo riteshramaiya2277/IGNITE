@@ -287,6 +287,7 @@
     <Content Include="Admin\ChallengeDetails.aspx" />
     <Content Include="Admin\CreateChallenge.aspx" />
     <Content Include="Admin\EditChallenge.aspx" />
+    <Content Include="Database\test.aspx" />
 
     <Content Include="Web.config" />
   </ItemGroup>

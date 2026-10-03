@@ -1,4 +1,4 @@
-<%@ Master Language="C#" AutoEventWireup="true" CodeFile="AdminMaster.master.cs" Inherits="IGNITE.Admin.AdminMaster" %>
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="AdminMaster.master.cs" Inherits="IGNITE.Admin.AdminMaster" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -13,7 +13,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
     <!-- IGNITE Admin Master Stylesheet -->
-    <link href="../Content/admin-master.css" rel="stylesheet" type="text/css" />
     <link href="<%= ResolveUrl("~/Content/admin-master.css") %>" rel="stylesheet" type="text/css" />
 
     <asp:ContentPlaceHolder ID="head" runat="server">

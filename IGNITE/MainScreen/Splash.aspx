@@ -36,9 +36,13 @@
             window.addEventListener('load', function () {
                 var progressBar = document.getElementById('progressBar');
                 var progressText = document.getElementById('progressText');
-                progressBar.style.transition = 'width 2.8s linear';
-                progressBar.style.width = '100%';
-                progressText.innerText = '100%';
+                if (progressBar) {
+                    progressBar.style.transition = 'width 2.8s linear';
+                    progressBar.style.width = '100%';
+                }
+                if (progressText) {
+                    progressText.innerText = '100%';
+                }
                 window.setTimeout(function () {
                     window.location.replace('<%= ResolveUrl("~/MainScreen/Home.aspx") %>');
                 }, 3000);

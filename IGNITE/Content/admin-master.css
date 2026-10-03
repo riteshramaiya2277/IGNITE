@@ -344,15 +344,32 @@ button, input {
 
 /* Top Header Bar */
 .admin-topbar-header {
-    height: 72px;
-    padding: 16px 36px;
+    min-height: 72px;
+    padding: 18px 36px;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: space-between;
+    gap: 20px;
     background-color: var(--admin-bg-canvas);
     position: sticky;
     top: 0;
     z-index: 40;
+}
+
+/* Topbar Left Title Container */
+.admin-topbar-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.admin-page-title {
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--admin-text-main);
+    letter-spacing: -0.025em;
+    margin: 0;
+    line-height: 1.1;
 }
 
 /* Mobile Toggle Hamburger */
