@@ -1,0 +1,485 @@
+/* Admin Create/Edit Quest Styles */
+.create-quest-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 16px 32px 48px 32px;
+    background-color: #F5F2EB;
+    min-height: calc(100vh - 70px);
+    box-sizing: border-box;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Two-column Grid */
+.quest-form-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 24px;
+    align-items: start;
+}
+
+.quest-col-left, .quest-col-right {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* Form Cards */
+.quest-card {
+    background: #EAE6DF;
+    border-radius: 16px;
+    padding: 24px 28px;
+    box-sizing: border-box;
+}
+
+.quest-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.quest-card-title {
+    font-size: 16px;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin: 0;
+}
+
+.req-fields-tag {
+    font-size: 10px;
+    font-weight: 800;
+    color: #888;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+/* Form Inputs */
+.quest-form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 18px;
+}
+.quest-form-group:last-child {
+    margin-bottom: 0;
+}
+
+.quest-form-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+}
+
+.quest-required-star {
+    color: #D96A77;
+    margin-left: 3px;
+    font-weight: 800;
+}
+
+.quest-input {
+    width: 100%;
+    padding: 11px 14px;
+    background: #F5F2EB;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    font-size: 13px;
+    color: #1a1a1a;
+    font-family: inherit;
+    outline: none;
+    box-sizing: border-box;
+}
+.quest-input:focus {
+    background: #FFF;
+    border-color: #D96A77;
+    box-shadow: 0 0 0 3px rgba(217, 106, 119, 0.12);
+}
+
+.quest-textarea {
+    width: 100%;
+    padding: 12px 14px;
+    background: #F5F2EB;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    font-size: 13px;
+    color: #1a1a1a;
+    font-family: inherit;
+    outline: none;
+    box-sizing: border-box;
+    min-height: 90px;
+    resize: vertical;
+}
+.quest-textarea:focus {
+    background: #FFF;
+    border-color: #D96A77;
+    box-shadow: 0 0 0 3px rgba(217, 106, 119, 0.12);
+}
+
+.quest-error-hint {
+    font-size: 11px;
+    color: #D96A77;
+    margin-top: 5px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+.quest-error-hint svg {
+    width: 13px;
+    height: 13px;
+    flex-shrink: 0;
+}
+
+.quest-row-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 18px;
+}
+.quest-row-2:last-child {
+    margin-bottom: 0;
+}
+
+/* Frequency Segmented Control */
+.freq-segmented-control {
+    display: flex;
+    gap: 6px;
+    background: #F5F2EB;
+    padding: 4px;
+    border-radius: 8px;
+}
+
+.freq-segment-btn {
+    flex: 1;
+    text-align: center;
+    background: transparent;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #666;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    user-select: none;
+    font-family: inherit;
+}
+.freq-segment-btn:hover {
+    color: #1a1a1a;
+}
+.freq-segment-btn.active {
+    background: #FFF;
+    color: #D96A77;
+    font-weight: 700;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+/* XP Suffix Container */
+.xp-input-suffix-wrap {
+    display: flex;
+    align-items: center;
+    background: #F5F2EB;
+    border-radius: 8px;
+    padding: 0 14px;
+    border: 1px solid transparent;
+}
+.xp-input-suffix-wrap:focus-within {
+    background: #FFF;
+    border-color: #D96A77;
+    box-shadow: 0 0 0 3px rgba(217, 106, 119, 0.12);
+}
+.xp-input-suffix-wrap input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    padding: 11px 0;
+    font-size: 13px;
+    font-weight: 700;
+    color: #1a1a1a;
+    font-family: inherit;
+    outline: none;
+}
+.xp-suffix-label {
+    font-size: 12px;
+    font-weight: 800;
+    color: #D97706;
+}
+
+/* Visibility Switch Box */
+.visibility-card-inner {
+    background: #FFF;
+    border-radius: 10px;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 18px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+}
+
+.visibility-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.visibility-icon-badge {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #FDF2F3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+.visibility-icon-badge svg {
+    width: 16px;
+    height: 16px;
+    color: #D96A77;
+}
+
+.visibility-texts {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+.visibility-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: #1a1a1a;
+}
+.visibility-sub {
+    font-size: 11px;
+    color: #888;
+}
+
+/* iOS-style toggle switch */
+.toggle-switch {
+    width: 38px;
+    height: 22px;
+    background: #D96A77;
+    border-radius: 11px;
+    position: relative;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    flex-shrink: 0;
+}
+.toggle-switch.off {
+    background: #D1D5DB;
+}
+.toggle-thumb {
+    width: 18px;
+    height: 18px;
+    background: #FFF;
+    border-radius: 50%;
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+.toggle-switch.off .toggle-thumb {
+    right: auto;
+    left: 2px;
+}
+
+/* Action Buttons inside Publishing */
+.publishing-actions-row {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.btn-quest-draft {
+    background: transparent;
+    border: none;
+    color: #333;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 10px 16px;
+    cursor: pointer;
+    font-family: inherit;
+    border-radius: 8px;
+    transition: background 0.15s ease;
+}
+.btn-quest-draft:hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.btn-quest-publish {
+    background: #D96A77;
+    color: #FFF;
+    border: none;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-family: inherit;
+    box-shadow: 0 2px 6px rgba(217, 106, 119, 0.25);
+    transition: background 0.15s ease;
+}
+.btn-quest-publish:hover {
+    background: #C45A66;
+}
+
+.cancel-changes-link {
+    text-align: center;
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    color: #666;
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.15s ease;
+}
+.cancel-changes-link:hover {
+    color: #1a1a1a;
+    text-decoration: underline;
+}
+
+/* Student Mobile Preview Card */
+.mobile-preview-container {
+    background: #EAE6DF;
+    border-radius: 16px;
+    padding: 24px 28px;
+    box-sizing: border-box;
+}
+
+.mobile-preview-header-label {
+    font-size: 10px;
+    font-weight: 800;
+    color: #78716C;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 14px;
+}
+.mobile-preview-header-label svg {
+    width: 14px;
+    height: 14px;
+    color: #78716C;
+}
+
+.mobile-card-mockup {
+    background: #FFF;
+    border-radius: 14px;
+    padding: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.mobile-banner-img-box {
+    width: 100%;
+    height: 120px;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    background: #333;
+}
+.mobile-banner-img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.mobile-banner-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 8px 10px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0) 100%);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.mobile-banner-badge {
+    background: #D97706;
+    color: #FFF;
+    font-size: 9px;
+    font-weight: 800;
+    padding: 2px 6px;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+
+.mobile-banner-title {
+    color: #FFF;
+    font-size: 13px;
+    font-weight: 800;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.mobile-card-desc {
+    font-size: 11px;
+    color: #666;
+    line-height: 1.4;
+    margin: 10px 2px 12px 2px;
+}
+
+.mobile-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2px;
+}
+
+.mobile-xp-val {
+    font-size: 12px;
+    font-weight: 800;
+    color: #D97706;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+.mobile-xp-val svg {
+    width: 11px;
+    height: 11px;
+    fill: #D97706;
+}
+
+.mobile-progress-val {
+    font-size: 11px;
+    font-weight: 700;
+    color: #D96A77;
+}
+
+.fullscreen-preview-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    color: #D96A77;
+    font-size: 12px;
+    font-weight: 700;
+    margin-top: 14px;
+    cursor: pointer;
+    text-decoration: none;
+}
+.fullscreen-preview-link:hover {
+    text-decoration: underline;
+}
+.fullscreen-preview-link svg {
+    width: 14px;
+    height: 14px;
+}
+
+/* SVG Constraints */
+svg {
+    max-width: 100%;
+}
+
+@media (max-width: 1080px) {
+    .quest-form-grid {
+        grid-template-columns: 1fr;
+    }
+}
