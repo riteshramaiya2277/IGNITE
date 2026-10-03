@@ -120,18 +120,10 @@ button {
     outline: none;
 }
 
-.brand-flame-icon {
-    width: 28px;
-    height: 28px;
-    fill: #18181B;
+.brand-logo-image {
+    width: 140px;
+    height: auto;
     flex-shrink: 0;
-}
-
-.brand-title {
-    font-size: 1.35rem;
-    font-weight: 800;
-    letter-spacing: -0.01em;
-    color: #18181B;
 }
 
 /* Sidebar Navigation Items */
@@ -496,7 +488,11 @@ button {
         padding: 24px 12px;
     }
 
-    .brand-title,
+    .brand-logo-image {
+        width: 40px;
+        height: auto;
+    }
+
     .nav-item span,
     .settings-pill-btn span,
     .user-card-info,
