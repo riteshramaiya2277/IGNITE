@@ -173,11 +173,51 @@
                     <div class="account-notice">
                         Managing student status will affect their ability to log in and participate in active challenges.
                     </div>
-                    <button type="button" class="btn-danger-outline">Deactivate Student Account</button>
+                    <button type="button" class="btn-danger-outline" onclick="openDeactivateModal()">Deactivate Student Account</button>
                     <button type="button" class="btn-text-muted">RESET PASSWORD</button>
                 </div>
             </div>
         </div>
 
     </div>
+
+    <!-- Deactivate Student Modal Overlay -->
+    <div id="deactivateModalOverlay" class="modal-overlay">
+        <div class="deactivate-modal">
+            <div class="modal-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+            </div>
+            <h2>Deactivate Student?</h2>
+            <p class="modal-desc">You are about to deactivate <strong>Elena Rodriguez's</strong> profile.<br>This will restrict their access to all challenges, quests,<br>and community features immediately.</p>
+            
+            <div class="modal-impact-box">
+                <div class="impact-item">
+                    <svg class="icon-success" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <span>Account remains in database (Inactive)</span>
+                </div>
+                <div class="impact-item">
+                    <svg class="icon-success" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <span>All achievements and progress are preserved</span>
+                </div>
+                <div class="impact-item">
+                    <svg class="icon-error" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                    <span>No login access or notification delivery</span>
+                </div>
+            </div>
+
+            <div class="modal-actions">
+                <button type="button" class="btn-cancel" onclick="closeDeactivateModal()">Cancel Action</button>
+                <button type="button" class="btn-confirm" onclick="closeDeactivateModal()">Confirm Deactivate</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        function openDeactivateModal() {
+            document.getElementById('deactivateModalOverlay').classList.add('show');
+        }
+        function closeDeactivateModal() {
+            document.getElementById('deactivateModalOverlay').classList.remove('show');
+        }
+    </script>
 </asp:Content>
