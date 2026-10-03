@@ -1,0 +1,308 @@
+/* admin-challenge-details.css */
+.details-container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 0 32px 32px 32px;
+}
+
+/* Header Area */
+.details-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 16px;
+    margin-bottom: 8px;
+}
+.details-title-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 8px;
+}
+.details-title-row h1 {
+    font-size: 28px;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin: 0;
+}
+.badge-published {
+    background: #E0F2E9;
+    color: #10B981;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.details-subtitle {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 13px;
+    color: #666;
+    font-weight: 500;
+}
+.details-subtitle svg {
+    width: 14px;
+    height: 14px;
+    margin-right: 4px;
+    vertical-align: -2px;
+}
+.btn-archive {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #fff;
+    border: 1px solid #D8D4CC;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #1a1a1a;
+    cursor: pointer;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+}
+.btn-archive:hover {
+    background: #f8f8f8;
+}
+
+/* Grid Layout */
+.details-grid {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 24px;
+}
+
+/* Cards */
+.info-card {
+    background: #EAE6DF;
+    border-radius: 16px;
+    padding: 28px;
+    margin-bottom: 24px;
+}
+.info-card-title {
+    font-size: 14px;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin-bottom: 16px;
+}
+.desc-text {
+    font-size: 13px;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 24px;
+}
+.code-inline {
+    background: #FDF3F4;
+    color: #D96A77;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: monospace;
+    font-size: 12px;
+}
+
+/* 2-Column inner grids */
+.inner-grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin-bottom: 32px;
+}
+.data-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+.data-row:last-child {
+    border-bottom: none;
+}
+.data-label {
+    font-size: 12px;
+    color: #888;
+    font-weight: 500;
+}
+.data-value {
+    font-size: 13px;
+    color: #1a1a1a;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.req-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 12px;
+}
+.req-item svg {
+    color: #D96A77;
+    width: 14px;
+    height: 14px;
+}
+
+/* Rewards Box */
+.rewards-row {
+    display: flex;
+    gap: 16px;
+}
+.reward-box {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #FDFDF8;
+    border: 1px solid #D4AF37;
+    padding: 12px 16px;
+    border-radius: 12px;
+}
+.reward-box.pink {
+    background: #FDF3F4;
+    border: 1px solid #D96A77;
+}
+.reward-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.reward-icon.yellow {
+    background: #FEF3C7;
+    color: #D4AF37;
+}
+.reward-icon.pink {
+    background: #FCE7EB;
+    color: #D96A77;
+}
+.reward-text-1 {
+    font-size: 13px;
+    font-weight: 800;
+    margin-bottom: 2px;
+}
+.reward-box.yellow .reward-text-1 { color: #D4AF37; }
+.reward-box.pink .reward-text-1 { color: #D96A77; }
+.reward-text-2 {
+    font-size: 10px;
+    font-weight: 500;
+    color: #D4AF37;
+    opacity: 0.8;
+}
+.reward-box.pink .reward-text-2 { color: #D96A77; }
+
+/* Student Preview Card */
+.preview-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+.preview-title {
+    font-size: 14px;
+    font-weight: 800;
+    color: #1a1a1a;
+}
+.preview-badge {
+    font-size: 9px;
+    font-weight: 700;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.preview-image {
+    width: 100%;
+    height: 160px;
+    background: #E2ACAC;
+    border-radius: 12px;
+    margin-bottom: 16px;
+    padding: 12px;
+}
+.img-badge {
+    display: inline-block;
+    background: rgba(0,0,0,0.6);
+    color: white;
+    font-size: 9px;
+    font-weight: 700;
+    padding: 4px 8px;
+    border-radius: 6px;
+    text-transform: uppercase;
+}
+.pv-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 8px;
+}
+.pv-stats {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+.pv-xp { color: #D4AF37; }
+.pv-active { color: #888; display: flex; align-items: center; gap: 4px; }
+.pv-progress {
+    height: 4px;
+    background: #D8D4CC;
+    border-radius: 2px;
+    margin-bottom: 16px;
+}
+.pv-progress-fill {
+    height: 100%;
+    background: #D96A77;
+    width: 45%;
+    border-radius: 2px;
+}
+.pv-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 10px;
+    font-weight: 700;
+    color: #888;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+}
+.pv-start {
+    color: #D96A77;
+    cursor: pointer;
+}
+.pv-note {
+    background: #F4F1EC;
+    padding: 16px;
+    border-radius: 8px;
+    font-size: 11px;
+    font-style: italic;
+    color: #888;
+    margin-bottom: 16px;
+}
+.pv-avatars {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    color: #666;
+    font-weight: 500;
+}
+.avatar-group {
+    display: flex;
+}
+.av-circ {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #ccc;
+    border: 2px solid #EAE6DF;
+    margin-left: -8px;
+}
+.av-circ:first-child { margin-left: 0; background: #666; }
+.av-circ:nth-child(2) { background: #E28888; }
+.av-circ:nth-child(3) { background: #D96A77; }

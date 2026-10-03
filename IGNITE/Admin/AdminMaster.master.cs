@@ -28,25 +28,44 @@ namespace IGNITE.Admin
                     : "Admin";
             }
             litAdminTitle.Text = adminName;
-
-            // System Operational Status
-            string status = Session["SystemStatus"] as string ?? "SYSTEM OPERATIONAL";
-            litSystemStatus.Text = status;
         }
 
         private void HighlightActiveNavigation()
         {
             ResetNavClasses();
+
+            string currentPath = Request.AppRelativeCurrentExecutionFilePath.ToLower();
+
+            if (currentPath.Contains("overview"))
+            {
+                navOverview.Attributes["class"] += " active";
+            }
+            else if (currentPath.Contains("student"))
+            {
+                navStudents.Attributes["class"] += " active";
+            }
+            else if (currentPath.Contains("challenge"))
+            {
+                navChallenges.Attributes["class"] += " active";
+            }
+            else if (currentPath.Contains("quests"))
+            {
+                navQuests.Attributes["class"] += " active";
+            }
+            else if (currentPath.Contains("achievements"))
+            {
+                navAchievements.Attributes["class"] += " active";
+            }
         }
 
         private void ResetNavClasses()
         {
-            navOverview.Attributes["class"] = "admin-nav-item";
-            navStudents.Attributes["class"] = "admin-nav-item";
-            navChallenges.Attributes["class"] = "admin-nav-item";
-            navQuests.Attributes["class"] = "admin-nav-item";
-            navAchievements.Attributes["class"] = "admin-nav-item";
-            navSettings.Attributes["class"] = "admin-settings-pill-btn";
+            if (navOverview != null) navOverview.Attributes["class"] = "admin-nav-item";
+            if (navStudents != null) navStudents.Attributes["class"] = "admin-nav-item";
+            if (navChallenges != null) navChallenges.Attributes["class"] = "admin-nav-item";
+            if (navQuests != null) navQuests.Attributes["class"] = "admin-nav-item";
+            if (navAchievements != null) navAchievements.Attributes["class"] = "admin-nav-item";
+            if (navSettings != null) navSettings.Attributes["class"] = "admin-settings-pill-btn";
         }
 
         protected void btnAdminLogout_Click(object sender, EventArgs e)
@@ -67,16 +86,12 @@ namespace IGNITE.Admin
             Response.Redirect(ResolveUrl("~/auth-onboarding/Login.aspx"), true);
         }
 
-        public string SystemStatus
-        {
-            get => litSystemStatus.Text;
-            set => litSystemStatus.Text = value;
-        }
+
 
         public string AdminTitle
         {
-            get => litAdminTitle.Text;
-            set => litAdminTitle.Text = value;
+            get { return litAdminTitle.Text; }
+            set { litAdminTitle.Text = value; }
         }
     }
 }

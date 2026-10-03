@@ -196,16 +196,16 @@ button, input {
     color: var(--admin-text-nav-hover);
 }
 
-/* Active Nav Item - Clean unhighlighted appearance */
 .admin-nav-item.active {
-    background-color: transparent;
-    color: var(--admin-text-nav);
-    font-weight: 500;
-    box-shadow: none;
+    background-color: #D96A77; /* Dusty rose / pink color */
+    color: #ffffff;
+    font-weight: 600;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(217, 106, 119, 0.3);
 }
 
 .admin-nav-item.active .admin-nav-icon {
-    stroke: currentColor;
+    stroke: #ffffff;
 }
 
 /* Sidebar Footer (Bottom Controls) */
