@@ -1,0 +1,599 @@
+/* ==========================================================================
+   IGNITE — Student Quests Stylesheet
+   Faithfully matching the Active Quests UI design:
+   Top Banner with Today's Potential +850 XP, Two-Column Daily & Weekly Quests,
+   Progress tracking, Claim Reward actions, Weekly Quest Completion donut ring,
+   and Totals summary boxes.
+   ========================================================================== */
+
+/* 1. Main Canvas & Layout */
+.quests-canvas {
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+    width: 100%;
+    max-width: 1360px;
+    margin: 0 auto;
+    padding-bottom: 48px;
+}
+
+/* 2. Top Banner Card */
+.quests-banner-card {
+    background-color: #EFECE6;
+    border: 1px solid rgba(221, 214, 203, 0.7);
+    border-radius: 18px;
+    padding: 24px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.quests-banner-left {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.quests-banner-title {
+    font-size: 1.85rem;
+    font-weight: 800;
+    color: #18181B;
+    letter-spacing: -0.02em;
+    margin: 0;
+}
+
+.quests-banner-subtitle {
+    font-size: 0.92rem;
+    color: #78716C;
+    font-weight: 500;
+    margin: 0;
+}
+
+.quests-banner-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 2px;
+}
+
+.banner-potential-label {
+    font-size: 0.72rem;
+    font-weight: 800;
+    color: #DF6A74;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.banner-potential-val {
+    font-size: 1.85rem;
+    font-weight: 800;
+    color: #18181B;
+    line-height: 1.1;
+}
+
+/* 3. Two-Column Workspace Layout */
+.quests-grid-layout {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px;
+    width: 100%;
+}
+
+@media (max-width: 1024px) {
+    .quests-grid-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+.quest-column {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+}
+
+.quest-column-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.quest-column-title {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: #18181B;
+    margin: 0;
+}
+
+.quest-column-meta {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #78716C;
+}
+
+/* 4. Quest Cards General */
+.quest-card {
+    background-color: #EFECE6;
+    border: 1px solid rgba(221, 214, 203, 0.7);
+    border-radius: 16px;
+    padding: 20px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+    position: relative;
+}
+
+.quest-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+    border-color: #DF6A74;
+}
+
+/* Highlighted (Completed / Ready to Claim) */
+.quest-card-highlight {
+    background-color: #FAF4F4;
+    border: 1.5px solid #F5C6CB;
+}
+
+.quest-card-highlight:hover {
+    background-color: #F8EDED;
+    border-color: #DF6A74;
+}
+
+/* Expired Card */
+.quest-card-expired {
+    opacity: 0.65;
+}
+
+.quest-card-expired:hover {
+    transform: none;
+    box-shadow: none;
+    border-color: rgba(221, 214, 203, 0.7);
+}
+
+/* Card Header */
+.quest-card-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.quest-card-left {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    flex: 1;
+}
+
+.quest-icon-wrap {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    background-color: rgba(223, 106, 116, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #DF6A74;
+    flex-shrink: 0;
+}
+
+.quest-icon-wrap svg {
+    width: 20px;
+    height: 20px;
+    stroke: currentColor;
+    stroke-width: 2;
+}
+
+.quest-icon-wrap.icon-expired {
+    background-color: #E2E8F0;
+    color: #94A3B8;
+}
+
+.quest-info-group {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.quest-title-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.quest-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #18181B;
+    margin: 0;
+}
+
+.quest-desc {
+    font-size: 0.82rem;
+    color: #78716C;
+    font-weight: 500;
+    margin: 0;
+}
+
+/* Source Badges */
+.badge-source-system {
+    background-color: #F1ECE6;
+    color: #78716C;
+    font-size: 0.64rem;
+    font-weight: 800;
+    padding: 2px 7px;
+    border-radius: 6px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.badge-source-instructor {
+    background-color: #FEF3C7;
+    color: #D97706;
+    font-size: 0.64rem;
+    font-weight: 800;
+    padding: 2px 7px;
+    border-radius: 6px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+/* Status Pills */
+.pill-quest-status {
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    padding: 3px 9px;
+    border-radius: 9999px;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.pill-quest-active {
+    background-color: #FAF8F5;
+    border: 1px solid #E2DCD3;
+    color: #DF6A74;
+}
+
+.pill-quest-completed {
+    background-color: #FFF7F8;
+    border: 1px solid #DF6A74;
+    color: #DF6A74;
+}
+
+.pill-quest-expired {
+    background-color: #E2E8F0;
+    color: #94A3B8;
+}
+
+/* 5. Progress Section */
+.quest-progress-section {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    width: 100%;
+}
+
+.quest-progress-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.82rem;
+    color: #78716C;
+    font-weight: 600;
+}
+
+.quest-track {
+    width: 100%;
+    height: 8px;
+    background-color: #DFDAD1;
+    border-radius: 9999px;
+    overflow: hidden;
+}
+
+.quest-fill {
+    height: 100%;
+    background-color: #DF6A74;
+    border-radius: 9999px;
+    transition: width 0.3s ease;
+}
+
+.quest-subnote-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.78rem;
+    color: #78716C;
+    margin-top: 2px;
+}
+
+.dot-subnote {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #DF6A74;
+    display: inline-block;
+}
+
+/* 6. Card Footers & Action Buttons */
+.quest-footer-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 4px;
+}
+
+.quest-xp-amount {
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: #18181B;
+}
+
+.quest-xp-amount.xp-muted {
+    color: #A8A29E;
+}
+
+.btn-in-progress {
+    background-color: #FAF8F5;
+    border: 1px solid #D8D1C5;
+    border-radius: 9999px;
+    padding: 6px 16px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #78716C;
+    cursor: default;
+}
+
+.btn-claim-reward {
+    background-color: #DF6A74;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 9999px;
+    padding: 8px 20px;
+    font-size: 0.84rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(223, 106, 116, 0.3);
+    transition: all 0.15s ease;
+}
+
+.btn-claim-reward:hover {
+    background-color: #D45B65;
+    transform: translateY(-1px);
+}
+
+.btn-claim-reward.claimed {
+    background-color: #10B981;
+    cursor: default;
+}
+
+.expired-note-text {
+    font-size: 0.8rem;
+    color: #94A3B8;
+    font-style: italic;
+}
+
+/* Course Conqueror Reward Ribbon */
+.course-rewards-ribbon {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 10px 14px;
+    background-color: #FAF8F5;
+    border-radius: 12px;
+    border: 1px solid #E6E0D6;
+    margin-top: 4px;
+    flex-wrap: wrap;
+}
+
+.reward-badge-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.badge-round-medal {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background-color: #FEF3C7;
+    border: 1px solid #FDE68A;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #D97706;
+}
+
+.reward-titles {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+}
+
+.reward-micro-label {
+    font-size: 0.65rem;
+    font-weight: 800;
+    color: #78716C;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.reward-main-name {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #18181B;
+}
+
+.reward-xp-callout {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    align-items: center;
+}
+
+.btn-view-module {
+    background-color: #FFFFFF;
+    border: 1px solid #D8D1C5;
+    border-radius: 9999px;
+    padding: 6px 14px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #57534E;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.btn-view-module:hover {
+    border-color: #DF6A74;
+    color: #DF6A74;
+}
+
+.btn-find-session {
+    color: #DF6A74;
+    font-size: 0.85rem;
+    font-weight: 700;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: color 0.15s ease;
+}
+
+.btn-find-session:hover {
+    color: #C54E58;
+    text-decoration: underline;
+}
+
+/* 7. Bottom Section: Weekly Completion & Totals */
+.quests-bottom-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.weekly-completion-card {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    background-color: transparent;
+}
+
+.completion-ring-wrap {
+    position: relative;
+    width: 68px;
+    height: 68px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.completion-ring-svg {
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+}
+
+.ring-bg {
+    fill: none;
+    stroke: #DDD6CB;
+    stroke-width: 6;
+}
+
+.ring-meter {
+    fill: none;
+    stroke: #DF6A74;
+    stroke-width: 6;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 0.4s ease;
+}
+
+.ring-percent-text {
+    position: absolute;
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: #18181B;
+}
+
+.completion-text-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.completion-headline {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #18181B;
+}
+
+.completion-subtext {
+    font-size: 0.86rem;
+    color: #78716C;
+    font-weight: 500;
+}
+
+.quest-totals-boxes {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.total-stat-box {
+    background-color: #EFECE6;
+    border: 1px solid rgba(221, 214, 203, 0.7);
+    border-radius: 14px;
+    padding: 14px 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 130px;
+}
+
+.total-stat-box-label {
+    font-size: 0.68rem;
+    font-weight: 800;
+    color: #78716C;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.total-stat-box-val {
+    font-size: 1.45rem;
+    font-weight: 800;
+    color: #18181B;
+    line-height: 1.1;
+}
+
+/* Toast */
+.quest-toast {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background-color: #18181B;
+    color: #FFFFFF;
+    padding: 14px 22px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    font-size: 0.88rem;
+    font-weight: 600;
+    display: none;
+    align-items: center;
+    gap: 10px;
+    z-index: 10000;
+    animation: toastSlideUp 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.quest-toast.show {
+    display: flex;
+}

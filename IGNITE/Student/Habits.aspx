@@ -9,12 +9,15 @@
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
+    <!-- Fail-safe stylesheet link -->
+    <link href="../Content/habits.css" rel="stylesheet" type="text/css" />
+
     <div class="habits-canvas">
         <!-- 1. Header with Title & Create Habit Button -->
         <div class="habits-header">
             <div class="habits-header-text">
                 <h1 class="habits-title">Habits</h1>
-                <p class="habits-subtitle">Small actions lead to big achievements. Keep it up, <asp:Literal ID="litStudentFirstName" runat="server">Alex</asp:Literal>!</p>
+                <p class="habits-subtitle">Small actions lead to big achievements. Keep it up, Alex!</p>
             </div>
             <button type="button" class="btn-create-habit" onclick="openCreateHabitModal()">
                 <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5">
@@ -78,7 +81,7 @@
             <!-- Card 2: Active Habits -->
             <div class="stat-card">
                 <div class="stat-card-icon-box">
-                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                    <svg viewBox="0 0 24 24" width="24" height="24" stroke-width="2">
                         <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
                         <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
                     </svg>
@@ -93,7 +96,7 @@
             <!-- Card 3: Best Streak -->
             <div class="stat-card">
                 <div class="stat-card-icon-box">
-                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                    <svg viewBox="0 0 24 24" width="24" height="24" stroke-width="2">
                         <path d="M12 2C10.5 4.5 10 6.5 10 8.5C10 10.5 11 11.5 11 13C11 14 10 15 9 15C8 15 7 14 7 12.5C7 10 5.5 8.5 4.5 8C4.5 12 6.5 15.5 9 18C11.5 20.5 14.5 21.5 17 20C19.5 18.5 20.5 15.5 20 13C19.5 10.5 18 9 17 8C17 9.5 16 10.5 15 10.5C14 10.5 13.5 9.5 13.5 8C13.5 5.5 15 3.5 16 2.5C14.5 2 13 2 12 2Z" />
                     </svg>
                 </div>
@@ -104,10 +107,10 @@
                 </div>
             </div>
 
-            <!-- Card 4: Active Quest -->
-            <div class="stat-card">
+            <!-- Card 4: Active Quest -> Links to Quests.aspx -->
+            <div class="stat-card" style="cursor: pointer;" onclick="window.location.href='Quests.aspx';" title="View Active Quests (+850 XP Potential)">
                 <div class="stat-card-icon-box">
-                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                    <svg viewBox="0 0 24 24" width="24" height="24" stroke-width="2">
                         <path d="M12 2C10.5 4.5 10 6.5 10 8.5C10 10.5 11 11.5 11 13C11 14 10 15 9 15C8 15 7 14 7 12.5C7 10 5.5 8.5 4.5 8C4.5 12 6.5 15.5 9 18C11.5 20.5 14.5 21.5 17 20C19.5 18.5 20.5 15.5 20 13C19.5 10.5 18 9 17 8C17 9.5 16 10.5 15 10.5C14 10.5 13.5 9.5 13.5 8C13.5 5.5 15 3.5 16 2.5C14.5 2 13 2 12 2Z" />
                     </svg>
                 </div>
@@ -119,7 +122,7 @@
             </div>
         </div>
 
-        <!-- 4. Tab Navigation -->
+        <!-- 4. Tab Navigation Bar -->
         <div class="habits-tabs-bar">
             <button type="button" class="habit-tab active" onclick="switchHabitTab(this, 'active')">Active Habits</button>
             <button type="button" class="habit-tab" onclick="switchHabitTab(this, 'archived')">Archived</button>
@@ -129,10 +132,10 @@
         <!-- 5. Habits List -->
         <div class="habits-cards-list" id="habitsListContainer">
             
-            <!-- Habit Item 1: Morning Meditation (Completed) -->
-            <div class="habit-card-item habit-card-highlight" data-title="Morning Meditation" data-category="Mental Well-Being">
+            <!-- Habit Item 1: Morning Meditation (Completed Highlighted) -> Links to HabitDetailBinary.aspx -->
+            <div class="habit-card-item habit-card-highlight" data-title="Morning Meditation" data-category="Mental Well-Being" onclick="openHabitDetail('HabitDetailBinary.aspx', event)" title="View Morning Meditation details">
                 <div class="habit-card-left">
-                    <button type="button" class="btn-habit-action-circle btn-habit-check" title="Toggle status" onclick="toggleHabitCompleted(this, 'h1')">
+                    <button type="button" class="btn-habit-action-circle btn-habit-check" title="Toggle status" onclick="toggleHabitCompleted(this, 'h1', event)">
                         <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="3">
                             <polyline points="20 6 9 17 4 12"></polyline>
                         </svg>
@@ -164,19 +167,19 @@
                         </div>
                     </div>
                     <div class="habit-action-tools">
-                        <button type="button" class="btn-tool-icon" title="Edit Habit">
+                        <button type="button" class="btn-tool-icon" title="Edit Habit" onclick="toolAction(event, 'Edit')">
                             <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
                                 <circle cx="12" cy="12" r="3"></circle>
                                 <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
                             </svg>
                         </button>
-                        <button type="button" class="btn-tool-icon" title="Pause Habit">
+                        <button type="button" class="btn-tool-icon" title="Pause Habit" onclick="toolAction(event, 'Pause')">
                             <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
                                 <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
                                 <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
                             </svg>
                         </button>
-                        <button type="button" class="btn-tool-icon" title="Habit Calendar">
+                        <button type="button" class="btn-tool-icon" title="Habit Calendar" onclick="openHabitDetail('HabitDetailBinary.aspx', event)">
                             <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
                                 <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
                                 <line x1="16" y1="2" x2="16" y2="6"></line>
@@ -188,10 +191,10 @@
                 </div>
             </div>
 
-            <!-- Habit Item 2: Deep Work: Algorithm Study -->
-            <div class="habit-card-item" data-title="Deep Work: Algorithm Study" data-category="Academic Excellence">
+            <!-- Habit Item 2: Deep Work: Algorithm Study -> Links to HabitDetailMeasurable.aspx -->
+            <div class="habit-card-item" data-title="Deep Work: Algorithm Study" data-category="Academic Excellence" onclick="openHabitDetail('HabitDetailMeasurable.aspx', event)" title="View Deep Work details">
                 <div class="habit-card-left">
-                    <button type="button" class="btn-habit-action-circle btn-habit-plus-circle" title="Add progress" onclick="addHabitProgress('h2', 15, 120)">
+                    <button type="button" class="btn-habit-action-circle btn-habit-plus-circle" title="Add progress" onclick="addHabitProgress('h2', 15, 120, event)">
                         <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5">
                             <line x1="12" y1="5" x2="12" y2="19"></line>
                             <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -224,19 +227,19 @@
                         </div>
                     </div>
                     <div class="habit-action-tools">
-                        <button type="button" class="btn-tool-icon" title="Edit Habit">
+                        <button type="button" class="btn-tool-icon" title="Edit Habit" onclick="toolAction(event, 'Edit')">
                             <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
                                 <circle cx="12" cy="12" r="3"></circle>
                                 <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
                             </svg>
                         </button>
-                        <button type="button" class="btn-tool-icon" title="Pause Habit">
+                        <button type="button" class="btn-tool-icon" title="Pause Habit" onclick="toolAction(event, 'Pause')">
                             <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
                                 <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
                                 <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
                             </svg>
                         </button>
-                        <button type="button" class="btn-tool-icon" title="Habit Calendar">
+                        <button type="button" class="btn-tool-icon" title="Habit Calendar" onclick="openHabitDetail('HabitDetailMeasurable.aspx', event)">
                             <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
                                 <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
                                 <line x1="16" y1="2" x2="16" y2="6"></line>
@@ -249,9 +252,9 @@
             </div>
 
             <!-- Habit Item 3: Hydration: 8oz Glasses -->
-            <div class="habit-card-item" data-title="Hydration: 8oz Glasses" data-category="Physical Health">
+            <div class="habit-card-item" data-title="Hydration: 8oz Glasses" data-category="Physical Health" onclick="openHabitDetail('HabitDetailMeasurable.aspx', event)" title="View Hydration details">
                 <div class="habit-card-left">
-                    <button type="button" class="btn-habit-action-circle btn-habit-plus-circle" title="Add 1 glass" onclick="addHabitProgress('h3', 1, 8)">
+                    <button type="button" class="btn-habit-action-circle btn-habit-plus-circle" title="Add progress" onclick="addHabitProgress('h3', 1, 8, event)">
                         <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5">
                             <line x1="12" y1="5" x2="12" y2="19"></line>
                             <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -284,19 +287,19 @@
                         </div>
                     </div>
                     <div class="habit-action-tools">
-                        <button type="button" class="btn-tool-icon" title="Edit Habit">
+                        <button type="button" class="btn-tool-icon" title="Edit Habit" onclick="toolAction(event, 'Edit')">
                             <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
                                 <circle cx="12" cy="12" r="3"></circle>
-                                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
                             </svg>
                         </button>
-                        <button type="button" class="btn-tool-icon" title="Pause Habit">
+                        <button type="button" class="btn-tool-icon" title="Pause Habit" onclick="toolAction(event, 'Pause')">
                             <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
                                 <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
                                 <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
                             </svg>
                         </button>
-                        <button type="button" class="btn-tool-icon" title="Habit Calendar">
+                        <button type="button" class="btn-tool-icon" title="Habit Calendar" onclick="openHabitDetail('HabitDetailMeasurable.aspx', event)">
                             <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
                                 <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
                                 <line x1="16" y1="2" x2="16" y2="6"></line>
@@ -309,9 +312,9 @@
             </div>
 
             <!-- Habit Item 4: Nightly Reading -->
-            <div class="habit-card-item" data-title="Nightly Reading" data-category="Personal Growth">
+            <div class="habit-card-item" data-title="Nightly Reading" data-category="Personal Growth" onclick="openHabitDetail('HabitDetailMeasurable.aspx', event)" title="View Nightly Reading details">
                 <div class="habit-card-left">
-                    <button type="button" class="btn-habit-action-circle btn-habit-plus-circle" title="Add reading mins" onclick="addHabitProgress('h4', 5, 20)">
+                    <button type="button" class="btn-habit-action-circle btn-habit-plus-circle" title="Add progress" onclick="addHabitProgress('h4', 5, 20, event)">
                         <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5">
                             <line x1="12" y1="5" x2="12" y2="19"></line>
                             <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -344,19 +347,19 @@
                         </div>
                     </div>
                     <div class="habit-action-tools">
-                        <button type="button" class="btn-tool-icon" title="Edit Habit">
+                        <button type="button" class="btn-tool-icon" title="Edit Habit" onclick="toolAction(event, 'Edit')">
                             <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
                                 <circle cx="12" cy="12" r="3"></circle>
-                                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
                             </svg>
                         </button>
-                        <button type="button" class="btn-tool-icon" title="Pause Habit">
+                        <button type="button" class="btn-tool-icon" title="Pause Habit" onclick="toolAction(event, 'Pause')">
                             <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
                                 <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
                                 <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
                             </svg>
                         </button>
-                        <button type="button" class="btn-tool-icon" title="Habit Calendar">
+                        <button type="button" class="btn-tool-icon" title="Habit Calendar" onclick="openHabitDetail('HabitDetailMeasurable.aspx', event)">
                             <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
                                 <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
                                 <line x1="16" y1="2" x2="16" y2="6"></line>
@@ -370,9 +373,9 @@
 
         </div>
 
-        <!-- 6. View All Habits Bottom Button -->
+        <!-- 6. View All Habits Bottom Button -> Flows to the Categorized Hub Page -->
         <div class="habits-bottom-action">
-            <button type="button" class="btn-view-all-habits" onclick="toggleExpandAllHabits(this)">
+            <button type="button" class="btn-view-all-habits" onclick="window.location.href='HabitHub.aspx';">
                 <span>View All Habits</span>
                 <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
                     <polyline points="6 9 12 15 18 9"></polyline>
@@ -426,7 +429,19 @@
 
 <asp:Content ID="Content4" ContentPlaceHolderID="ScriptsContent" runat="server">
     <script type="text/javascript">
-        // @ts-nocheck
+        // Navigate to Habit Detail without triggering tool buttons
+        function openHabitDetail(url, event) {
+            if (event && event.target && (event.target.tagName === 'BUTTON' || event.target.closest('button'))) {
+                return;
+            }
+            window.location.href = url;
+        }
+
+        function toolAction(e, actionName) {
+            e.stopPropagation();
+            showToast(actionName + " action triggered.");
+        }
+
         // Real-time habit title and category search filtering
         function filterHabits() {
             var input = document.getElementById('habitSearchInput');
@@ -476,7 +491,8 @@
         }
 
         // Habit state toggling
-        function toggleHabitCompleted(btn, id) {
+        function toggleHabitCompleted(btn, id, e) {
+            if (e) e.stopPropagation();
             var card = btn.closest('.habit-card-item');
             var frac = document.getElementById(id + 'Fraction');
             var bar = document.getElementById(id + 'Bar');
@@ -487,12 +503,14 @@
                 btn.innerHTML = '<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>';
                 if (frac) frac.innerText = '0/1';
                 if (bar) bar.style.width = '0%';
+                showToast("Habit marked as incomplete.");
             } else {
                 card.classList.add('habit-card-highlight');
                 btn.className = 'btn-habit-action-circle btn-habit-check';
                 btn.innerHTML = '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>';
                 if (frac) frac.innerText = '1/1';
                 if (bar) bar.style.width = '100%';
+                showToast("Morning Meditation completed! +15 XP earned!");
             }
         }
 
@@ -503,7 +521,8 @@
             'h4': { current: 0, max: 20, unit: ' mins' }
         };
 
-        function addHabitProgress(id, step, max) {
+        function addHabitProgress(id, step, max, e) {
+            if (e) e.stopPropagation();
             if (!habitProgressState[id]) {
                 habitProgressState[id] = { current: 0, max: max, unit: '' };
             }
@@ -519,6 +538,7 @@
 
             if (frac) frac.innerText = h.current + '/' + h.max + h.unit;
             if (bar) bar.style.width = pct + '%';
+            showToast("Added progress: " + h.current + "/" + h.max + h.unit);
         }
 
         // Modal open/close
@@ -536,12 +556,24 @@
                 alert('Please enter a habit name.');
                 return;
             }
-            alert('Habit "' + name + '" created successfully!');
+            showToast('Habit "' + name + '" created successfully!');
             closeCreateHabitModal();
         }
 
-        function toggleExpandAllHabits(btn) {
-            alert('Displaying all 12 tracked habits.');
+        // Toast Helper
+        function showToast(msg) {
+            var toast = document.getElementById('toastNotice');
+            if (!toast) {
+                toast = document.createElement('div');
+                toast.id = 'toastNotice';
+                toast.className = 'habit-toast';
+                document.body.appendChild(toast);
+            }
+            toast.innerText = msg;
+            toast.classList.add('show');
+            setTimeout(function() {
+                toast.classList.remove('show');
+            }, 3000);
         }
     </script>
 </asp:Content>

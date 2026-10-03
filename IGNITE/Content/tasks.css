@@ -765,6 +765,503 @@
     background-color: #D45B65;
 }
 
+/* ==========================================================================
+   8. SPEC-PERFECT MODALS: Quick Save Task & Edit Task (Matching Screenshots)
+   ========================================================================== */
+
+/* Modal Card Containers */
+.modal-spec-card {
+    background-color: #FAF8F5;
+    border-radius: 24px;
+    width: 90%;
+    max-width: 560px;
+    border: 1px solid #DDD6CB;
+    box-shadow: 0 24px 50px rgba(0, 0, 0, 0.18);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    animation: modalPop 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modal-spec-header {
+    padding: 24px 30px 16px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-brand-wrap {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.modal-brand-wrap svg {
+    width: 28px;
+    height: 32px;
+}
+
+.modal-brand-text {
+    font-size: 1.55rem;
+    font-weight: 900;
+    color: #18181B;
+    letter-spacing: -0.02em;
+    font-family: inherit;
+}
+
+.modal-spec-body {
+    padding: 0 30px 24px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+/* Input error states matching screenshots */
+.input-error-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.form-input-spec {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 16px;
+    border-radius: 12px;
+    border: 1px solid #DDD6CB;
+    background-color: #FFFFFF;
+    font-family: inherit;
+    font-size: 0.92rem;
+    color: #18181B;
+    outline: none;
+    transition: all 0.15s ease;
+}
+
+.form-input-spec:focus {
+    border-color: #DF6A74;
+    box-shadow: 0 0 0 3px rgba(223, 106, 116, 0.15);
+}
+
+.form-input-spec.has-error {
+    border: 1.5px solid #EF4444 !important;
+    padding-right: 36px;
+}
+
+.error-dot-indicator {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #DC2626;
+    pointer-events: none;
+}
+
+.field-error-text {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #DC2626;
+    margin-top: 5px;
+}
+
+.field-error-text svg {
+    flex-shrink: 0;
+}
+
+/* Subject with dot indicator */
+.subject-pill-select {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 11px 16px;
+    border-radius: 12px;
+    border: 1px solid #DDD6CB;
+    background-color: #FFFFFF;
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: #18181B;
+    cursor: pointer;
+}
+
+.subject-left-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.dot-subject-color {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #4F46E5;
+}
+
+/* Priority Segmented Toggle (Low | Med | High) */
+.priority-segmented-wrap {
+    display: flex;
+    background-color: #ECE7DE;
+    border-radius: 12px;
+    padding: 4px;
+    gap: 4px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.priority-seg-btn {
+    flex: 1;
+    border: none;
+    background: transparent;
+    padding: 7px 10px;
+    font-size: 0.84rem;
+    font-weight: 600;
+    color: #78716C;
+    border-radius: 9px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    text-align: center;
+}
+
+.priority-seg-btn:hover {
+    color: #18181B;
+}
+
+.priority-seg-btn.active {
+    background-color: #FFFFFF;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.priority-seg-btn.active.seg-high {
+    color: #DC2626;
+    font-weight: 800;
+}
+
+.priority-seg-btn.active.seg-med {
+    color: #D97706;
+    font-weight: 800;
+}
+
+.priority-seg-btn.active.seg-low {
+    color: #10B981;
+    font-weight: 800;
+}
+
+/* Due date & Time Row with Goal link */
+.datetime-with-goal-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+}
+
+.datetime-box {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 11px 16px;
+    border-radius: 12px;
+    border: 1px solid #DDD6CB;
+    background-color: #FFFFFF;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #57534E;
+}
+
+.datetime-box-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.datetime-box svg {
+    color: #78716C;
+}
+
+.btn-linked-goal-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 1.5px solid #6366F1;
+    background-color: #EEF2FF;
+    color: #4F46E5;
+    font-size: 0.85rem;
+    font-weight: 700;
+    padding: 11px 18px;
+    border-radius: 12px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.15s ease;
+}
+
+.btn-linked-goal-pill:hover {
+    background-color: #E0E7FF;
+}
+
+/* Modal Bottom Actions (White Bar) */
+.modal-spec-footer {
+    background-color: #FFFFFF;
+    border-top: 1px solid #ECE7DD;
+    padding: 18px 30px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 24px;
+}
+
+.btn-spec-cancel {
+    background: none;
+    border: none;
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: #27272A;
+    cursor: pointer;
+    transition: color 0.15s ease;
+}
+
+.btn-spec-cancel:hover {
+    color: #78716C;
+}
+
+.btn-spec-submit {
+    background-color: #DF6A74;
+    color: #FFFFFF;
+    font-size: 0.92rem;
+    font-weight: 700;
+    padding: 11px 24px;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 4px 12px rgba(223, 106, 116, 0.35);
+    transition: all 0.15s ease;
+}
+
+.btn-spec-submit:hover {
+    background-color: #D45B65;
+    transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   EDIT TASK MODAL SPECIFIC (Image 2)
+   ========================================================================== */
+.modal-edit-header-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.edit-task-icon-box {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background-color: #FEECEE;
+    border: 1px solid #FCD4D7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #DF6A74;
+}
+
+.edit-task-modal-heading {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #18181B;
+    margin: 0;
+}
+
+.edit-form-label {
+    font-size: 0.72rem;
+    font-weight: 800;
+    color: #18181B;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.edit-form-textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 16px;
+    border-radius: 12px;
+    border: 1px solid #DDD6CB;
+    background-color: #FFFFFF;
+    font-family: inherit;
+    font-size: 0.9rem;
+    color: #18181B;
+    outline: none;
+    resize: none;
+    min-height: 90px;
+}
+
+.edit-form-textarea:focus {
+    border-color: #DF6A74;
+}
+
+/* Subject Category Pills (Image 2) */
+.category-pills-selector {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.category-tag-btn {
+    padding: 7px 16px;
+    border-radius: 9999px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    cursor: pointer;
+    border: 1.5px solid transparent;
+    transition: all 0.15s ease;
+    user-select: none;
+}
+
+.category-tag-btn.tag-math {
+    background-color: #E6FFFA;
+    color: #0D9488;
+}
+
+.category-tag-btn.tag-physics {
+    background-color: #F3E8FF;
+    color: #9333EA;
+}
+
+.category-tag-btn.tag-history {
+    background-color: #FFF5F5;
+    color: #DF6A74;
+    border-color: #DF6A74;
+}
+
+.category-tag-btn.tag-art {
+    background-color: #EFF6FF;
+    color: #2563EB;
+}
+
+.category-tag-btn.tag-new {
+    background-color: #F3F4F6;
+    color: #6B7280;
+}
+
+.category-tag-btn:hover {
+    transform: translateY(-1px);
+}
+
+.category-tag-btn.selected {
+    border-color: #DF6A74;
+    box-shadow: 0 2px 6px rgba(223, 106, 116, 0.2);
+}
+
+/* Goal input with Bullseye icon (Image 2) */
+.goal-input-box-wrap {
+    position: relative;
+    width: 100%;
+}
+
+.goal-input-box-wrap svg {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #78716C;
+    pointer-events: none;
+}
+
+.form-input-clean {
+    border: none;
+    outline: none;
+    background: transparent;
+    font-family: inherit;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #18181B;
+    width: 100%;
+}
+
+.form-select-spec {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 11px 16px;
+    border-radius: 12px;
+    border: 1px solid #DDD6CB;
+    background-color: #FFFFFF;
+    font-family: inherit;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #18181B;
+    outline: none;
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2378716C' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    background-size: 16px;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+.form-select-spec:focus {
+    border-color: #DF6A74;
+}
+
+.form-group-spec {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.task-card-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-task-edit-trigger {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    border: 1px solid #E5E7EB;
+    background-color: #FFFFFF;
+    color: #6B7280;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.btn-task-edit-trigger:hover {
+    background-color: #FEECEE;
+    color: #DF6A74;
+    border-color: #FCD4D7;
+}
+
+.btn-edit-task-header {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    border-radius: 10px;
+    border: 1px solid #DDD6CB;
+    background-color: #FFFFFF;
+    color: #374151;
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.btn-edit-task-header:hover {
+    background-color: #F9FAFB;
+    border-color: #DF6A74;
+    color: #DF6A74;
+}
+
 /* Toast Notification */
 .toast-notice {
     position: fixed;
