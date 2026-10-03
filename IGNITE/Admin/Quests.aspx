@@ -223,8 +223,25 @@
                 font-size: 13px;
             }
 
+            .quests-table tbody tr {
+                cursor: pointer;
+                transition: background 0.15s ease;
+            }
+
             .quests-table tbody tr:hover {
-                background: rgba(255, 255, 255, 0.45);
+                background: rgba(255, 255, 255, 0.65);
+            }
+
+            .quest-title-text {
+                font-size: 14px;
+                font-weight: 700;
+                color: #1a1a1a;
+                text-decoration: none;
+                transition: color 0.15s ease;
+            }
+
+            .quests-table tbody tr:hover .quest-title-text {
+                color: #D96A77;
             }
 
             .quests-table tr:last-child td {
@@ -567,7 +584,7 @@
                     </thead>
                     <tbody>
                         <!-- Row 1: Deep Focus Session -->
-                        <tr>
+                        <tr onclick="window.location.href='QuestDetails.aspx';">
                             <td>
                                 <div class="quest-name-col">
                                     <div class="quest-icon-badge">
@@ -579,7 +596,7 @@
                                             </path>
                                         </svg>
                                     </div>
-                                    <span class="quest-title-text">Deep Focus Session</span>
+                                    <a href="QuestDetails.aspx" class="quest-title-text" onclick="event.stopPropagation();">Deep Focus Session</a>
                                 </div>
                             </td>
                             <td>
@@ -608,29 +625,29 @@
                             <td>
                                 <span class="created-date-text">May 01, 2024</span>
                             </td>
-                            <td>
+                            <td onclick="event.stopPropagation();">
                                 <div class="actions-cell-wrap">
-                                    <a href="javascript:void(0);" class="action-icon-link" title="View Quest">
+                                    <a href="QuestDetails.aspx" class="action-icon-link" title="View Quest">
                                         <svg viewBox="0 0 24 24" width="16" height="16" fill="none"
                                             stroke="currentColor" stroke-width="2" style="width:16px;height:16px;">
                                             <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
                                             <circle cx="12" cy="12" r="3"></circle>
                                         </svg>
                                     </a>
-                                    <a href="javascript:void(0);" class="action-icon-link" title="Edit Quest">
+                                    <a href="CreateQuest.aspx" class="action-icon-link" title="Edit Quest">
                                         <svg viewBox="0 0 24 24" width="16" height="16" fill="none"
                                             stroke="currentColor" stroke-width="2" style="width:16px;height:16px;">
                                             <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
                                             <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
                                         </svg>
                                     </a>
-                                    <button type="button" class="btn-row-archive">Archive</button>
+                                    <button type="button" class="btn-row-archive" onclick="openArchiveModal('Deep Focus Session', '450 XP', 'DAILY')">Archive</button>
                                 </div>
                             </td>
                         </tr>
 
                         <!-- Row 2: Consistency Master -->
-                        <tr>
+                        <tr onclick="window.location.href='QuestDetails.aspx';">
                             <td>
                                 <div class="quest-name-col">
                                     <div class="quest-icon-badge">
@@ -646,7 +663,7 @@
                                             <path d="M6 4h12v5c0 3.31-2.69 6-6 6s-6-2.69-6-6V4z"></path>
                                         </svg>
                                     </div>
-                                    <span class="quest-title-text">Consistency Master</span>
+                                    <a href="QuestDetails.aspx" class="quest-title-text" onclick="event.stopPropagation();">Consistency Master</a>
                                 </div>
                             </td>
                             <td>
@@ -672,16 +689,16 @@
                             <td>
                                 <span class="created-date-text">May 05, 2024</span>
                             </td>
-                            <td>
+                            <td onclick="event.stopPropagation();">
                                 <div class="actions-cell-wrap">
-                                    <a href="javascript:void(0);" class="action-icon-link" title="View Quest">
+                                    <a href="QuestDetails.aspx" class="action-icon-link" title="View Quest">
                                         <svg viewBox="0 0 24 24" width="16" height="16" fill="none"
                                             stroke="currentColor" stroke-width="2" style="width:16px;height:16px;">
                                             <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
                                             <circle cx="12" cy="12" r="3"></circle>
                                         </svg>
                                     </a>
-                                    <a href="javascript:void(0);" class="action-icon-link" title="Edit Quest">
+                                    <a href="CreateQuest.aspx" class="action-icon-link" title="Edit Quest">
                                         <svg viewBox="0 0 24 24" width="16" height="16" fill="none"
                                             stroke="currentColor" stroke-width="2" style="width:16px;height:16px;">
                                             <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
@@ -694,7 +711,7 @@
                         </tr>
 
                         <!-- Row 3: Skill Unleashed -->
-                        <tr>
+                        <tr onclick="window.location.href='QuestDetails.aspx';">
                             <td>
                                 <div class="quest-name-col">
                                     <div class="quest-icon-badge">
@@ -705,7 +722,7 @@
                                             <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
                                         </svg>
                                     </div>
-                                    <span class="quest-title-text">Skill Unleashed</span>
+                                    <a href="QuestDetails.aspx" class="quest-title-text" onclick="event.stopPropagation();">Skill Unleashed</a>
                                 </div>
                             </td>
                             <td>
@@ -734,29 +751,29 @@
                             <td>
                                 <span class="created-date-text">Apr 20, 2024</span>
                             </td>
-                            <td>
+                            <td onclick="event.stopPropagation();">
                                 <div class="actions-cell-wrap">
-                                    <a href="javascript:void(0);" class="action-icon-link" title="View Quest">
+                                    <a href="QuestDetails.aspx" class="action-icon-link" title="View Quest">
                                         <svg viewBox="0 0 24 24" width="16" height="16" fill="none"
                                             stroke="currentColor" stroke-width="2" style="width:16px;height:16px;">
                                             <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
                                             <circle cx="12" cy="12" r="3"></circle>
                                         </svg>
                                     </a>
-                                    <a href="javascript:void(0);" class="action-icon-link" title="Edit Quest">
+                                    <a href="CreateQuest.aspx" class="action-icon-link" title="Edit Quest">
                                         <svg viewBox="0 0 24 24" width="16" height="16" fill="none"
                                             stroke="currentColor" stroke-width="2" style="width:16px;height:16px;">
                                             <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
                                             <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
                                         </svg>
                                     </a>
-                                    <button type="button" class="btn-row-archive">Archive</button>
+                                    <button type="button" class="btn-row-archive" onclick="openArchiveModal('Skill Unleashed', '3000 XP', 'ONE-TIME')">Archive</button>
                                 </div>
                             </td>
                         </tr>
 
                         <!-- Row 4: Early Bird -->
-                        <tr>
+                        <tr onclick="window.location.href='QuestDetails.aspx';">
                             <td>
                                 <div class="quest-name-col">
                                     <div class="quest-icon-badge">
@@ -768,7 +785,7 @@
                                             <path d="M16.5 4L19 6.5M7.5 4L5 6.5"></path>
                                         </svg>
                                     </div>
-                                    <span class="quest-title-text">Early Bird</span>
+                                    <a href="QuestDetails.aspx" class="quest-title-text" onclick="event.stopPropagation();">Early Bird</a>
                                 </div>
                             </td>
                             <td>
@@ -797,16 +814,16 @@
                             <td>
                                 <span class="created-date-text">Jan 15, 2024</span>
                             </td>
-                            <td>
+                            <td onclick="event.stopPropagation();">
                                 <div class="actions-cell-wrap">
-                                    <a href="javascript:void(0);" class="action-icon-link" title="View Quest">
+                                    <a href="QuestDetails.aspx" class="action-icon-link" title="View Quest">
                                         <svg viewBox="0 0 24 24" width="16" height="16" fill="none"
                                             stroke="currentColor" stroke-width="2" style="width:16px;height:16px;">
                                             <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
                                             <circle cx="12" cy="12" r="3"></circle>
                                         </svg>
                                     </a>
-                                    <a href="javascript:void(0);" class="action-icon-link" title="Edit Quest">
+                                    <a href="CreateQuest.aspx" class="action-icon-link" title="Edit Quest">
                                         <svg viewBox="0 0 24 24" width="16" height="16" fill="none"
                                             stroke="currentColor" stroke-width="2" style="width:16px;height:16px;">
                                             <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
@@ -832,6 +849,79 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Archive Modal (Image 3) -->
+            <div id="archiveModal" class="modal-backdrop" style="display:none; position:fixed; top:0; left:0; right:0; bottom:0; background:rgba(0,0,0,0.45); z-index:1000; align-items:center; justify-content:center; backdrop-filter:blur(2px);">
+                <div class="modal-card" style="background:#F5F2EB; border-radius:20px; width:90%; max-width:440px; padding:32px 28px 24px 28px; box-sizing:border-box; position:relative; box-shadow:0 12px 36px rgba(0,0,0,0.18); display:flex; flex-direction:column; align-items:center; text-align:center;">
+                    <button type="button" onclick="closeArchiveModal()" style="position:absolute; top:20px; right:20px; background:transparent; border:none; color:#78716C; cursor:pointer; font-size:16px;">✕</button>
+
+                    <div style="width:56px; height:56px; background:#FEF3C7; border-radius:16px; display:flex; align-items:center; justify-content:center; color:#D97706; margin-bottom:18px;">
+                        <svg viewBox="0 0 24 24" width="28" height="28" fill="#D97706">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79.09-.39.43-.65.82-.65h.06c.39 0 .73.26.82.65.13.58.21 1.17.21 1.79 0 2.87 2.13 5.25 4.88 5.72v2.21zm4.79-3.72c-.09.39-.43.65-.82.65h-.06c-.39 0-.73-.26-.82-.65-.13-.58-.21-1.17-.21-1.79 0-2.87-2.13-5.25-4.88-5.72V7.47c3.95.49 7 3.85 7 7.93 0 .62-.08 1.21-.21 1.79z"></path>
+                            <path d="M12 6c-1.1 0-2 .9-2 2 0 1.5 2 3.5 2 3.5s2-2 2-3.5c0-1.1-.9-2-2-2z" fill="#D97706"></path>
+                        </svg>
+                    </div>
+
+                    <h3 style="font-size:20px; font-weight:800; color:#1C1917; margin:0 0 10px 0;">Archive Quest?</h3>
+                    <p style="font-size:13px; color:#57534E; line-height:1.5; margin:0 0 20px 0; padding:0 10px;">
+                        Are you sure you want to archive <strong id="modalQuestTitle">"Morning Routine"</strong>? This will hide it from students and pause all active progress.
+                    </p>
+
+                    <div style="width:100%; background:#EAE6DF; border-radius:12px; padding:14px 16px; box-sizing:border-box; display:flex; justify-content:space-between; align-items:center; margin-bottom:24px; text-align:left;">
+                        <div style="display:flex; align-items:center; gap:12px;">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                            </svg>
+                            <div style="display:flex; flex-direction:column; gap:2px;">
+                                <span style="font-size:9px; font-weight:800; color:#78716C; letter-spacing:0.6px; text-transform:uppercase;">QUEST PREVIEW</span>
+                                <span id="modalPreviewName" style="font-size:13px; font-weight:800; color:#1C1917;">Morning Routine</span>
+                            </div>
+                        </div>
+
+                        <div style="display:flex; flex-direction:column; align-items:flex-end; gap:2px;">
+                            <div style="font-size:12px; font-weight:800; color:#D97706; display:flex; align-items:center; gap:4px;">
+                                <svg viewBox="0 0 24 24" width="12" height="12" fill="#D97706">
+                                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                                </svg>
+                                <span id="modalPreviewXp">300 XP</span>
+                            </div>
+                            <span id="modalPreviewFreq" style="font-size:9px; font-weight:800; color:#78716C; letter-spacing:0.6px; text-transform:uppercase;">DAILY</span>
+                        </div>
+                    </div>
+
+                    <div style="display:grid; grid-template-columns:1fr 1.3fr; gap:12px; width:100%;">
+                        <button type="button" onclick="closeArchiveModal()" style="background:#FFFFFF; border:1px solid #D1CDC7; border-radius:8px; padding:10px 18px; font-size:13px; font-weight:700; color:#1C1917; cursor:pointer;">Cancel</button>
+                        <button type="button" onclick="closeArchiveModal()" style="background:#D96A77; color:#FFFFFF; border:none; border-radius:8px; padding:10px 20px; font-size:13px; font-weight:700; cursor:pointer; box-shadow:0 2px 6px rgba(217, 106, 119, 0.28);">Archive Quest</button>
+                    </div>
+                </div>
+            </div>
+
+            <script type="text/javascript">
+                function openArchiveModal(title, xp, freq) {
+                    var modal = document.getElementById('archiveModal');
+                    if (modal) {
+                        if (title) {
+                            document.getElementById('modalQuestTitle').innerText = '"' + title + '"';
+                            document.getElementById('modalPreviewName').innerText = title;
+                        }
+                        if (xp) document.getElementById('modalPreviewXp').innerText = xp;
+                        if (freq) document.getElementById('modalPreviewFreq').innerText = freq;
+                        modal.style.display = 'flex';
+                    }
+                }
+
+                function closeArchiveModal() {
+                    var modal = document.getElementById('archiveModal');
+                    if (modal) {
+                        modal.style.display = 'none';
+                    }
+                }
+
+                document.addEventListener('keydown', function(e) {
+                    if (e.key === 'Escape') closeArchiveModal();
+                });
+            </script>
 
         </div>
     </asp:Content>

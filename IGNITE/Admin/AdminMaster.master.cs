@@ -52,9 +52,13 @@ namespace IGNITE.Admin
             {
                 navQuests.Attributes["class"] += " active";
             }
-            else if (currentPath.Contains("achievements"))
+            else if (currentPath.Contains("achievement"))
             {
                 navAchievements.Attributes["class"] += " active";
+            }
+            else if (currentPath.Contains("settings"))
+            {
+                navSettings.Attributes["class"] += " active";
             }
         }
 

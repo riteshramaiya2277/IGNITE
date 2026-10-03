@@ -3,7 +3,7 @@ using System.Web.UI;
 
 namespace IGNITE.Admin
 {
-    public partial class Quests : Page
+    public partial class Achievements : Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -13,9 +13,9 @@ namespace IGNITE.Admin
             }
         }
 
-        protected void btnCreateQuest_Click(object sender, EventArgs e)
+        protected void btnCreateAchievement_Click(object sender, EventArgs e)
         {
-            Response.Redirect("CreateQuest.aspx");
+            Response.Redirect("CreateAchievement.aspx");
         }
     }
 }

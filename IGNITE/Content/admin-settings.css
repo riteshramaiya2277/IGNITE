@@ -1,0 +1,858 @@
+/* ==========================================================================
+   IGNITE — Admin Settings Stylesheet
+   Matches exact UI prototype specifications:
+   - Warm Sand / Cream palette (#F5F2EB app, #EAE6DF cards, #D96A77 coral accent)
+   - Two-column card grid
+   - Custom toggle switches & select fields
+   - Add Category modal & Toast notifications
+   ========================================================================== */
+
+.settings-container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 12px 36px 60px 36px;
+    background-color: #F5F2EB;
+    min-height: calc(100vh - 70px);
+    box-sizing: border-box;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: #1a1a1a;
+}
+
+/* --------------------------------------------------------------------------
+   Top Header Row (Matches Dashboard / Quests topbar)
+   -------------------------------------------------------------------------- */
+.settings-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.settings-title-group {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.settings-dashboard-title {
+    font-size: 22px;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin: 0;
+    letter-spacing: -0.3px;
+}
+
+.streak-pill-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border: 1.5px solid #F59E0B;
+    background: #FFFBEB;
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 800;
+    color: #D97706;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.streak-pill-badge svg {
+    width: 14px;
+    height: 14px;
+    fill: #D97706;
+}
+
+.header-right-group {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.level-xp-widget {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 180px;
+}
+
+.level-xp-labels {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.3px;
+}
+
+.lvl-tag {
+    color: #D96A77;
+    font-weight: 800;
+}
+
+.xp-ratio {
+    color: #78716C;
+}
+
+.xp-progress-track {
+    width: 100%;
+    height: 6px;
+    background: #E5E0D8;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.xp-progress-fill {
+    width: 75%;
+    height: 100%;
+    background: #D96A77;
+    border-radius: 3px;
+}
+
+.top-search-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.top-search-wrap svg {
+    position: absolute;
+    left: 14px;
+    width: 15px;
+    height: 15px;
+    stroke: #8C857D;
+    pointer-events: none;
+}
+
+.top-search-input {
+    width: 200px;
+    padding: 9px 16px 9px 38px;
+    background-color: #FFFFFF;
+    border: 1px solid #DDD6CB;
+    border-radius: 20px;
+    font-size: 13px;
+    font-family: inherit;
+    color: #1a1a1a;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.top-search-input:focus {
+    width: 240px;
+    border-color: #D96A77;
+    box-shadow: 0 0 0 3px rgba(217, 106, 119, 0.15);
+}
+
+/* --------------------------------------------------------------------------
+   Settings Page Title & Subtitle
+   -------------------------------------------------------------------------- */
+.settings-heading-block {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 4px;
+}
+
+.settings-main-title {
+    font-size: 30px;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin: 0;
+    letter-spacing: -0.5px;
+}
+
+.settings-subtitle {
+    font-size: 13.5px;
+    color: #78716C;
+    margin: 0;
+    font-weight: 500;
+}
+
+/* --------------------------------------------------------------------------
+   Settings Two-Column Grid
+   -------------------------------------------------------------------------- */
+.settings-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 24px;
+    align-items: start;
+    width: 100%;
+}
+
+.settings-col {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* --------------------------------------------------------------------------
+   Base Settings Card
+   -------------------------------------------------------------------------- */
+.settings-card {
+    background-color: #EAE6DF;
+    border-radius: 16px;
+    padding: 24px 26px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    box-sizing: border-box;
+    border: 1px solid rgba(221, 214, 203, 0.5);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.card-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-title-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.card-title-icon {
+    width: 18px;
+    height: 18px;
+    stroke: #D96A77;
+    flex-shrink: 0;
+}
+
+.card-title {
+    font-size: 15px;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin: 0;
+    letter-spacing: -0.2px;
+}
+
+/* --------------------------------------------------------------------------
+   Form Fields & Controls
+   -------------------------------------------------------------------------- */
+.form-row-2col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-label {
+    font-size: 11.5px;
+    font-weight: 700;
+    color: #78716C;
+    letter-spacing: 0.1px;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+    width: 100%;
+    background-color: #F5F2EB;
+    border: 1px solid #DDD6CB;
+    border-radius: 10px;
+    padding: 11px 14px;
+    font-size: 13px;
+    font-family: inherit;
+    color: #1a1a1a;
+    font-weight: 600;
+    outline: none;
+    box-sizing: border-box;
+    transition: border-color 0.2s, background-color 0.2s, box-shadow 0.2s;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+    background-color: #FFFFFF;
+    border-color: #D96A77;
+    box-shadow: 0 0 0 3px rgba(217, 106, 119, 0.12);
+}
+
+.form-textarea {
+    min-height: 78px;
+    resize: vertical;
+    line-height: 1.5;
+}
+
+/* Custom Upload Logo Button */
+.logo-upload-wrap {
+    display: flex;
+    align-items: center;
+}
+
+.btn-upload-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #F5F2EB;
+    border: 1px solid #DDD6CB;
+    border-radius: 10px;
+    padding: 10px 16px;
+    font-size: 12.5px;
+    font-weight: 700;
+    color: #1a1a1a;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: inherit;
+    text-decoration: none;
+}
+
+.btn-upload-logo:hover {
+    background-color: #FFFFFF;
+    border-color: #D96A77;
+    color: #D96A77;
+}
+
+.btn-upload-logo svg {
+    width: 16px;
+    height: 16px;
+    stroke: #78716C;
+    transition: stroke 0.2s;
+}
+
+.btn-upload-logo:hover svg {
+    stroke: #D96A77;
+}
+
+/* Save Platform Changes Button */
+.card-actions-right {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 4px;
+}
+
+.btn-save-platform {
+    background-color: #D96A77;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 10px;
+    padding: 11px 22px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background-color 0.2s, transform 0.1s, box-shadow 0.2s;
+}
+
+.btn-save-platform:hover {
+    background-color: #C85966;
+    box-shadow: 0 4px 12px rgba(217, 106, 119, 0.25);
+}
+
+.btn-save-platform:active {
+    transform: scale(0.98);
+}
+
+/* --------------------------------------------------------------------------
+   Categories Card & Table
+   -------------------------------------------------------------------------- */
+.btn-add-category {
+    background-color: #1C1917;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 8px;
+    padding: 7px 14px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.btn-add-category:hover {
+    background-color: #383431;
+}
+
+.btn-add-category:active {
+    transform: scale(0.97);
+}
+
+.categories-table-wrap {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.categories-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+.categories-table th {
+    text-align: left;
+    padding: 8px 12px 12px 12px;
+    font-size: 10.5px;
+    font-weight: 800;
+    color: #78716C;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(221, 214, 203, 0.7);
+}
+
+.categories-table th.th-status {
+    text-align: right;
+    padding-right: 16px;
+}
+
+.categories-table td {
+    padding: 15px 12px;
+    border-bottom: 1px solid rgba(221, 214, 203, 0.4);
+    color: #1a1a1a;
+    font-weight: 500;
+    vertical-align: middle;
+}
+
+.categories-table tr:last-child td {
+    border-bottom: none;
+}
+
+.categories-table tr:hover td {
+    background-color: rgba(255, 255, 255, 0.35);
+}
+
+.category-desc {
+    font-size: 13px;
+    color: #373330;
+    font-weight: 500;
+}
+
+.status-badge-active {
+    display: inline-block;
+    color: #059669;
+    font-weight: 800;
+    font-size: 11px;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    text-align: right;
+}
+
+.status-badge-inactive {
+    display: inline-block;
+    color: #8C857D;
+    font-weight: 800;
+    font-size: 11px;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    text-align: right;
+}
+
+/* --------------------------------------------------------------------------
+   Settings Toggle Row Component
+   -------------------------------------------------------------------------- */
+.toggle-setting-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+}
+
+.toggle-info {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.toggle-title {
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 0;
+}
+
+.toggle-subtitle {
+    font-size: 11.5px;
+    color: #78716C;
+    margin: 0;
+}
+
+/* Custom Switch Component */
+.switch-control {
+    position: relative;
+    display: inline-block;
+    width: 44px;
+    height: 24px;
+    flex-shrink: 0;
+}
+
+.switch-control input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.switch-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #D1D5DB;
+    transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 24px;
+}
+
+.switch-slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 50%;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.switch-control input:checked + .switch-slider {
+    background-color: #D96A77;
+}
+
+.switch-control input:checked + .switch-slider:before {
+    transform: translateX(20px);
+}
+
+/* Base XP Row */
+.xp-reward-config-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.xp-input-box {
+    width: 80px;
+    background-color: #F5F2EB;
+    border: 1px solid #DDD6CB;
+    border-radius: 10px;
+    padding: 9px 12px;
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #1a1a1a;
+    text-align: center;
+    outline: none;
+    font-family: inherit;
+    transition: border-color 0.2s, background-color 0.2s;
+}
+
+.xp-input-box:focus {
+    background-color: #FFFFFF;
+    border-color: #D96A77;
+}
+
+.xp-reward-label {
+    font-size: 12.5px;
+    color: #78716C;
+    font-weight: 500;
+}
+
+/* --------------------------------------------------------------------------
+   Bottom Action Footer Row
+   -------------------------------------------------------------------------- */
+.settings-footer-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 24px;
+    border-top: 1px solid #DDD6CB;
+    margin-top: 12px;
+    width: 100%;
+}
+
+.footer-left {
+    display: flex;
+    align-items: center;
+}
+
+.btn-logout {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #FFFFFF;
+    border: 1px solid #DDD6CB;
+    border-radius: 10px;
+    padding: 10px 18px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #DC2626;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: inherit;
+    transition: all 0.2s ease;
+}
+
+.btn-logout svg {
+    width: 16px;
+    height: 16px;
+    stroke: #DC2626;
+}
+
+.btn-logout:hover {
+    background-color: #FEF2F2;
+    border-color: #FCA5A5;
+    box-shadow: 0 2px 6px rgba(220, 38, 38, 0.1);
+}
+
+.footer-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.btn-cancel-changes {
+    background: transparent;
+    border: none;
+    font-size: 13px;
+    font-weight: 700;
+    color: #1a1a1a;
+    cursor: pointer;
+    padding: 11px 18px;
+    border-radius: 10px;
+    font-family: inherit;
+    transition: background-color 0.2s;
+}
+
+.btn-cancel-changes:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.btn-save-all {
+    background-color: #D96A77;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 10px;
+    padding: 11px 26px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background-color 0.2s, transform 0.1s, box-shadow 0.2s;
+}
+
+.btn-save-all:hover {
+    background-color: #C85966;
+    box-shadow: 0 4px 14px rgba(217, 106, 119, 0.25);
+}
+
+.btn-save-all:active {
+    transform: scale(0.98);
+}
+
+/* --------------------------------------------------------------------------
+   Add Category Modal Popup
+   -------------------------------------------------------------------------- */
+.modal-backdrop {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(24, 24, 27, 0.45);
+    backdrop-filter: blur(4px);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.modal-backdrop.open {
+    display: flex;
+    opacity: 1;
+}
+
+.modal-card {
+    background-color: #EDE8DF;
+    border: 1px solid #DDD6CB;
+    border-radius: 18px;
+    width: 90%;
+    max-width: 480px;
+    padding: 28px;
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    box-sizing: border-box;
+    animation: modalPopIn 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalPopIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95) translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-title-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.modal-title-group svg {
+    width: 20px;
+    height: 20px;
+    stroke: #D96A77;
+}
+
+.modal-title {
+    font-size: 17px;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin: 0;
+}
+
+.modal-close-btn {
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    color: #78716C;
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.modal-close-btn:hover {
+    background-color: rgba(0, 0, 0, 0.08);
+    color: #1a1a1a;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 6px;
+}
+
+.btn-modal-cancel {
+    background: transparent;
+    border: 1px solid #DDD6CB;
+    border-radius: 8px;
+    padding: 9px 18px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #1a1a1a;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background-color 0.2s;
+}
+
+.btn-modal-cancel:hover {
+    background-color: rgba(0, 0, 0, 0.04);
+}
+
+.btn-modal-submit {
+    background-color: #1C1917;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 8px;
+    padding: 9px 20px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background-color 0.2s;
+}
+
+.btn-modal-submit:hover {
+    background-color: #383431;
+}
+
+/* --------------------------------------------------------------------------
+   Toast Alert Notification
+   -------------------------------------------------------------------------- */
+.toast-notice {
+    position: fixed;
+    bottom: 30px;
+    right: 36px;
+    background-color: #1C1917;
+    color: #FFFFFF;
+    padding: 14px 22px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 13.5px;
+    font-weight: 600;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+    z-index: 2000;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(20px);
+    transition: opacity 0.25s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.toast-notice.show {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.toast-icon {
+    width: 18px;
+    height: 18px;
+    stroke: #10B981;
+    flex-shrink: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Rules
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+    .settings-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .settings-container {
+        padding: 12px 18px 40px 18px;
+    }
+
+    .form-row-2col {
+        grid-template-columns: 1fr;
+    }
+
+    .settings-header-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    .header-right-group {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .settings-footer-bar {
+        flex-direction: column;
+        gap: 16px;
+        align-items: stretch;
+    }
+
+    .footer-right {
+        justify-content: flex-end;
+    }
+}

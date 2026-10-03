@@ -9,13 +9,23 @@ namespace IGNITE.Admin
         {
             if (!IsPostBack)
             {
-                // Initialize form values if editing
+                if (Request.QueryString["mode"] == "edit" || !string.IsNullOrEmpty(Request.QueryString["id"]))
+                {
+                    litPageTitle.Text = "Edit Quest";
+                    btnPublishQuest.Text = "Update Quest";
+                    txtQuestName.Text = "Deep Focus Master";
+                    txtDescription.Text = "A daily ritual designed to build cognitive endurance and focused execution.";
+                    txtReqType.Text = "Complete Challenges";
+                    txtTargetAmount.Text = "2";
+                    txtXpReward.Text = "500";
+                    txtCategory.Text = "History & Arts";
+                }
             }
         }
 
         protected void btnPublish_Click(object sender, EventArgs e)
         {
-            // Publish quest logic
+            // Save or publish quest logic
             Response.Redirect("Quests.aspx");
         }
 

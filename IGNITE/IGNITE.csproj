@@ -287,6 +287,17 @@
     <Content Include="Admin\ChallengeDetails.aspx" />
     <Content Include="Admin\CreateChallenge.aspx" />
     <Content Include="Admin\EditChallenge.aspx" />
+    <Content Include="Admin\Quests.aspx" />
+    <Content Include="Admin\CreateQuest.aspx" />
+    <Content Include="Admin\QuestDetails.aspx" />
+    <Content Include="Admin\Achievements.aspx" />
+    <Content Include="Admin\AchievementDetails.aspx" />
+    <Content Include="Admin\CreateAchievement.aspx" />
+    <Content Include="Admin\EditAchievement.aspx" />
+    <Content Include="Admin\ArchiveAchievement.aspx" />
+    <Content Include="Admin\Settings.aspx" />
+    <Content Include="Content\admin-create-quest.css" />
+    <Content Include="Content\admin-settings.css" />
     <Content Include="Database\test.aspx" />
 
     <Content Include="Web.config" />
