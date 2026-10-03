@@ -13,6 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
     <!-- IGNITE Admin Master Stylesheet -->
+    <link href="../Content/admin-master.css" rel="stylesheet" type="text/css" />
     <link href="<%= ResolveUrl("~/Content/admin-master.css") %>" rel="stylesheet" type="text/css" />
 
     <asp:ContentPlaceHolder ID="head" runat="server">
@@ -30,7 +31,7 @@
             <aside id="adminSidebar" class="admin-sidebar">
                 <!-- Brand / Logo -->
                 <a href="<%= ResolveUrl("~/Admin/Overview.aspx") %>" class="admin-sidebar-brand" title="IGNITE Admin Portal">
-                    <img src="<%= ResolveUrl("~/assets/Container.svg") %>" alt="IGNITE" class="brand-container-logo" style="height: 32px; width: auto;" />
+                    <img src="<%= ResolveUrl("~/assets/Container.svg") %>" alt="IGNITE" class="brand-container-logo" style="height: 32px; width: auto; max-width: 120px;" />
                 </a>
 
                 <!-- Section Category -->
@@ -42,7 +43,7 @@
                 <nav class="admin-sidebar-nav">
                     <!-- Overview -->
                     <a id="navOverview" runat="server" href="~/Admin/Overview.aspx" class="admin-nav-item">
-                        <svg class="admin-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <svg class="admin-nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;flex-shrink:0;">
                             <path d="M3 10.5L12 3l9 7.5V20a1.5 1.5 0 0 1-1.5 1.5h-5a1 1 0 0 1-1-1v-4.5a1.5 1.5 0 0 0-1.5-1.5h-2a1.5 1.5 0 0 0-1.5 1.5V20a1 1 0 0 1-1 1h-5A1.5 1.5 0 0 1 3 20v-9.5z"/>
                         </svg>
                         <span>Overview</span>
@@ -50,7 +51,7 @@
 
                     <!-- Students -->
                     <a id="navStudents" runat="server" href="~/Admin/Students.aspx" class="admin-nav-item">
-                        <svg class="admin-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <svg class="admin-nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;flex-shrink:0;">
                             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
                             <circle cx="12" cy="7" r="4"/>
                         </svg>
@@ -59,7 +60,7 @@
 
                     <!-- Challenges -->
                     <a id="navChallenges" runat="server" href="~/Admin/Challenges.aspx" class="admin-nav-item">
-                        <svg class="admin-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <svg class="admin-nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;flex-shrink:0;">
                             <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/>
                             <line x1="4" y1="22" x2="4" y2="15"/>
                         </svg>
@@ -68,7 +69,7 @@
 
                     <!-- Quests -->
                     <a id="navQuests" runat="server" href="~/Admin/Quests.aspx" class="admin-nav-item">
-                        <svg class="admin-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <svg class="admin-nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;flex-shrink:0;">
                             <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
                             <line x1="16" y1="2" x2="16" y2="6"/>
                             <line x1="8" y1="2" x2="8" y2="6"/>
@@ -79,7 +80,7 @@
 
                     <!-- Achievements -->
                     <a id="navAchievements" runat="server" href="~/Admin/Achievements.aspx" class="admin-nav-item">
-                        <svg class="admin-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <svg class="admin-nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;flex-shrink:0;">
                             <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/>
                             <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/>
                             <path d="M4 22h16"/>

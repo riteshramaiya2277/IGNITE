@@ -40,11 +40,11 @@ namespace IGNITE.Admin
             {
                 navOverview.Attributes["class"] += " active";
             }
-            else if (currentPath.Contains("students"))
+            else if (currentPath.Contains("student"))
             {
                 navStudents.Attributes["class"] += " active";
             }
-            else if (currentPath.Contains("challenges"))
+            else if (currentPath.Contains("challenge"))
             {
                 navChallenges.Attributes["class"] += " active";
             }

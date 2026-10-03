@@ -58,6 +58,7 @@
     font-size: 14px;
     font-weight: 600;
     cursor: pointer;
+    text-decoration: none;
     transition: background 0.2s;
 }
 .btn-primary:hover {
@@ -125,6 +126,12 @@
 .challenges-table tr:last-child td {
     border-bottom: none;
 }
+.challenges-table tbody tr {
+    transition: background-color 0.15s ease;
+}
+.challenges-table tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.45);
+}
 
 /* Table Cell Styling */
 .chal-title {
@@ -132,6 +139,14 @@
     font-weight: 700;
     color: #1a1a1a;
     margin-bottom: 4px;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    transition: color 0.15s ease;
+}
+.chal-title:hover {
+    color: #D96A77;
+    text-decoration: underline;
 }
 .chal-ref {
     font-size: 11px;

@@ -22,10 +22,10 @@
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
                     <input type="text" class="search-input-local" placeholder="Search challenges..." />
                 </div>
-                <button type="button" class="btn-primary">
+                <a href="EditChallenge.aspx" class="btn-primary" style="text-decoration:none;">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
                     Edit Challenge
-                </button>
+                </a>
             </div>
         </div>
 
@@ -63,9 +63,9 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <tr onclick="window.location='ChallengeDetails.aspx';" style="cursor:pointer;">
                         <td>
-                            <div class="chal-title">Advanced Python Patterns</div>
+                            <a href="ChallengeDetails.aspx" class="chal-title">Advanced Python Patterns</a>
                             <div class="chal-ref">Ref: #CHL-9021</div>
                         </td>
                         <td class="chal-category">Programming</td>
@@ -84,17 +84,17 @@
                             <div class="status published"><div class="status-dot"></div>Published</div>
                         </td>
                         <td>
-                            <div class="action-btns">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.12 2.12 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+                            <div class="action-btns" onclick="event.stopPropagation();">
+                                <a href="ChallengeDetails.aspx" title="View Details" style="color:inherit;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg></a>
+                                <a href="EditChallenge.aspx" title="Edit Challenge" style="color:inherit;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.12 2.12 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg></a>
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
                             </div>
                         </td>
                     </tr>
 
-                    <tr>
+                    <tr onclick="window.location='ChallengeDetails.aspx';" style="cursor:pointer;">
                         <td>
-                            <div class="chal-title">UI Typography Basics</div>
+                            <a href="ChallengeDetails.aspx" class="chal-title">UI Typography Basics</a>
                             <div class="chal-ref">Ref: #CHL-8842</div>
                         </td>
                         <td class="chal-category">Design</td>
@@ -113,17 +113,17 @@
                             <div class="status draft"><div class="status-dot"></div>Draft</div>
                         </td>
                         <td>
-                            <div class="action-btns">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.12 2.12 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+                            <div class="action-btns" onclick="event.stopPropagation();">
+                                <a href="ChallengeDetails.aspx" title="View Details" style="color:inherit;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg></a>
+                                <a href="EditChallenge.aspx" title="Edit Challenge" style="color:inherit;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.12 2.12 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg></a>
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
                             </div>
                         </td>
                     </tr>
 
-                    <tr>
+                    <tr onclick="window.location='ChallengeDetails.aspx';" style="cursor:pointer;">
                         <td>
-                            <div class="chal-title">Data Analysis Challenge</div>
+                            <a href="ChallengeDetails.aspx" class="chal-title">Data Analysis Challenge</a>
                             <div class="chal-ref">Ref: #CHL-7751</div>
                         </td>
                         <td class="chal-category">Mathematics</td>
@@ -142,17 +142,17 @@
                             <div class="status archived"><div class="status-dot"></div>Archived</div>
                         </td>
                         <td>
-                            <div class="action-btns">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.12 2.12 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+                            <div class="action-btns" onclick="event.stopPropagation();">
+                                <a href="ChallengeDetails.aspx" title="View Details" style="color:inherit;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg></a>
+                                <a href="EditChallenge.aspx" title="Edit Challenge" style="color:inherit;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.12 2.12 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg></a>
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
                             </div>
                         </td>
                     </tr>
 
-                    <tr>
+                    <tr onclick="window.location='ChallengeDetails.aspx';" style="cursor:pointer;">
                         <td>
-                            <div class="chal-title">Responsive Web Layouts</div>
+                            <a href="ChallengeDetails.aspx" class="chal-title">Responsive Web Layouts</a>
                             <div class="chal-ref">Ref: #CHL-9110</div>
                         </td>
                         <td class="chal-category">Programming</td>
@@ -171,9 +171,9 @@
                             <div class="status published"><div class="status-dot"></div>Published</div>
                         </td>
                         <td>
-                            <div class="action-btns">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.12 2.12 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+                            <div class="action-btns" onclick="event.stopPropagation();">
+                                <a href="ChallengeDetails.aspx" title="View Details" style="color:inherit;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg></a>
+                                <a href="EditChallenge.aspx" title="Edit Challenge" style="color:inherit;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.12 2.12 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg></a>
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
                             </div>
                         </td>

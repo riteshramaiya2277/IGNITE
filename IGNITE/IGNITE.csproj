@@ -263,10 +263,22 @@
     <Content Include="Student\AddNote.aspx" />
     <Content Include="Content\add-note.css" />
     <Content Include="Content\admin-master.css" />
+    <Content Include="Content\admin-overview.css" />
+    <Content Include="Content\admin-students.css" />
+    <Content Include="Content\admin-student-profile.css" />
+    <Content Include="Content\admin-challenges.css" />
+    <Content Include="Content\admin-challenge-details.css" />
+    <Content Include="Content\admin-create-challenge.css" />
     <Content Include="Scripts\admin-master.js" />
     <Content Include="Admin\AdminMaster.master" />
     <Content Include="Admin\Overview.aspx" />
     <Content Include="Admin\Login.aspx" />
+    <Content Include="Admin\Students.aspx" />
+    <Content Include="Admin\StudentProfile.aspx" />
+    <Content Include="Admin\Challenges.aspx" />
+    <Content Include="Admin\ChallengeDetails.aspx" />
+    <Content Include="Admin\CreateChallenge.aspx" />
+    <Content Include="Admin\EditChallenge.aspx" />
 
     <Content Include="Web.config" />
   </ItemGroup>
