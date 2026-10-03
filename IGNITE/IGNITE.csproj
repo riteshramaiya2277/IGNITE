@@ -120,6 +120,41 @@
     <Compile Include="Student\Habits.aspx.designer.cs">
       <DependentUpon>Habits.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Student\HabitHub.aspx.cs">
+      <DependentUpon>HabitHub.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student\HabitHub.aspx.designer.cs">
+      <DependentUpon>HabitHub.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Student\HabitDetail.aspx.cs">
+      <DependentUpon>HabitDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student\HabitDetail.aspx.designer.cs">
+      <DependentUpon>HabitDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Student\HabitDetailMeasurable.aspx.cs">
+      <DependentUpon>HabitDetailMeasurable.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student\HabitDetailMeasurable.aspx.designer.cs">
+      <DependentUpon>HabitDetailMeasurable.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Student\HabitDetailBinary.aspx.cs">
+      <DependentUpon>HabitDetailBinary.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student\HabitDetailBinary.aspx.designer.cs">
+      <DependentUpon>HabitDetailBinary.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Student\Quests.aspx.cs">
+      <DependentUpon>Quests.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student\Quests.aspx.designer.cs">
+      <DependentUpon>Quests.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Student\Tasks.aspx.cs">
       <DependentUpon>Tasks.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -168,6 +203,20 @@
     </Compile>
     <Compile Include="Student\Goals.aspx.designer.cs">
       <DependentUpon>Goals.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Student\GoalDetail.aspx.cs">
+      <DependentUpon>GoalDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student\GoalDetail.aspx.designer.cs">
+      <DependentUpon>GoalDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Student\CreateGoal.aspx.cs">
+      <DependentUpon>CreateGoal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student\CreateGoal.aspx.designer.cs">
+      <DependentUpon>CreateGoal.aspx</DependentUpon>
     </Compile>
     <Compile Include="Student\Calendar.aspx.cs">
       <DependentUpon>Calendar.aspx</DependentUpon>
@@ -242,6 +291,8 @@
     <Content Include="Content\student-master.css" />
     <Content Include="Content\dashboard.css" />
     <Content Include="Content\habits.css" />
+    <Content Include="Content\habit-detail.css" />
+    <Content Include="Content\quests.css" />
     <Content Include="Content\tasks.css" />
     <Content Include="Content\challenges.css" />
     <Content Include="Content\profile.css" />
@@ -251,13 +302,20 @@
     <Content Include="Student\StudentMaster.master" />
     <Content Include="Student\Dashboard.aspx" />
     <Content Include="Student\Habits.aspx" />
+    <Content Include="Student\HabitHub.aspx" />
+    <Content Include="Student\HabitDetail.aspx" />
+    <Content Include="Student\HabitDetailMeasurable.aspx" />
+    <Content Include="Student\HabitDetailBinary.aspx" />
     <Content Include="Student\Tasks.aspx" />
     <Content Include="Student\TaskDetail.aspx" />
     <Content Include="Student\Challenges.aspx" />
+    <Content Include="Student\Quests.aspx" />
     <Content Include="Student\ChallengeDetail.aspx" />
     <Content Include="Student\Profile.aspx" />
     <Content Include="Student\ChangePassword.aspx" />
     <Content Include="Student\Goals.aspx" />
+    <Content Include="Student\GoalDetail.aspx" />
+    <Content Include="Student\CreateGoal.aspx" />
     <Content Include="Content\goals.css" />
     <Content Include="Student\Calendar.aspx" />
     <Content Include="Content\calendar.css" />

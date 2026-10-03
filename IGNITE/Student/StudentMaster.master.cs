@@ -25,7 +25,7 @@ namespace IGNITE.Student
             {
                 name = (HttpContext.Current.User != null && HttpContext.Current.User.Identity.IsAuthenticated)
                     ? HttpContext.Current.User.Identity.Name
-                    : "Ritesh Ramaiya";
+                    : "Alex Mercer";
             }
             litStudentName.Text = name;
 
@@ -82,7 +82,11 @@ namespace IGNITE.Student
             {
                 navDashboard.Attributes["class"] = "nav-item active";
             }
-            else if (string.Equals(fileName, "Habits.aspx", StringComparison.OrdinalIgnoreCase))
+            else if (string.Equals(fileName, "Habits.aspx", StringComparison.OrdinalIgnoreCase) ||
+                     string.Equals(fileName, "HabitHub.aspx", StringComparison.OrdinalIgnoreCase) ||
+                     string.Equals(fileName, "HabitDetail.aspx", StringComparison.OrdinalIgnoreCase) ||
+                     string.Equals(fileName, "HabitDetailMeasurable.aspx", StringComparison.OrdinalIgnoreCase) ||
+                     string.Equals(fileName, "HabitDetailBinary.aspx", StringComparison.OrdinalIgnoreCase))
             {
                 navHabits.Attributes["class"] = "nav-item active";
             }
@@ -91,12 +95,15 @@ namespace IGNITE.Student
             {
                 navTasks.Attributes["class"] = "nav-item active";
             }
-            else if (string.Equals(fileName, "Goals.aspx", StringComparison.OrdinalIgnoreCase))
+            else if (string.Equals(fileName, "Goals.aspx", StringComparison.OrdinalIgnoreCase) ||
+                     string.Equals(fileName, "GoalDetail.aspx", StringComparison.OrdinalIgnoreCase) ||
+                     string.Equals(fileName, "CreateGoal.aspx", StringComparison.OrdinalIgnoreCase))
             {
                 navGoals.Attributes["class"] = "nav-item active";
             }
             else if (string.Equals(fileName, "Challenges.aspx", StringComparison.OrdinalIgnoreCase) ||
                      string.Equals(fileName, "ChallengeDetail.aspx", StringComparison.OrdinalIgnoreCase) ||
+                     string.Equals(fileName, "Quests.aspx", StringComparison.OrdinalIgnoreCase) ||
                      string.Equals(fileName, "Achievements.aspx", StringComparison.OrdinalIgnoreCase))
             {
                 navChallenges.Attributes["class"] = "nav-item active";

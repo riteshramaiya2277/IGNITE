@@ -1,16 +1,21 @@
 /* ==========================================================================
    IGNITE — Student Habits Stylesheet
-   Matches Figma UI Specification:
-   Warm Sand/Cream palette, Coral/Rose accents (#DF6A74), Stat Cards,
-   Category Badges, Progress Bars, and Action Buttons.
+   Supports both:
+   1. Habits Overview List View (Stats cards, search/filter, tab bars, habit rows)
+   2. Categorized Habits Hub View (Study & Productivity, Health & Wellness, Personal Growth)
    ========================================================================== */
 
-/* 1. Main Canvas & Header */
+/* --------------------------------------------------------------------------
+   1. Canvas & Header
+   -------------------------------------------------------------------------- */
 .habits-canvas {
     display: flex;
     flex-direction: column;
     width: 100%;
+    max-width: 1360px;
+    margin: 0 auto;
     gap: 22px;
+    padding-bottom: 48px;
 }
 
 .habits-header {
@@ -63,11 +68,9 @@
     transform: translateY(-1px);
 }
 
-.btn-create-habit:active {
-    transform: translateY(0);
-}
-
-/* 2. Search & Filter Bar */
+/* --------------------------------------------------------------------------
+   2. Search & Filter Bar
+   -------------------------------------------------------------------------- */
 .habits-filter-bar {
     display: flex;
     justify-content: space-between;
@@ -149,7 +152,9 @@
     flex-shrink: 0;
 }
 
-/* 3. Stat Cards Grid (4 Columns) */
+/* --------------------------------------------------------------------------
+   3. Stat Cards Grid (4 Columns)
+   -------------------------------------------------------------------------- */
 .habits-stats-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -157,58 +162,80 @@
 }
 
 .stat-card {
-    background-color: #ECE7DD;
+    background-color: #EFECE6;
     border-radius: 18px;
     padding: 20px 22px;
     display: flex;
     align-items: center;
-    gap: 18px;
-    border: 1px solid rgba(0, 0, 0, 0.02);
+    gap: 16px;
+    border: 1px solid rgba(221, 214, 203, 0.6);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
-/* Circular ring progress widget */
+.stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.04);
+}
+
+/* Circular ring for Stat Card 1 */
 .stat-ring-wrap {
     position: relative;
-    width: 56px;
-    height: 56px;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     flex-shrink: 0;
 }
 
 .stat-ring-svg {
+    width: 100%;
+    height: 100%;
     transform: rotate(-90deg);
-    width: 56px;
-    height: 56px;
 }
 
 .stat-ring-bg {
     fill: none;
     stroke: #DDD6CB;
-    stroke-width: 5;
+    stroke-width: 6;
 }
 
 .stat-ring-progress {
     fill: none;
     stroke: #DF6A74;
-    stroke-width: 5;
+    stroke-width: 6;
     stroke-linecap: round;
     transition: stroke-dashoffset 0.5s ease;
 }
 
 .stat-ring-text {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 0.82rem;
+    font-size: 0.85rem;
     font-weight: 800;
     color: #18181B;
 }
 
-/* Stat card details */
+.stat-card-icon-box {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    background-color: #F8DFE1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #DF6A74;
+    flex-shrink: 0;
+}
+
+.stat-card-icon-box svg {
+    stroke: currentColor;
+    fill: none;
+}
+
 .stat-card-details {
     display: flex;
     flex-direction: column;
-    gap: 2px;
+    gap: 3px;
     min-width: 0;
 }
 
@@ -224,7 +251,7 @@
     font-size: 1.35rem;
     font-weight: 800;
     color: #18181B;
-    line-height: 1.2;
+    line-height: 1.1;
 }
 
 .stat-card-delta {
@@ -233,53 +260,38 @@
     color: #D97706;
 }
 
+.stat-card-delta-gold {
+    font-size: 0.74rem;
+    font-weight: 800;
+    color: #D97706;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
 .stat-card-subtext {
     font-size: 0.74rem;
     color: #78716C;
     font-weight: 500;
 }
 
-.stat-card-icon-box {
-    width: 52px;
-    height: 52px;
-    border-radius: 14px;
-    background-color: #F8D8DC;
-    color: #DF6A74;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-}
-
-.stat-card-icon-box svg {
-    stroke: currentColor;
-}
-
 .stat-badge-milestone {
     display: inline-block;
-    border: 1px solid #D97706;
-    color: #D97706;
-    font-size: 0.62rem;
+    background-color: #FFFBEB;
+    color: #B45309;
+    border: 1px solid #FDE68A;
+    font-size: 0.65rem;
     font-weight: 800;
-    letter-spacing: 0.05em;
-    padding: 2px 6px;
+    padding: 2px 7px;
     border-radius: 4px;
-    margin-top: 3px;
+    letter-spacing: 0.04em;
     width: fit-content;
 }
 
-.stat-card-delta-gold {
-    font-size: 0.68rem;
-    font-weight: 800;
-    color: #D97706;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-}
-
-/* 4. Tab Navigation */
+/* --------------------------------------------------------------------------
+   4. Tab Navigation Bar
+   -------------------------------------------------------------------------- */
 .habits-tabs-bar {
     display: flex;
-    align-items: center;
     gap: 28px;
     border-bottom: 1.5px solid #DDD6CB;
     padding-bottom: 2px;
@@ -318,7 +330,9 @@
     border-radius: 3px 3px 0 0;
 }
 
-/* 5. Habits List & Cards */
+/* --------------------------------------------------------------------------
+   5. Habits List & Cards
+   -------------------------------------------------------------------------- */
 .habits-cards-list {
     display: flex;
     flex-direction: column;
@@ -326,32 +340,34 @@
 }
 
 .habit-card-item {
-    background-color: #ECE7DD;
+    background-color: #EFECE6;
     border-radius: 18px;
     padding: 18px 24px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 20px;
-    border: 1px solid rgba(0, 0, 0, 0.02);
-    transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+    border: 1px solid rgba(221, 214, 203, 0.6);
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
 }
 
 .habit-card-item:hover {
-    background-color: #E8E2D7;
+    background-color: #EAE5DC;
+    border-color: #DF6A74;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
 }
 
-/* Completed / Active Highlighted Card */
 .habit-card-highlight {
-    background-color: #FAF3F4;
+    background-color: #FAF4F4;
     border: 1.5px solid #F5C6CB;
 }
 
 .habit-card-highlight:hover {
-    background-color: #F8ECEE;
+    background-color: #F8EDED;
 }
 
-/* Left part: Action circle + Details */
 .habit-card-left {
     display: flex;
     align-items: center;
@@ -360,7 +376,6 @@
     min-width: 0;
 }
 
-/* Circle Action Buttons */
 .btn-habit-action-circle {
     width: 36px;
     height: 36px;
@@ -381,7 +396,7 @@
 
 .btn-habit-check:hover {
     background-color: #D45B65;
-    transform: scale(1.05);
+    transform: scale(1.06);
 }
 
 .btn-habit-plus-circle {
@@ -393,10 +408,9 @@
 .btn-habit-plus-circle:hover {
     border-color: #DF6A74;
     background-color: #FFF7F8;
-    transform: scale(1.05);
+    transform: scale(1.06);
 }
 
-/* Habit text info */
 .habit-card-info {
     display: flex;
     flex-direction: column;
@@ -418,7 +432,6 @@
     line-height: 1.25;
 }
 
-/* Category Pills */
 .badge-category {
     font-size: 0.65rem;
     font-weight: 800;
@@ -469,7 +482,6 @@
     fill: #D97706;
 }
 
-/* Right part: Progress + Tool buttons */
 .habit-card-right {
     display: flex;
     align-items: center;
@@ -519,7 +531,6 @@
     transition: width 0.3s ease;
 }
 
-/* Action tool buttons (gear, lock, calendar) */
 .habit-action-tools {
     display: flex;
     align-items: center;
@@ -546,11 +557,9 @@
     background-color: #FFF8F9;
 }
 
-.btn-tool-icon svg {
-    stroke: currentColor;
-}
-
-/* 6. Bottom View All Button */
+/* --------------------------------------------------------------------------
+   6. Bottom View All Button
+   -------------------------------------------------------------------------- */
 .habits-bottom-action {
     display: flex;
     justify-content: center;
@@ -578,7 +587,536 @@
     transform: translateY(-1px);
 }
 
-/* 7. Create Habit Modal Dialog */
+/* --------------------------------------------------------------------------
+   7. Hub View (Study & Productivity, Health & Wellness, Personal Growth)
+   -------------------------------------------------------------------------- */
+.habits-hub-canvas {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    width: 100%;
+    max-width: 1360px;
+    margin: 0 auto;
+    padding-bottom: 48px;
+}
+
+.habit-category-section {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+}
+
+.category-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.category-title {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #1F2937;
+    letter-spacing: -0.01em;
+    margin: 0;
+}
+
+.category-count-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #E2E8F0;
+    color: #475569;
+    font-size: 0.76rem;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 9999px;
+    letter-spacing: 0.01em;
+}
+
+.category-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    width: 100%;
+}
+
+@media (max-width: 1024px) {
+    .category-cards-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.habit-card {
+    background-color: #EFECE6;
+    border: 1px solid rgba(221, 214, 203, 0.7);
+    border-radius: 16px;
+    padding: 22px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 18px;
+    cursor: pointer;
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease, border-color 0.2s ease;
+    color: inherit;
+    text-decoration: none;
+}
+
+.habit-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+    border-color: #DF6A74;
+}
+
+.habit-card-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 14px;
+}
+
+.habit-card-header-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex: 1;
+}
+
+.habit-icon-box {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background-color: rgba(223, 106, 116, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: #DF6A74;
+}
+
+.habit-icon-box svg {
+    width: 20px;
+    height: 20px;
+    stroke: currentColor;
+    stroke-width: 2;
+}
+
+.habit-card-titles {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.habit-name {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #18181B;
+    margin: 0;
+}
+
+.habit-subtitle {
+    font-size: 0.82rem;
+    color: #78716C;
+    font-weight: 500;
+    margin: 0;
+}
+
+.badge-paused {
+    display: inline-flex;
+    align-items: center;
+    background-color: #64748B;
+    color: #FFFFFF;
+    font-size: 0.68rem;
+    font-weight: 800;
+    padding: 2px 7px;
+    border-radius: 6px;
+    text-transform: uppercase;
+}
+
+.streak-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background-color: #FFF9F9;
+    border: 1px solid #F6D6D8;
+    color: #D95360;
+    font-size: 0.74rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 8px;
+    white-space: nowrap;
+}
+
+.streak-pill svg {
+    width: 13px;
+    height: 13px;
+    fill: #DF6A74;
+}
+
+.streak-pill.streak-zero {
+    background-color: #F8FAFC;
+    border-color: #E2E8F0;
+    color: #94A3B8;
+}
+
+.streak-pill.streak-zero svg {
+    fill: #94A3B8;
+}
+
+.habit-card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.progress-label-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.82rem;
+    color: #78716C;
+    font-weight: 600;
+}
+
+.progress-with-btn-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+}
+
+.btn-mini-add {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background-color: #FAF8F5;
+    border: 1px solid #D8D1C5;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #57534E;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    flex-shrink: 0;
+}
+
+.btn-mini-add:hover {
+    background-color: #DF6A74;
+    border-color: #DF6A74;
+    color: #FFFFFF;
+}
+
+.mark-complete-box {
+    background-color: #FFFDF7;
+    border: 1px solid #F0ECE4;
+    border-radius: 12px;
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    width: 100%;
+}
+
+.mark-complete-text {
+    font-size: 0.86rem;
+    font-weight: 600;
+    color: #B45309;
+}
+
+.btn-check-circle {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #DF6A74;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    cursor: pointer;
+    transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+.btn-check-circle:hover {
+    transform: scale(1.08);
+}
+
+.btn-check-circle.completed {
+    background-color: #10B981;
+}
+
+.circular-progress-wrap {
+    position: relative;
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.circular-progress-svg {
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+}
+
+.circular-bg {
+    fill: none;
+    stroke: #DFDAD1;
+    stroke-width: 6;
+}
+
+.circular-meter {
+    fill: none;
+    stroke: #DF6A74;
+    stroke-width: 6;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 0.4s ease;
+}
+
+.circular-progress-text {
+    position: absolute;
+    font-size: 0.88rem;
+    font-weight: 800;
+    color: #18181B;
+}
+
+.hydration-progress-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.hydration-left-group {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.hydration-target-text {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #57534E;
+}
+
+.hydration-quick-btns {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-quick-dose {
+    background-color: #FAF8F5;
+    border: 1px solid #D8D1C5;
+    border-radius: 8px;
+    padding: 7px 14px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #57534E;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.btn-quick-dose:hover {
+    background-color: #DF6A74;
+    border-color: #DF6A74;
+    color: #FFFFFF;
+}
+
+.paused-habit-banner {
+    background-color: #FAF8F5;
+    border: 1px solid #E6E0D6;
+    border-radius: 12px;
+    padding: 12px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    width: 100%;
+}
+
+.paused-banner-text {
+    font-size: 0.84rem;
+    color: #78716C;
+    font-style: italic;
+}
+
+.btn-banner-resume {
+    color: #DF6A74;
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+.read-timer-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.read-progress-label {
+    font-size: 0.84rem;
+    color: #78716C;
+}
+
+.read-progress-highlight {
+    color: #D97706;
+    font-weight: 700;
+}
+
+.btn-start-timer {
+    background-color: #F59E0B;
+    color: #FFFFFF;
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    border: none;
+}
+
+.habit-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding-top: 6px;
+    border-top: 1px solid rgba(221, 214, 203, 0.4);
+}
+
+.footer-section-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    color: #8E8A84;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.activity-dots-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.activity-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #D6CFBE;
+}
+
+.activity-dot.dot-yellow {
+    background-color: #F59E0B;
+}
+
+.activity-dot.dot-purple-ring {
+    background-color: #6366F1;
+    box-shadow: 0 0 0 2px #E0E7FF;
+}
+
+.weekly-streak-days {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.day-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.day-letter {
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: #8E8A84;
+}
+
+.day-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #D6CFBE;
+}
+
+.day-dot.active-day {
+    background-color: #DF6A74;
+}
+
+.day-dot.past-day {
+    background-color: #F59E0B;
+}
+
+.mini-month-grid {
+    display: grid;
+    grid-template-columns: repeat(10, 8px);
+    grid-template-rows: repeat(3, 8px);
+    gap: 3px;
+}
+
+.mini-grid-cell {
+    width: 8px;
+    height: 8px;
+    border-radius: 2px;
+    background-color: #D6CFBE;
+}
+
+.mini-grid-cell.cell-filled {
+    background-color: #DF6A74;
+}
+
+.add-habit-placeholder-card {
+    border: 2px dashed #D3CAC0;
+    background: transparent;
+    border-radius: 16px;
+    min-height: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    padding: 24px;
+}
+
+.add-habit-placeholder-card:hover {
+    border-color: #DF6A74;
+    background-color: rgba(223, 106, 116, 0.04);
+}
+
+.add-placeholder-icon-wrap {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: #FAF8F5;
+    border: 1px solid #D8D1C5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #78716C;
+}
+
+.add-placeholder-text {
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: #78716C;
+}
+
+/* --------------------------------------------------------------------------
+   8. Modal Dialog Styles
+   -------------------------------------------------------------------------- */
 .modal-overlay {
     display: none;
     position: fixed;
@@ -700,39 +1238,24 @@
     cursor: pointer;
 }
 
-/* 8. Responsive Adaptations */
-@media (max-width: 1100px) {
-    .habits-stats-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
+/* Toast */
+.habit-toast {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background-color: #18181B;
+    color: #FFFFFF;
+    padding: 14px 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    font-size: 0.88rem;
+    font-weight: 600;
+    display: none;
+    align-items: center;
+    gap: 10px;
+    z-index: 10000;
 }
 
-@media (max-width: 768px) {
-    .habits-header {
-        flex-direction: column;
-    }
-
-    .btn-create-habit {
-        width: 100%;
-        justify-content: center;
-    }
-
-    .habits-stats-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .habit-card-item {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 14px;
-    }
-
-    .habit-card-right {
-        width: 100%;
-        justify-content: space-between;
-    }
-
-    .search-habits-box {
-        width: 100%;
-    }
+.habit-toast.show {
+    display: flex;
 }

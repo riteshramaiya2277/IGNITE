@@ -1,16 +1,15 @@
 using System;
-using System.Web;
 using System.Web.UI;
 
 namespace IGNITE.Student
 {
-    public partial class Habits : Page
+    public partial class GoalDetail : Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                // Page initialization
+                // Can initialize dynamic goal data here if needed
             }
         }
     }

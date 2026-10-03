@@ -43,6 +43,14 @@
                                 </span>
                             </div>
                             <div class="task-detail-top-actions">
+                                <button type="button" class="btn-circle-action" title="Edit Task"
+                                    onclick="openEditTaskModal()">
+                                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+                                        stroke-width="2.2">
+                                        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                                        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                                    </svg>
+                                </button>
                                 <button type="button" class="btn-circle-action" title="Add Subtask / Note"
                                     onclick="openAddSubtaskModal()">
                                     <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
@@ -278,14 +286,254 @@
             </div>
         </div>
 
-        <!-- Edit Task Modal -->
+        <!-- Embedded Fail-Safe Styles for Edit Task Modal -->
+        <style type="text/css">
+            .modal-overlay {
+                position: fixed !important;
+                top: 0 !important;
+                left: 0 !important;
+                width: 100vw !important;
+                height: 100vh !important;
+                background-color: rgba(24, 24, 27, 0.45) !important;
+                backdrop-filter: blur(4px) !important;
+                -webkit-backdrop-filter: blur(4px) !important;
+                display: none !important;
+                align-items: center !important;
+                justify-content: center !important;
+                z-index: 99999 !important;
+            }
+            .modal-overlay.open {
+                display: flex !important;
+            }
+            .modal-spec-card {
+                background-color: #FAF8F5 !important;
+                border-radius: 24px !important;
+                width: 90% !important;
+                max-width: 560px !important;
+                border: 1px solid #DDD6CB !important;
+                box-shadow: 0 24px 50px rgba(0, 0, 0, 0.22) !important;
+                display: flex !important;
+                flex-direction: column !important;
+                overflow: hidden !important;
+                margin: auto !important;
+                box-sizing: border-box !important;
+            }
+            .modal-spec-header {
+                padding: 24px 30px 16px 30px !important;
+                display: flex !important;
+                justify-content: space-between !important;
+                align-items: center !important;
+                box-sizing: border-box !important;
+            }
+            .modal-edit-header-title {
+                display: flex !important;
+                align-items: center !important;
+                gap: 12px !important;
+            }
+            .edit-task-icon-box {
+                width: 36px !important;
+                height: 36px !important;
+                border-radius: 10px !important;
+                background-color: #FEECEE !important;
+                border: 1px solid #FCD4D7 !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                color: #DF6A74 !important;
+            }
+            .edit-task-modal-heading {
+                font-size: 1.25rem !important;
+                font-weight: 800 !important;
+                color: #18181B !important;
+                margin: 0 !important;
+            }
+            .modal-spec-close-btn, .modal-close-btn {
+                background: transparent !important;
+                border: none !important;
+                cursor: pointer !important;
+                color: #78716C !important;
+                padding: 6px !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                border-radius: 8px !important;
+            }
+            .modal-spec-body {
+                padding: 0 30px 24px 30px !important;
+                display: flex !important;
+                flex-direction: column !important;
+                gap: 16px !important;
+                box-sizing: border-box !important;
+            }
+            .form-group-spec {
+                display: flex !important;
+                flex-direction: column !important;
+                gap: 6px !important;
+                width: 100% !important;
+                box-sizing: border-box !important;
+            }
+            .edit-form-label {
+                font-size: 0.72rem !important;
+                font-weight: 800 !important;
+                color: #18181B !important;
+                letter-spacing: 0.06em !important;
+                text-transform: uppercase !important;
+                display: block !important;
+            }
+            .form-input-spec {
+                width: 100% !important;
+                box-sizing: border-box !important;
+                padding: 12px 16px !important;
+                border-radius: 12px !important;
+                border: 1px solid #DDD6CB !important;
+                background-color: #FFFFFF !important;
+                font-family: inherit !important;
+                font-size: 0.92rem !important;
+                color: #18181B !important;
+                outline: none !important;
+            }
+            .form-input-spec.has-error {
+                border: 1.5px solid #EF4444 !important;
+                padding-right: 36px !important;
+            }
+            .field-error-text {
+                display: flex !important;
+                align-items: center !important;
+                gap: 6px !important;
+                font-size: 0.78rem !important;
+                font-weight: 700 !important;
+                color: #DC2626 !important;
+                margin-top: 2px !important;
+            }
+            .edit-form-textarea {
+                width: 100% !important;
+                box-sizing: border-box !important;
+                padding: 12px 16px !important;
+                border-radius: 12px !important;
+                border: 1px solid #DDD6CB !important;
+                background-color: #FFFFFF !important;
+                font-family: inherit !important;
+                font-size: 0.9rem !important;
+                color: #18181B !important;
+                outline: none !important;
+                resize: none !important;
+                min-height: 85px !important;
+            }
+            .datetime-box {
+                flex: 1 !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: space-between !important;
+                padding: 11px 16px !important;
+                border-radius: 12px !important;
+                border: 1px solid #DDD6CB !important;
+                background-color: #FFFFFF !important;
+                font-size: 0.88rem !important;
+                font-weight: 600 !important;
+                color: #57534E !important;
+                box-sizing: border-box !important;
+            }
+            .form-input-clean {
+                border: none !important;
+                outline: none !important;
+                background: transparent !important;
+                font-family: inherit !important;
+                font-size: 0.9rem !important;
+                font-weight: 500 !important;
+                color: #18181B !important;
+                width: 100% !important;
+            }
+            .form-select-spec {
+                width: 100% !important;
+                box-sizing: border-box !important;
+                padding: 11px 16px !important;
+                border-radius: 12px !important;
+                border: 1px solid #DDD6CB !important;
+                background-color: #FFFFFF !important;
+                font-family: inherit !important;
+                font-size: 0.9rem !important;
+                font-weight: 600 !important;
+                color: #18181B !important;
+                outline: none !important;
+                cursor: pointer !important;
+            }
+            .category-pills-selector {
+                display: flex !important;
+                align-items: center !important;
+                gap: 8px !important;
+                flex-wrap: wrap !important;
+            }
+            .category-tag-btn {
+                padding: 7px 16px !important;
+                border-radius: 9999px !important;
+                font-size: 0.82rem !important;
+                font-weight: 700 !important;
+                cursor: pointer !important;
+                border: 1.5px solid transparent !important;
+                user-select: none !important;
+            }
+            .category-tag-btn.tag-math { background-color: #E6FFFA !important; color: #0D9488 !important; }
+            .category-tag-btn.tag-physics { background-color: #F3E8FF !important; color: #9333EA !important; }
+            .category-tag-btn.tag-history { background-color: #FFF5F5 !important; color: #DF6A74 !important; border-color: #DF6A74 !important; }
+            .category-tag-btn.tag-art { background-color: #EFF6FF !important; color: #2563EB !important; }
+            .category-tag-btn.tag-new { background-color: #F3F4F6 !important; color: #6B7280 !important; }
+            .category-tag-btn.selected { border-color: #DF6A74 !important; box-shadow: 0 2px 6px rgba(223, 106, 116, 0.25) !important; }
+            .goal-input-box-wrap { position: relative !important; width: 100% !important; }
+            .goal-input-box-wrap svg { position: absolute !important; right: 14px !important; top: 50% !important; transform: translateY(-50%) !important; color: #78716C !important; pointer-events: none !important; }
+            .modal-spec-footer {
+                background-color: #FFFFFF !important;
+                border-top: 1px solid #ECE7DD !important;
+                padding: 18px 30px !important;
+                display: flex !important;
+                justify-content: flex-end !important;
+                align-items: center !important;
+                gap: 24px !important;
+                box-sizing: border-box !important;
+            }
+            .btn-spec-cancel {
+                background: none !important;
+                border: none !important;
+                font-size: 0.92rem !important;
+                font-weight: 700 !important;
+                color: #27272A !important;
+                cursor: pointer !important;
+            }
+            .btn-spec-submit {
+                background-color: #DF6A74 !important;
+                color: #FFFFFF !important;
+                font-size: 0.92rem !important;
+                font-weight: 700 !important;
+                padding: 11px 24px !important;
+                border-radius: 12px !important;
+                border: none !important;
+                cursor: pointer !important;
+                display: inline-flex !important;
+                align-items: center !important;
+                gap: 6px !important;
+                box-shadow: 0 4px 12px rgba(223, 106, 116, 0.35) !important;
+            }
+        </style>
+
+        <!-- Edit Task Modal (Matching Image 2) -->
         <div class="modal-overlay" id="editTaskModal">
-            <div class="modal-card">
-                <div class="modal-header">
-                    <h3 class="modal-title">Edit Task</h3>
+            <div class="modal-spec-card">
+                <!-- Modal Header: Edit Task Icon + Title + Close Button -->
+                <div class="modal-spec-header">
+                    <div class="modal-edit-header-title">
+                        <div class="edit-task-icon-box">
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5">
+                                <line x1="8" y1="6" x2="21" y2="6"></line>
+                                <line x1="8" y1="12" x2="21" y2="12"></line>
+                                <line x1="8" y1="18" x2="21" y2="18"></line>
+                                <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                                <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                                <line x1="3" y1="18" x2="3.01" y2="18"></line>
+                            </svg>
+                        </div>
+                        <h2 class="edit-task-modal-heading">Edit Task</h2>
+                    </div>
                     <button type="button" class="modal-close-btn" onclick="closeEditTaskModal()" title="Close">
-                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
-                            stroke-width="2">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5">
                             <line x1="18" y1="6" x2="6" y2="18"></line>
                             <line x1="6" y1="6" x2="18" y2="18"></line>
                         </svg>
@@ -293,35 +541,90 @@
                 </div>
 
                 <form id="editTaskForm" onsubmit="handleEditTaskSubmit(event)">
-                    <div class="form-group">
-                        <label class="form-label" for="txtEditTitle">Task Title</label>
-                        <input type="text" id="txtEditTitle" class="form-input" required />
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label class="form-label" for="ddlEditPriority">Priority</label>
-                            <select id="ddlEditPriority" class="form-select">
-                                <option value="High Priority">High Priority</option>
-                                <option value="Medium Priority">Medium Priority</option>
-                                <option value="Low Priority">Low Priority</option>
-                            </select>
+                    <div class="modal-spec-body">
+                        <!-- Task Title Input with Validation -->
+                        <div class="form-group-spec">
+                            <label class="edit-form-label" for="txtEditTitle">TASK TITLE</label>
+                            <div class="input-error-wrapper">
+                                <input type="text" id="txtEditTitle" class="form-input-spec has-error" placeholder="e.g. Physics Lab Report" oninput="validateEditTitle()" />
+                            </div>
+                            <div class="field-error-text" id="editTitleError">
+                                <svg viewBox="0 0 24 24" width="15" height="15" fill="#DC2626">
+                                    <circle cx="12" cy="12" r="10" />
+                                    <path d="M12 7v6M12 17h.01" stroke="#fff" stroke-width="2.2" stroke-linecap="round" />
+                                </svg>
+                                <span>Title is required</span>
+                            </div>
                         </div>
 
-                        <div class="form-group">
-                            <label class="form-label" for="txtEditDueDate">Due Date</label>
-                            <input type="text" id="txtEditDueDate" class="form-input" required />
+                        <!-- Description Textarea -->
+                        <div class="form-group-spec">
+                            <label class="edit-form-label" for="txtEditDesc">DESCRIPTION</label>
+                            <textarea id="txtEditDesc" class="edit-form-textarea" placeholder="Add some details about this task..."></textarea>
+                        </div>
+
+                        <!-- Due Date & Priority Grid -->
+                        <div class="form-row">
+                            <div class="form-group-spec">
+                                <label class="edit-form-label" for="txtEditDueDate">DUE DATE</label>
+                                <div class="datetime-box">
+                                    <input type="text" id="txtEditDueDate" class="form-input-clean" placeholder="mm/dd/yyyy" />
+                                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                                    </svg>
+                                </div>
+                            </div>
+
+                            <div class="form-group-spec">
+                                <label class="edit-form-label" for="ddlEditPriority">PRIORITY</label>
+                                <select id="ddlEditPriority" class="form-select-spec">
+                                    <option value="Low Priority">Low Priority</option>
+                                    <option value="Medium Priority">Medium Priority</option>
+                                    <option value="High Priority">High Priority</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Subject / Category Pills -->
+                        <div class="form-group-spec">
+                            <label class="edit-form-label">SUBJECT / CATEGORY</label>
+                            <div class="category-pills-selector" id="editCategoryPills">
+                                <span class="category-tag-btn tag-math" onclick="selectEditCategory(this, 'Mathematics')">Mathematics</span>
+                                <span class="category-tag-btn tag-physics" onclick="selectEditCategory(this, 'Physics')">Physics</span>
+                                <span class="category-tag-btn tag-history selected" onclick="selectEditCategory(this, 'History')">History</span>
+                                <span class="category-tag-btn tag-art" onclick="selectEditCategory(this, 'Art')">Art</span>
+                                <span class="category-tag-btn tag-new" onclick="addNewCategory(this)">+ New</span>
+                            </div>
+                            <input type="hidden" id="editSelectedCategory" value="History" />
+                        </div>
+
+                        <!-- Link to Goal (Optional) -->
+                        <div class="form-group-spec">
+                            <label class="edit-form-label" for="txtEditGoal">LINK TO GOAL (OPTIONAL)</label>
+                            <div class="goal-input-box-wrap">
+                                <input type="text" id="txtEditGoal" class="form-input-spec" placeholder="e.g. Pass Semester Finals" />
+                                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <circle cx="12" cy="12" r="6"></circle>
+                                    <circle cx="12" cy="12" r="2"></circle>
+                                </svg>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <label class="form-label" for="txtEditDesc">Description</label>
-                        <textarea id="txtEditDesc" class="form-textarea" rows="4"></textarea>
-                    </div>
-
-                    <div class="modal-actions">
-                        <button type="button" class="btn-secondary" onclick="closeEditTaskModal()">Cancel</button>
-                        <button type="submit" class="btn-primary">Save Changes</button>
+                    <!-- Modal Bottom Bar (White) -->
+                    <div class="modal-spec-footer">
+                        <button type="button" class="btn-spec-cancel" onclick="closeEditTaskModal()">Cancel</button>
+                        <button type="submit" class="btn-spec-submit">
+                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="3">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                            <span>Edit Task</span>
+                        </button>
                     </div>
                 </form>
             </div>
@@ -415,40 +718,108 @@
                 }
             }
 
-            // 3. Edit Task Modal
+            // 3. Edit Task Modal (Image 2)
             function openEditTaskModal() {
                 const titleEl = document.getElementById('<%= lblTaskTitle.ClientID %>');
                 const descEl = document.getElementById('<%= lblTaskDesc.ClientID %>');
                 const dueDateEl = document.getElementById('<%= lblDueDate.ClientID %>');
                 const priorityEl = document.getElementById('<%= lblPriority.ClientID %>');
+                const badgeEl = document.getElementById('<%= lblSubjectBadge.ClientID %>');
 
-                document.getElementById('txtEditTitle').value = titleEl ? titleEl.textContent.trim() : '';
+                const titleInput = document.getElementById('txtEditTitle');
+                titleInput.value = titleEl ? titleEl.textContent.trim() : '';
                 document.getElementById('txtEditDesc').value = descEl ? descEl.textContent.trim() : '';
-                document.getElementById('txtEditDueDate').value = dueDateEl ? dueDateEl.textContent.trim() : '';
+                document.getElementById('txtEditDueDate').value = dueDateEl ? dueDateEl.textContent.trim() : '10/28/2026';
                 if (priorityEl) {
-                    document.getElementById('ddlEditPriority').value = priorityEl.textContent.trim();
+                    const pVal = priorityEl.textContent.trim();
+                    const ddl = document.getElementById('ddlEditPriority');
+                    if (pVal.includes('High')) ddl.value = 'High Priority';
+                    else if (pVal.includes('Low')) ddl.value = 'Low Priority';
+                    else ddl.value = 'Medium Priority';
                 }
 
+                // Match Category Pill
+                const subject = badgeEl ? badgeEl.textContent.trim().toLowerCase() : 'mathematics';
+                let matched = false;
+                document.querySelectorAll('#editCategoryPills .category-tag-btn').forEach(pill => {
+                    pill.classList.remove('selected');
+                    if (pill.textContent.trim().toLowerCase() === subject) {
+                        pill.classList.add('selected');
+                        matched = true;
+                    }
+                });
+                if (!matched) {
+                    const firstPill = document.querySelector('#editCategoryPills .tag-math');
+                    if (firstPill) firstPill.classList.add('selected');
+                }
+
+                validateEditTitle();
                 document.getElementById('editTaskModal').classList.add('open');
+                titleInput.focus();
             }
 
             function closeEditTaskModal() {
                 document.getElementById('editTaskModal').classList.remove('open');
             }
 
+            function validateEditTitle() {
+                const input = document.getElementById('txtEditTitle');
+                const error = document.getElementById('editTitleError');
+                if (!input) return;
+
+                const isEmpty = input.value.trim().length === 0;
+                if (isEmpty) {
+                    input.classList.add('has-error');
+                    if (error) error.style.display = 'flex';
+                } else {
+                    input.classList.remove('has-error');
+                    if (error) error.style.display = 'none';
+                }
+            }
+
+            function selectEditCategory(pillElem, catName) {
+                document.querySelectorAll('#editCategoryPills .category-tag-btn').forEach(p => p.classList.remove('selected'));
+                pillElem.classList.add('selected');
+                document.getElementById('editSelectedCategory').value = catName;
+            }
+
+            function addNewCategory(btn) {
+                const newCat = prompt('Enter new subject / category name:');
+                if (newCat && newCat.trim()) {
+                    const tag = document.createElement('span');
+                    tag.className = 'category-tag-btn selected';
+                    tag.style.backgroundColor = '#FEF3C7';
+                    tag.style.color = '#B45309';
+                    tag.textContent = newCat.trim();
+                    tag.onclick = function() { selectEditCategory(this, newCat.trim()); };
+
+                    document.querySelectorAll('#editCategoryPills .category-tag-btn').forEach(p => p.classList.remove('selected'));
+                    btn.parentNode.insertBefore(tag, btn);
+                    document.getElementById('editSelectedCategory').value = newCat.trim();
+                }
+            }
+
             function handleEditTaskSubmit(e) {
                 e.preventDefault();
-                const newTitle = document.getElementById('txtEditTitle').value.trim();
+                const titleInput = document.getElementById('txtEditTitle');
+                const newTitle = titleInput.value.trim();
+
+                if (!newTitle) {
+                    validateEditTitle();
+                    titleInput.focus();
+                    return;
+                }
+
                 const newDesc = document.getElementById('txtEditDesc').value.trim();
                 const newDueDate = document.getElementById('txtEditDueDate').value.trim();
                 const newPriority = document.getElementById('ddlEditPriority').value;
+                const newCat = document.getElementById('editSelectedCategory').value;
 
-                if (newTitle) {
-                    const titleEl = document.getElementById('<%= lblTaskTitle.ClientID %>');
-                    const breadcrumbTitle = document.getElementById('<%= lblBreadcrumbTitle.ClientID %>');
-                    if (titleEl) titleEl.textContent = newTitle;
-                    if (breadcrumbTitle) breadcrumbTitle.textContent = newTitle;
-                }
+                const titleEl = document.getElementById('<%= lblTaskTitle.ClientID %>');
+                const breadcrumbTitle = document.getElementById('<%= lblBreadcrumbTitle.ClientID %>');
+                if (titleEl) titleEl.textContent = newTitle;
+                if (breadcrumbTitle) breadcrumbTitle.textContent = newTitle;
+
                 if (newDesc) {
                     const descEl = document.getElementById('<%= lblTaskDesc.ClientID %>');
                     if (descEl) descEl.textContent = newDesc;
@@ -460,6 +831,10 @@
                 if (newPriority) {
                     const priorityEl = document.getElementById('<%= lblPriority.ClientID %>');
                     if (priorityEl) priorityEl.textContent = newPriority;
+                }
+                if (newCat) {
+                    const badgeEl = document.getElementById('<%= lblSubjectBadge.ClientID %>');
+                    if (badgeEl) badgeEl.textContent = newCat.toUpperCase();
                 }
 
                 closeEditTaskModal();

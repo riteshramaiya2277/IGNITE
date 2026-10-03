@@ -1,0 +1,639 @@
+/* ==========================================================================
+   IGNITE — Student Habit Detail Stylesheet
+   Faithfully matching UI Screenshot 2 (Measurable) & Screenshot 3 (Binary):
+   Two-column workspace, Completion History calendar matrix with legends,
+   interactive progress logging, binary Yes/No completion, and streak actions.
+   ========================================================================== */
+
+/* 1. Main Canvas & Layout */
+.habit-detail-canvas {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+    max-width: 1360px;
+    margin: 0 auto;
+    padding-bottom: 48px;
+}
+
+/* 2. Breadcrumbs & Top Action Bar */
+.habit-detail-top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.habit-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.88rem;
+    font-weight: 500;
+}
+
+.breadcrumb-link {
+    color: #78716C;
+    transition: color 0.15s ease;
+    text-decoration: none;
+}
+
+.breadcrumb-link:hover {
+    color: #DF6A74;
+}
+
+.breadcrumb-sep {
+    color: #A8A29E;
+    font-size: 0.8rem;
+}
+
+.breadcrumb-current {
+    color: #18181B;
+    font-weight: 700;
+}
+
+/* Action Buttons (Pause, Edit, Archive) */
+.habit-top-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-habit-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background-color: #FFFFFF;
+    border: 1px solid #DDD6CB;
+    border-radius: 10px;
+    padding: 7px 14px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #57534E;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.btn-habit-action svg {
+    width: 15px;
+    height: 15px;
+    stroke: currentColor;
+    stroke-width: 2;
+}
+
+.btn-habit-action:hover {
+    border-color: #BDB4A8;
+    background-color: #FAF8F5;
+    transform: translateY(-1px);
+}
+
+.btn-habit-action.btn-archive {
+    color: #DF6A74;
+    border-color: #F5D3D6;
+    background-color: #FFF9F9;
+}
+
+.btn-habit-action.btn-archive:hover {
+    background-color: #DF6A74;
+    color: #FFFFFF;
+    border-color: #DF6A74;
+}
+
+.btn-habit-action.btn-archive svg {
+    stroke: currentColor;
+}
+
+/* 3. Title Header & Meta Section */
+.habit-detail-header {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.habit-title-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.habit-main-title {
+    font-size: 2.1rem;
+    font-weight: 800;
+    color: #18181B;
+    letter-spacing: -0.02em;
+    margin: 0;
+    line-height: 1.15;
+}
+
+.badge-tag-category {
+    display: inline-flex;
+    align-items: center;
+    background-color: #FCECEE;
+    color: #DF6A74;
+    font-size: 0.72rem;
+    font-weight: 800;
+    padding: 4px 10px;
+    border-radius: 6px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.habit-meta-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.habit-meta-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.88rem;
+    color: #78716C;
+    font-weight: 500;
+}
+
+.habit-meta-item svg {
+    width: 16px;
+    height: 16px;
+    stroke: #DF6A74;
+    stroke-width: 2;
+    flex-shrink: 0;
+}
+
+/* 4. Two-Column Workspace Layout */
+.habit-detail-layout {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 24px;
+    align-items: start;
+    width: 100%;
+}
+
+@media (max-width: 1100px) {
+    .habit-detail-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 5. Left Column: Completion History Card */
+.habit-history-card {
+    background-color: #EFECE6;
+    border: 1px solid rgba(221, 214, 203, 0.7);
+    border-radius: 18px;
+    padding: 26px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.history-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.history-card-title {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #18181B;
+    margin: 0;
+}
+
+/* Legend items (Completed, Missed, Scheduled) */
+.history-legend {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.legend-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #78716C;
+}
+
+.legend-color-box {
+    width: 12px;
+    height: 12px;
+    border-radius: 3px;
+    display: inline-block;
+}
+
+.legend-completed {
+    background-color: #DF6A74;
+}
+
+.legend-missed {
+    background-color: #F7E4E4;
+}
+
+.legend-scheduled {
+    background-color: #F8F5F0;
+    border: 1px dashed #DDD6CB;
+}
+
+/* Calendar Grid */
+.calendar-matrix-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+}
+
+.calendar-matrix-grid {
+    display: grid;
+    gap: 12px;
+    width: 100%;
+}
+
+/* Measurable: 6 or 7 cols; Binary: 5 cols */
+.grid-cols-7 {
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+}
+
+.grid-cols-5 {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.matrix-tile-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    position: relative;
+}
+
+.calendar-tile {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.78rem;
+    font-weight: 700;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    cursor: pointer;
+    position: relative;
+    user-select: none;
+}
+
+.calendar-tile:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    z-index: 10;
+}
+
+/* Tile State Colors */
+.tile-completed {
+    background-color: #DF6A74;
+    color: #FFFFFF;
+}
+
+.tile-missed {
+    background-color: #F7E4E4;
+    color: #A8A29E;
+}
+
+.tile-binary-missed {
+    background-color: #F8F5F0;
+    color: #A8A29E;
+}
+
+.tile-scheduled {
+    background-color: #F8F5F0;
+    border: 1.5px dashed #DDD6CB;
+    color: #A8A29E;
+}
+
+.tile-today {
+    background-color: #FFFDF9;
+    border: 2px dashed #DF6A74;
+    color: #DF6A74;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+}
+
+.tile-active-ring {
+    box-shadow: 0 0 0 3px rgba(223, 106, 116, 0.35);
+}
+
+.tile-date-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: #8E8A84;
+}
+
+/* Tooltip for hover on tile */
+.calendar-tile[data-tooltip]::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #18181B;
+    color: #FFFFFF;
+    padding: 5px 9px;
+    border-radius: 6px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.15s ease;
+    z-index: 20;
+}
+
+.calendar-tile:hover[data-tooltip]::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* 6. Right Column Cards */
+.habit-detail-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    width: 100%;
+}
+
+.sidebar-panel-card {
+    background-color: #EFECE6;
+    border: 1px solid rgba(221, 214, 203, 0.7);
+    border-radius: 18px;
+    padding: 22px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.panel-header-label {
+    font-size: 0.84rem;
+    font-weight: 700;
+    color: #78716C;
+    margin: 0;
+}
+
+/* Today's Progress Numbers & Track (Measurable) */
+.progress-big-number-row {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+}
+
+.progress-big-val {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #18181B;
+    line-height: 1;
+}
+
+.progress-goal-val {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #78716C;
+}
+
+.progress-status-subtext {
+    font-size: 0.84rem;
+    color: #78716C;
+    font-weight: 500;
+}
+
+.sidebar-progress-track {
+    width: 100%;
+    height: 10px;
+    background-color: #DFDAD1;
+    border-radius: 9999px;
+    overflow: hidden;
+}
+
+.sidebar-progress-fill {
+    height: 100%;
+    background-color: #DF6A74;
+    border-radius: 9999px;
+    transition: width 0.3s ease;
+}
+
+/* Add Progress Section (Measurable) */
+.add-progress-input-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.input-progress-amount {
+    flex: 1;
+    padding: 10px 14px;
+    border-radius: 10px;
+    border: 1px solid #DDD6CB;
+    background-color: #FFFFFF;
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #18181B;
+    outline: none;
+    transition: border-color 0.15s ease;
+}
+
+.input-progress-amount:focus {
+    border-color: #DF6A74;
+    box-shadow: 0 0 0 3px rgba(223, 106, 116, 0.15);
+}
+
+.btn-add-progress {
+    background-color: #DF6A74;
+    color: #FFFFFF;
+    font-size: 0.88rem;
+    font-weight: 700;
+    padding: 10px 22px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.15s ease, transform 0.1s ease;
+    box-shadow: 0 2px 6px rgba(223, 106, 116, 0.25);
+}
+
+.btn-add-progress:hover {
+    background-color: #D25862;
+    transform: translateY(-1px);
+}
+
+.points-earned-note {
+    font-size: 0.82rem;
+    color: #78716C;
+    font-weight: 500;
+}
+
+/* 7. Binary Habit Sidebar Cards (Screenshot 3) */
+/* Today's Goal Card */
+.binary-goal-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.binary-goal-icon-wrap {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: #FFFFFF;
+    border: 1px solid #E2DCD3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: #A8A29E;
+    transition: all 0.2s ease;
+}
+
+.binary-goal-icon-wrap.completed {
+    background-color: #10B981;
+    border-color: #10B981;
+    color: #FFFFFF;
+}
+
+.binary-goal-icon-wrap svg {
+    width: 20px;
+    height: 20px;
+    stroke: currentColor;
+    stroke-width: 2.5;
+}
+
+.binary-goal-text-group {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.binary-goal-main {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: #18181B;
+}
+
+.binary-goal-sub {
+    font-size: 0.82rem;
+    color: #78716C;
+    font-weight: 500;
+}
+
+/* Did you complete habit today Card */
+.binary-question-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.binary-q-icon-wrap {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: #FAF8F5;
+    border: 1px solid #D8D1C5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: #78716C;
+}
+
+.binary-q-icon-wrap svg {
+    width: 20px;
+    height: 20px;
+    stroke: currentColor;
+    stroke-width: 2.5;
+}
+
+.binary-buttons-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.btn-binary-yes {
+    flex: 1;
+    background-color: #DF6A74;
+    color: #FFFFFF;
+    font-size: 0.9rem;
+    font-weight: 700;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    box-shadow: 0 2px 6px rgba(223, 106, 116, 0.25);
+    text-align: center;
+}
+
+.btn-binary-yes:hover {
+    background-color: #D25862;
+    transform: translateY(-1px);
+}
+
+.btn-binary-no {
+    flex: 1;
+    background-color: #FAF8F5;
+    color: #57534E;
+    border: 1px solid #D8D1C5;
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    text-align: center;
+}
+
+.btn-binary-no:hover {
+    background-color: #EDE7DC;
+}
+
+/* Toast Message */
+.habit-toast {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background-color: #18181B;
+    color: #FFFFFF;
+    padding: 14px 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    font-size: 0.88rem;
+    font-weight: 600;
+    display: none;
+    align-items: center;
+    gap: 10px;
+    z-index: 10000;
+    animation: toastSlideUp 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.habit-toast.show {
+    display: flex;
+}
+
+@keyframes toastSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
