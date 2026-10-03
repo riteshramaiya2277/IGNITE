@@ -1,4 +1,4 @@
-<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="AdminMaster.master.cs" Inherits="IGNITE.Admin.AdminMaster" %>
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="AdminMaster.master.cs" Inherits="IGNITE.Admin.AdminMaster" %>
 
 <!DOCTYPE html>
 <html lang="en">
