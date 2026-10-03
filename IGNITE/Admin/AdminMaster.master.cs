@@ -48,7 +48,7 @@ namespace IGNITE.Admin
             {
                 navChallenges.Attributes["class"] += " active";
             }
-            else if (currentPath.Contains("quests"))
+            else if (currentPath.Contains("quest"))
             {
                 navQuests.Attributes["class"] += " active";
             }

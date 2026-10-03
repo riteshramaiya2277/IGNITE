@@ -1,0 +1,494 @@
+/* Admin Quests Page Styles */
+.quests-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 24px 32px 48px 32px;
+    background-color: #F5F2EB;
+    min-height: calc(100vh - 70px);
+    box-sizing: border-box;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Page Header Row */
+.quests-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.quests-title-group {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.quests-page-title {
+    font-size: 24px;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin: 0;
+    letter-spacing: -0.3px;
+}
+
+.streak-pill-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 12px;
+    border: 1.5px solid #F59E0B;
+    background: #FFFBEB;
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 800;
+    color: #D97706;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+.streak-pill-badge svg {
+    width: 14px;
+    height: 14px;
+    color: #F59E0B;
+    fill: #F59E0B;
+}
+
+.header-right-group {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Level & XP Widget */
+.level-xp-widget {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: 180px;
+}
+
+.level-xp-labels {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 10px;
+    font-weight: 800;
+    color: #78716C;
+    letter-spacing: 0.3px;
+}
+
+.xp-progress-track {
+    width: 100%;
+    height: 6px;
+    background: #E5E0D8;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.xp-progress-fill {
+    width: 75%;
+    height: 100%;
+    background: #D96A77;
+    border-radius: 3px;
+    transition: width 0.3s ease;
+}
+
+/* Create Quest Button */
+.btn-create-quest {
+    background: #D96A77;
+    color: #FFF;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 18px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+    transition: background 0.15s ease, transform 0.1s ease;
+    box-shadow: 0 2px 6px rgba(217, 106, 119, 0.25);
+    font-family: inherit;
+}
+.btn-create-quest:hover {
+    background: #C45A66;
+    transform: translateY(-1px);
+}
+.btn-create-quest svg {
+    width: 15px;
+    height: 15px;
+}
+
+/* Filter Bar */
+.quests-filter-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 4px;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.filter-left-controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.search-box-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: #FFF;
+    border: 1px solid #E0DCD3;
+    border-radius: 8px;
+    padding: 8px 12px;
+    width: 220px;
+}
+.search-box-wrap svg {
+    width: 15px;
+    height: 15px;
+    color: #888;
+    flex-shrink: 0;
+}
+.search-input-field {
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 13px;
+    margin-left: 8px;
+    width: 100%;
+    font-family: inherit;
+    color: #1a1a1a;
+}
+.search-input-field::placeholder {
+    color: #999;
+}
+
+.filter-select-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #FFF;
+    border: 1px solid #E0DCD3;
+    border-radius: 8px;
+    padding: 8px 14px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #333;
+    cursor: pointer;
+    font-family: inherit;
+}
+.filter-select-btn svg {
+    width: 14px;
+    height: 14px;
+    color: #777;
+}
+
+.btn-clear-filters {
+    background: transparent;
+    border: none;
+    color: #D96A77;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    padding: 8px 4px;
+    font-family: inherit;
+    transition: color 0.15s ease;
+}
+.btn-clear-filters:hover {
+    color: #C45A66;
+    text-decoration: underline;
+}
+
+.sort-dropdown-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #EAE6DF;
+    border: 1px solid #D8D4CC;
+    border-radius: 8px;
+    padding: 8px 14px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #1a1a1a;
+    cursor: pointer;
+    font-family: inherit;
+}
+.sort-dropdown-btn svg {
+    width: 14px;
+    height: 14px;
+    color: #444;
+}
+
+/* Table Container Card */
+.quests-table-card {
+    background: #EAE6DF;
+    border-radius: 16px;
+    padding: 8px 24px 20px 24px;
+    box-sizing: border-box;
+}
+
+.quests-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.quests-table th {
+    text-align: left;
+    font-size: 11px;
+    font-weight: 800;
+    color: #78716C;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 18px 12px 14px 12px;
+    border-bottom: 1px solid #D8D4CC;
+}
+
+.quests-table td {
+    padding: 18px 12px;
+    border-bottom: 1px solid #D8D4CC;
+    vertical-align: middle;
+    font-size: 13px;
+}
+
+.quests-table tbody tr {
+    transition: background 0.15s ease;
+    cursor: pointer;
+}
+.quests-table tbody tr:hover {
+    background: rgba(255, 255, 255, 0.45);
+}
+
+.quests-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* Quest Name Column */
+.quest-name-col {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.quest-icon-badge {
+    width: 36px;
+    height: 36px;
+    background: #FFF;
+    border-radius: 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    flex-shrink: 0;
+}
+.quest-icon-badge svg {
+    width: 18px;
+    height: 18px;
+    color: #D96A77;
+}
+
+.quest-title-text {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1a1a1a;
+}
+
+.quest-type-text {
+    font-size: 13px;
+    font-weight: 600;
+    color: #333;
+}
+
+.quest-req-text {
+    font-size: 12px;
+    color: #666;
+    line-height: 1.4;
+    max-width: 200px;
+}
+
+.quest-xp-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 13px;
+    font-weight: 800;
+    color: #D97706;
+}
+.quest-xp-badge svg {
+    width: 12px;
+    height: 12px;
+    fill: #D97706;
+}
+
+/* Status Badges */
+.status-pill {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 700;
+    text-align: center;
+}
+.status-published {
+    background: #DCFCE7;
+    color: #15803D;
+}
+.status-draft {
+    background: #FEF9C3;
+    color: #A16207;
+}
+.status-archived {
+    background: #F1F5F9;
+    color: #64748B;
+}
+
+/* Dates Column */
+.dates-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+.dates-primary {
+    font-size: 12px;
+    font-weight: 700;
+    color: #1a1a1a;
+}
+.dates-sub {
+    font-size: 11px;
+    color: #888;
+}
+
+.created-date-text {
+    font-size: 12px;
+    color: #666;
+}
+
+/* Actions Column */
+.actions-cell-wrap {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.action-icon-link {
+    color: #666;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: color 0.15s ease;
+    text-decoration: none;
+}
+.action-icon-link:hover {
+    color: #1a1a1a;
+}
+.action-icon-link svg {
+    width: 16px;
+    height: 16px;
+}
+
+.btn-row-archive {
+    border: 1px solid #D96A77;
+    background: transparent;
+    color: #D96A77;
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.15s ease;
+}
+.btn-row-archive:hover {
+    background: #D96A77;
+    color: #FFF;
+}
+
+.btn-row-publish {
+    border: none;
+    background: #D96A77;
+    color: #FFF;
+    padding: 5px 14px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background 0.15s ease;
+}
+.btn-row-publish:hover {
+    background: #C45A66;
+}
+
+.btn-row-restore {
+    border: none;
+    background: transparent;
+    color: #D96A77;
+    padding: 4px 8px;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: inherit;
+    transition: color 0.15s ease;
+}
+.btn-row-restore:hover {
+    text-decoration: underline;
+    color: #C45A66;
+}
+
+/* Pagination Row */
+.quests-pagination-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 16px;
+    padding: 0 4px;
+}
+
+.pagination-info-text {
+    font-size: 12px;
+    color: #78716C;
+    font-weight: 500;
+}
+
+.pagination-btns-wrap {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.page-num-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 6px;
+    border: 1px solid transparent;
+    background: transparent;
+    font-size: 12px;
+    font-weight: 700;
+    color: #666;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.15s ease;
+}
+.page-num-btn:hover {
+    background: rgba(0, 0, 0, 0.05);
+    color: #1a1a1a;
+}
+.page-num-btn.active {
+    background: #D96A77;
+    color: #FFF;
+    border-color: #D96A77;
+}
+
+/* SVG Constraints */
+svg {
+    max-width: 100%;
+}

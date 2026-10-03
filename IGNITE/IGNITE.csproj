@@ -276,6 +276,7 @@
     <Content Include="Content\admin-challenges.css" />
     <Content Include="Content\admin-challenge-details.css" />
     <Content Include="Content\admin-create-challenge.css" />
+    <Content Include="Content\admin-quests.css" />
     <Content Include="Scripts\admin-master.js" />
     <Content Include="Admin\AdminMaster.master" />
     <Content Include="Admin\Overview.aspx" />
@@ -286,7 +287,6 @@
     <Content Include="Admin\ChallengeDetails.aspx" />
     <Content Include="Admin\CreateChallenge.aspx" />
     <Content Include="Admin\EditChallenge.aspx" />
-    <Content Include="Database\test.aspx" />
 
     <Content Include="Web.config" />
   </ItemGroup>
