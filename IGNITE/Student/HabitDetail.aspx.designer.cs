@@ -9,7 +9,7 @@
 
 namespace IGNITE.Student
 {
-    public partial class Habits
+    public partial class HabitDetail
     {
     }
 }
