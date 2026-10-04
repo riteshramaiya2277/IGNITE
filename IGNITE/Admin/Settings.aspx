@@ -67,36 +67,6 @@
                 gap: 24px;
             }
 
-            .level-xp-widget {
-                display: flex;
-                flex-direction: column;
-                gap: 5px;
-                width: 180px;
-            }
-
-            .level-xp-labels {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                font-size: 10px;
-                font-weight: 800;
-                letter-spacing: 0.3px;
-            }
-
-            .xp-progress-track {
-                width: 100%;
-                height: 6px;
-                background: #E5E0D8;
-                border-radius: 3px;
-                overflow: hidden;
-            }
-
-            .xp-progress-fill {
-                width: 75%;
-                height: 100%;
-                background: #D96A77;
-                border-radius: 3px;
-            }
 
             .top-search-wrap {
                 position: relative;
@@ -590,16 +560,6 @@
                 </div>
 
                 <div class="header-right-group">
-                    <!-- Level / XP Progress Widget -->
-                    <div class="level-xp-widget" title="Global Platform XP Progress">
-                        <div class="level-xp-labels">
-                            <span class="lvl-tag">LVL 12</span>
-                            <span class="xp-ratio">4,500 / 6,000 XP</span>
-                        </div>
-                        <div class="xp-progress-track">
-                            <div class="xp-progress-fill"></div>
-                        </div>
-                    </div>
 
                     <!-- Search Input Pill -->
                     <div class="top-search-wrap">

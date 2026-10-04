@@ -70,37 +70,6 @@
             gap: 20px;
         }
 
-        .xp-level-widget {
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-            width: 180px;
-        }
-
-        .xp-level-labels {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 10px;
-            font-weight: 800;
-            color: #78716C;
-            letter-spacing: 0.3px;
-        }
-
-        .xp-progress-track {
-            width: 100%;
-            height: 6px;
-            background: #E5E0D8;
-            border-radius: 3px;
-            overflow: hidden;
-        }
-
-        .xp-progress-fill {
-            width: 75%;
-            height: 100%;
-            background: #D96A77;
-            border-radius: 3px;
-        }
 
         .header-search-wrap {
             display: flex;
@@ -611,15 +580,6 @@
             </div>
 
             <div class="header-right-group">
-                <div class="xp-level-widget">
-                    <div class="xp-level-labels">
-                        <span>LVL 12</span>
-                        <span>4,500 / 6,000 XP</span>
-                    </div>
-                    <div class="xp-progress-track">
-                        <div class="xp-progress-fill"></div>
-                    </div>
-                </div>
 
                 <div class="header-search-wrap">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
