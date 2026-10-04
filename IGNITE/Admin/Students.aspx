@@ -555,7 +555,12 @@
             </div>
         </div>
 
-        <!-- Table Container (Matching Challenges table-container exactly) -->
+        <!-- Results count -->
+        <div class="results-count">
+            <strong><asp:Literal ID="litTotalCount" runat="server" Text="0"></asp:Literal></strong> students found
+        </div>
+
+        <!-- Students Table -->
         <div class="table-container">
             <table class="students-table" id="studentsTable">
                 <thead>

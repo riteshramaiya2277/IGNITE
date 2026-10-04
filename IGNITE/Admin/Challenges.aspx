@@ -606,6 +606,33 @@
                         <option value="title-asc">Title (A-Z)</option>
                         <option value="difficulty">Difficulty</option>
                     </select>
+        <!-- Table Container -->
+        <div class="table-container">
+            <table class="challenges-table">
+                <thead>
+                    <tr>
+                        <th style="width: 25%;">CHALLENGE TITLE</th>
+                        <th style="width: 15%;">CATEGORY</th>
+                        <th style="width: 10%;">DIFFICULTY</th>
+                        <th style="width: 15%;">REQUIREMENT</th>
+                        <th style="width: 15%;">TIMELINE</th>
+                        <th style="width: 10%;">XP REWARD</th>
+                        <th style="width: 10%;">STATUS</th>
+                        <th>ACTIONS</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <asp:PlaceHolder ID="phChallengesTable" runat="server"></asp:PlaceHolder>
+                </tbody>
+            </table>
+
+            <!-- Pagination -->
+            <div class="pagination">
+                <span class="pagination-text"><asp:Literal ID="litPaginationText" runat="server" Text="Showing 0-0 of 0 challenges"></asp:Literal></span>
+                <div class="pagination-controls">
+                    <asp:LinkButton ID="btnPrev" runat="server" CssClass="page-btn" OnClick="btnPrev_Click">&lt;</asp:LinkButton>
+                    <asp:PlaceHolder ID="phPageNumbers" runat="server"></asp:PlaceHolder>
+                    <asp:LinkButton ID="btnNext" runat="server" CssClass="page-btn" OnClick="btnNext_Click">&gt;</asp:LinkButton>
                 </div>
             </div>
 
