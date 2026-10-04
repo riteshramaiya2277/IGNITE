@@ -86,7 +86,7 @@
 
         <!-- Results count -->
         <div class="results-count">
-            <strong>1,240</strong> students found
+            <strong><asp:Literal ID="litTotalCount" runat="server" Text="0"></asp:Literal></strong> students found
         </div>
 
         <!-- Students Table -->
@@ -107,139 +107,17 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- Row 1 -->
-                    <tr>
-                        <td>
-                            <div class="student-info">
-                                <div class="avatar avatar-red"></div>
-                                <div>
-                                    <div class="student-name">Elena Rodriguez</div>
-                                    <div class="student-id">ID: #STU-2401</div>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="course-name">Engineering</div>
-                            <div class="course-dept">Computer Science</div>
-                        </td>
-                        <td>3rd Year / 1st</td>
-                        <td>12</td>
-                        <td class="text-pink">1,250 XP</td>
-                        <td class="text-orange">🔥 8</td>
-                        <td>3</td>
-                        <td><span class="status-badge active">Active</span></td>
-                        <td class="text-grey">2 hours ago</td>
-                        <td>
-                            <div class="action-buttons">
-                                <a href="StudentProfile.aspx" class="btn-view" style="text-decoration:none;">VIEW</a>
-                                <button type="button" class="btn-more"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg></button>
-                            </div>
-                        </td>
-                    </tr>
-                    
-                    <!-- Row 2 -->
-                    <tr>
-                        <td>
-                            <div class="student-info">
-                                <div class="avatar avatar-pink"></div>
-                                <div>
-                                    <div class="student-name">Marcus Chen</div>
-                                    <div class="student-id">ID: #STU-2405</div>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="course-name">Design</div>
-                            <div class="course-dept">Visual Arts</div>
-                        </td>
-                        <td>2nd Year / 2nd</td>
-                        <td>8</td>
-                        <td class="text-pink">890 XP</td>
-                        <td class="text-grey">🔥 0</td>
-                        <td>1</td>
-                        <td><span class="status-badge inactive">Inactive</span></td>
-                        <td class="text-grey">3 days ago</td>
-                        <td>
-                            <div class="action-buttons">
-                                <a href="StudentProfile.aspx" class="btn-view" style="text-decoration:none;">VIEW</a>
-                                <button type="button" class="btn-more"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg></button>
-                            </div>
-                        </td>
-                    </tr>
-                    
-                    <!-- Row 3 -->
-                    <tr>
-                        <td>
-                            <div class="student-info">
-                                <div class="avatar avatar-rose"></div>
-                                <div>
-                                    <div class="student-name">Sarah Jenkins</div>
-                                    <div class="student-id">ID: #STU-2410</div>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="course-name">Business</div>
-                            <div class="course-dept">Marketing</div>
-                        </td>
-                        <td>4th Year / 1st</td>
-                        <td>18</td>
-                        <td class="text-pink">2,400 XP</td>
-                        <td class="text-orange">🔥 24</td>
-                        <td>5</td>
-                        <td><span class="status-badge suspended">Suspended</span></td>
-                        <td class="text-grey">1 week ago</td>
-                        <td>
-                            <div class="action-buttons">
-                                <a href="StudentProfile.aspx" class="btn-view" style="text-decoration:none;">VIEW</a>
-                                <button type="button" class="btn-more"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg></button>
-                            </div>
-                        </td>
-                    </tr>
-                    
-                    <!-- Row 4 -->
-                    <tr>
-                        <td>
-                            <div class="student-info">
-                                <div class="avatar avatar-purple"></div>
-                                <div>
-                                    <div class="student-name">Alex Thompson</div>
-                                    <div class="student-id">ID: #STU-2415</div>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="course-name">Sciences</div>
-                            <div class="course-dept">Bio-Chemistry</div>
-                        </td>
-                        <td>1st Year / 2nd</td>
-                        <td>4</td>
-                        <td class="text-pink">450 XP</td>
-                        <td class="text-orange">🔥 2</td>
-                        <td>2</td>
-                        <td><span class="status-badge active">Active</span></td>
-                        <td class="text-grey">Just now</td>
-                        <td>
-                            <div class="action-buttons">
-                                <a href="StudentProfile.aspx" class="btn-view" style="text-decoration:none;">VIEW</a>
-                                <button type="button" class="btn-more"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg></button>
-                            </div>
-                        </td>
-                    </tr>
+                    <asp:PlaceHolder ID="phStudentsTable" runat="server"></asp:PlaceHolder>
                 </tbody>
             </table>
             
             <!-- Pagination -->
             <div class="pagination">
-                <span class="pagination-text">Showing 1-10 of 1,240 students</span>
+                <span class="pagination-text"><asp:Literal ID="litPaginationText" runat="server" Text="Showing 0-0 of 0 students"></asp:Literal></span>
                 <div class="pagination-controls">
-                    <button class="page-btn">&lt;</button>
-                    <button class="page-btn active">1</button>
-                    <button class="page-btn">2</button>
-                    <button class="page-btn">3</button>
-                    <span class="page-dots">...</span>
-                    <button class="page-btn">124</button>
-                    <button class="page-btn">&gt;</button>
+                    <asp:LinkButton ID="btnPrev" runat="server" CssClass="page-btn" OnClick="btnPrev_Click">&lt;</asp:LinkButton>
+                    <asp:PlaceHolder ID="phPageNumbers" runat="server"></asp:PlaceHolder>
+                    <asp:LinkButton ID="btnNext" runat="server" CssClass="page-btn" OnClick="btnNext_Click">&gt;</asp:LinkButton>
                 </div>
             </div>
         </div>

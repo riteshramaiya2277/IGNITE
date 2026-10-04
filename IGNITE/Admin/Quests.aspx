@@ -499,54 +499,35 @@
                             <circle cx="11" cy="11" r="8"></circle>
                             <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                         </svg>
-                        <input type="text" class="search-input-field" placeholder="Search quests...." />
+                        <asp:TextBox ID="txtSearch" runat="server" CssClass="search-input-field" placeholder="Search quests..." AutoPostBack="true" OnTextChanged="txtSearch_TextChanged"></asp:TextBox>
                     </div>
 
                     <!-- Type Dropdown -->
-                    <div class="filter-select-btn">
-                        <span>Type: Daily</span>
-                        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor"
-                            stroke-width="2" style="width:14px;height:14px;">
-                            <polyline points="6 9 12 15 18 9"></polyline>
-                        </svg>
-                    </div>
+                    <asp:DropDownList ID="ddlType" runat="server" CssClass="filter-select-btn" AutoPostBack="true" OnSelectedIndexChanged="ddlType_SelectedIndexChanged">
+                        <asp:ListItem Text="Type: All" Value=""></asp:ListItem>
+                        <asp:ListItem Text="Automatic" Value="Automatic"></asp:ListItem>
+                        <asp:ListItem Text="Management" Value="Management"></asp:ListItem>
+                    </asp:DropDownList>
 
                     <!-- Status Dropdown -->
-                    <div class="filter-select-btn">
-                        <span>Status: Published</span>
-                        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor"
-                            stroke-width="2" style="width:14px;height:14px;">
-                            <polyline points="6 9 12 15 18 9"></polyline>
-                        </svg>
-                    </div>
-
-                    <!-- Date Range Button -->
-                    <div class="filter-select-btn">
-                        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor"
-                            stroke-width="2" style="width:14px;height:14px;">
-                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                            <line x1="16" y1="2" x2="16" y2="6"></line>
-                            <line x1="8" y1="2" x2="8" y2="6"></line>
-                            <line x1="3" y1="10" x2="21" y2="10"></line>
-                        </svg>
-                        <span>Date range</span>
-                    </div>
+                    <asp:DropDownList ID="ddlStatus" runat="server" CssClass="filter-select-btn" AutoPostBack="true" OnSelectedIndexChanged="ddlStatus_SelectedIndexChanged">
+                        <asp:ListItem Text="Status: All" Value=""></asp:ListItem>
+                        <asp:ListItem Text="Published" Value="Published"></asp:ListItem>
+                        <asp:ListItem Text="Draft" Value="Draft"></asp:ListItem>
+                        <asp:ListItem Text="Archived" Value="Archived"></asp:ListItem>
+                    </asp:DropDownList>
 
                     <!-- Clear Filters -->
-                    <button type="button" class="btn-clear-filters">CLEAR FILTERS</button>
+                    <asp:LinkButton ID="btnClearFilters" runat="server" CssClass="btn-clear-filters" OnClick="btnClearFilters_Click">CLEAR FILTERS</asp:LinkButton>
                 </div>
 
                 <div class="filter-right-controls">
                     <!-- Sort Dropdown -->
-                    <div class="sort-dropdown-btn">
-                        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor"
-                            stroke-width="2" style="width:14px;height:14px;">
-                            <line x1="4" y1="6" x2="20" y2="6"></line>
-                            <line x1="7" y1="12" x2="17" y2="12"></line>
-                            <line x1="10" y1="18" x2="14" y2="18"></line>
-                        </svg>
-                        <span>Sort: XP Reward</span>
-                    </div>
+                    <asp:DropDownList ID="ddlSort" runat="server" CssClass="sort-dropdown-btn" AutoPostBack="true" OnSelectedIndexChanged="ddlSort_SelectedIndexChanged">
+                        <asp:ListItem Text="Sort: Latest" Value="Latest"></asp:ListItem>
+                        <asp:ListItem Text="Sort: XP Reward" Value="XPReward"></asp:ListItem>
+                        <asp:ListItem Text="Sort: Title" Value="Title"></asp:ListItem>
+                    </asp:DropDownList>
                 </div>
             </div>
 
@@ -566,7 +547,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- Row 1: Deep Focus Session -->
+                        <asp:PlaceHolder ID="phQuestsTable" runat="server"></asp:PlaceHolder>
                         <tr>
                             <td>
                                 <div class="quest-name-col">
@@ -628,207 +609,16 @@
                                 </div>
                             </td>
                         </tr>
-
-                        <!-- Row 2: Consistency Master -->
-                        <tr>
-                            <td>
-                                <div class="quest-name-col">
-                                    <div class="quest-icon-badge">
-                                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#D96A77"
-                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                            style="width:18px;height:18px;">
-                                            <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
-                                            <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
-                                            <path d="M4 22h16"></path>
-                                            <path
-                                                d="M10 14.66V17c0 .55-.45 1-1 1H8c-.55 0-1 .45-1 1v1h10v-1c0-.55-.45-1-1-1h-1c-.55 0-1-.45-1-1v-2.34">
-                                            </path>
-                                            <path d="M6 4h12v5c0 3.31-2.69 6-6 6s-6-2.69-6-6V4z"></path>
-                                        </svg>
-                                    </div>
-                                    <span class="quest-title-text">Consistency Master</span>
-                                </div>
-                            </td>
-                            <td>
-                                <span class="quest-type-text">Weekly</span>
-                            </td>
-                            <td>
-                                <span class="quest-req-text">Maintain a 7-day task streak</span>
-                            </td>
-                            <td>
-                                <div class="quest-xp-badge">
-                                    <svg viewBox="0 0 24 24" width="12" height="12" style="width:12px;height:12px;">
-                                        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
-                                    </svg>
-                                    <span>1200 XP</span>
-                                </div>
-                            </td>
-                            <td>
-                                <span class="status-pill status-draft">Draft</span>
-                            </td>
-                            <td>
-                                <span class="dates-sub">Not set</span>
-                            </td>
-                            <td>
-                                <span class="created-date-text">May 05, 2024</span>
-                            </td>
-                            <td>
-                                <div class="actions-cell-wrap">
-                                    <a href="javascript:void(0);" class="action-icon-link" title="View Quest">
-                                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none"
-                                            stroke="currentColor" stroke-width="2" style="width:16px;height:16px;">
-                                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                                            <circle cx="12" cy="12" r="3"></circle>
-                                        </svg>
-                                    </a>
-                                    <a href="javascript:void(0);" class="action-icon-link" title="Edit Quest">
-                                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none"
-                                            stroke="currentColor" stroke-width="2" style="width:16px;height:16px;">
-                                            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
-                                            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
-                                        </svg>
-                                    </a>
-                                    <button type="button" class="btn-row-publish">Publish</button>
-                                </div>
-                            </td>
-                        </tr>
-
-                        <!-- Row 3: Skill Unleashed -->
-                        <tr>
-                            <td>
-                                <div class="quest-name-col">
-                                    <div class="quest-icon-badge">
-                                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#D96A77"
-                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                            style="width:18px;height:18px;">
-                                            <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
-                                            <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
-                                        </svg>
-                                    </div>
-                                    <span class="quest-title-text">Skill Unleashed</span>
-                                </div>
-                            </td>
-                            <td>
-                                <span class="quest-type-text">One-time</span>
-                            </td>
-                            <td>
-                                <span class="quest-req-text">Complete any intermediate course</span>
-                            </td>
-                            <td>
-                                <div class="quest-xp-badge">
-                                    <svg viewBox="0 0 24 24" width="12" height="12" style="width:12px;height:12px;">
-                                        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
-                                    </svg>
-                                    <span>3000 XP</span>
-                                </div>
-                            </td>
-                            <td>
-                                <span class="status-pill status-published">Published</span>
-                            </td>
-                            <td>
-                                <div class="dates-stack">
-                                    <span class="dates-primary">Jan 01 - Dec 31</span>
-                                    <span class="dates-sub">Standard</span>
-                                </div>
-                            </td>
-                            <td>
-                                <span class="created-date-text">Apr 20, 2024</span>
-                            </td>
-                            <td>
-                                <div class="actions-cell-wrap">
-                                    <a href="javascript:void(0);" class="action-icon-link" title="View Quest">
-                                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none"
-                                            stroke="currentColor" stroke-width="2" style="width:16px;height:16px;">
-                                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                                            <circle cx="12" cy="12" r="3"></circle>
-                                        </svg>
-                                    </a>
-                                    <a href="javascript:void(0);" class="action-icon-link" title="Edit Quest">
-                                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none"
-                                            stroke="currentColor" stroke-width="2" style="width:16px;height:16px;">
-                                            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
-                                            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
-                                        </svg>
-                                    </a>
-                                    <button type="button" class="btn-row-archive">Archive</button>
-                                </div>
-                            </td>
-                        </tr>
-
-                        <!-- Row 4: Early Bird -->
-                        <tr>
-                            <td>
-                                <div class="quest-name-col">
-                                    <div class="quest-icon-badge">
-                                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#D96A77"
-                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                            style="width:18px;height:18px;">
-                                            <circle cx="12" cy="12" r="7"></circle>
-                                            <polyline points="12 9 12 12 13.5 13.5"></polyline>
-                                            <path d="M16.5 4L19 6.5M7.5 4L5 6.5"></path>
-                                        </svg>
-                                    </div>
-                                    <span class="quest-title-text">Early Bird</span>
-                                </div>
-                            </td>
-                            <td>
-                                <span class="quest-type-text">Daily</span>
-                            </td>
-                            <td>
-                                <span class="quest-req-text">Log in before 7:00 AM</span>
-                            </td>
-                            <td>
-                                <div class="quest-xp-badge">
-                                    <svg viewBox="0 0 24 24" width="12" height="12" style="width:12px;height:12px;">
-                                        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
-                                    </svg>
-                                    <span>200 XP</span>
-                                </div>
-                            </td>
-                            <td>
-                                <span class="status-pill status-archived">Archived</span>
-                            </td>
-                            <td>
-                                <div class="dates-stack">
-                                    <span class="dates-sub">Expired</span>
-                                    <span class="dates-sub">May 01</span>
-                                </div>
-                            </td>
-                            <td>
-                                <span class="created-date-text">Jan 15, 2024</span>
-                            </td>
-                            <td>
-                                <div class="actions-cell-wrap">
-                                    <a href="javascript:void(0);" class="action-icon-link" title="View Quest">
-                                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none"
-                                            stroke="currentColor" stroke-width="2" style="width:16px;height:16px;">
-                                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                                            <circle cx="12" cy="12" r="3"></circle>
-                                        </svg>
-                                    </a>
-                                    <a href="javascript:void(0);" class="action-icon-link" title="Edit Quest">
-                                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none"
-                                            stroke="currentColor" stroke-width="2" style="width:16px;height:16px;">
-                                            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
-                                            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
-                                        </svg>
-                                    </a>
-                                    <button type="button" class="btn-row-restore">Restore</button>
-                                </div>
-                            </td>
-                        </tr>
                     </tbody>
                 </table>
 
                 <!-- Pagination Row -->
                 <div class="quests-pagination-row">
-                    <span class="pagination-info-text">Showing 4 of 24 quests</span>
+                    <span class="pagination-info-text"><asp:Literal ID="litPaginationText" runat="server" Text="Showing 0-0 of 0 quests"></asp:Literal></span>
                     <div class="pagination-btns-wrap">
-                        <button type="button" class="page-num-btn">&lt;</button>
-                        <button type="button" class="page-num-btn active">1</button>
-                        <button type="button" class="page-num-btn">2</button>
-                        <button type="button" class="page-num-btn">3</button>
-                        <button type="button" class="page-num-btn">&gt;</button>
+                        <asp:LinkButton ID="btnPrev" runat="server" CssClass="page-num-btn" OnClick="btnPrev_Click">&lt;</asp:LinkButton>
+                        <asp:PlaceHolder ID="phPageNumbers" runat="server"></asp:PlaceHolder>
+                        <asp:LinkButton ID="btnNext" runat="server" CssClass="page-num-btn" OnClick="btnNext_Click">&gt;</asp:LinkButton>
                     </div>
                 </div>
             </div>
