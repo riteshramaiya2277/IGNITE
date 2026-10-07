@@ -12,9 +12,18 @@ Inherits="IGNITE.AuthOnboarding.Login" %>
       rel="stylesheet"
       type="text/css"
     />
+    <style>
+      .field-validation-error {
+        display: block;
+        color: #ED595A;
+        font-size: 12px;
+        font-weight: 600;
+        margin-top: 5px;
+      }
+    </style>
   </head>
   <body>
-    <form id="form1" runat="server" method="post" novalidate>
+    <form id="form1" runat="server">
       <main class="auth-shell">
         <section class="auth-aside" aria-labelledby="aside-title">
           <a class="brand" href="../MainScreen/Home.aspx">
@@ -48,33 +57,53 @@ Inherits="IGNITE.AuthOnboarding.Login" %>
               <%= Server.HtmlEncode(StatusMessage) %>
             </p>
             <label for="email">Email address or Admin ID</label>
-            <input
+            <asp:TextBox
               id="email"
-              name="email"
-              type="text"
+              runat="server"
+              ClientIDMode="Static"
               autocomplete="email"
               placeholder="e.g. riteshramaiya2277@gmail.com or admin"
-              value="<%= Server.HtmlEncode(EmailValue) %>"
+            ></asp:TextBox>
+            <asp:RequiredFieldValidator
+              ID="rfvEmail"
+              runat="server"
+              ControlToValidate="email"
+              ErrorMessage="Email address or Admin ID is required."
+              CssClass="field-validation-error"
+              Display="Dynamic"
+              ValidationGroup="LoginGroup"
             />
+
             <label for="password">Password</label>
-            <input
+            <asp:TextBox
               id="password"
-              name="password"
-              type="password"
+              runat="server"
+              TextMode="Password"
+              ClientIDMode="Static"
               placeholder="Enter your password"
               autocomplete="current-password"
+            ></asp:TextBox>
+            <asp:RequiredFieldValidator
+              ID="rfvPassword"
+              runat="server"
+              ControlToValidate="password"
+              ErrorMessage="Password is required."
+              CssClass="field-validation-error"
+              Display="Dynamic"
+              ValidationGroup="LoginGroup"
             />
+
             <div class="form-options">
               <a href="ForgotPassword.aspx">Forgot password?</a>
             </div>
-            <button
-              class="button button-primary"
-              type="submit"
-              name="intent"
-              value="login"
-            >
-              Sign in
-            </button>
+            <asp:Button
+              ID="btnSignIn"
+              runat="server"
+              CssClass="button button-primary"
+              Text="Sign in"
+              OnClick="btnSignIn_Click"
+              ValidationGroup="LoginGroup"
+            />
 
             <!-- Quick Demo Credentials Helper Cards -->
             <div style="margin-top: 18px; display: flex; flex-direction: column; gap: 10px;">

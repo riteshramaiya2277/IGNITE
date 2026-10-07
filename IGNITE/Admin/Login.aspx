@@ -233,6 +233,14 @@
                 color: var(--text-main);
                 text-decoration: underline;
             }
+
+            .field-validation-error {
+                display: block;
+                color: #DC2626;
+                font-size: 0.8rem;
+                font-weight: 600;
+                margin-top: 5px;
+            }
         </style>
     </head>
 
@@ -265,16 +273,28 @@
                     <label class="form-label" for="txtAdminId">Admin ID or Email</label>
                     <asp:TextBox ID="txtAdminId" runat="server" CssClass="form-input"
                         placeholder="admin@ignite.com or admin"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="rfvAdminId" runat="server"
+                        ControlToValidate="txtAdminId"
+                        ErrorMessage="Admin ID or Email is required."
+                        CssClass="field-validation-error"
+                        Display="Dynamic"
+                        ValidationGroup="AdminLoginGroup" />
                 </div>
 
                 <div class="form-group">
                     <label class="form-label" for="txtPassword">Password</label>
                     <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" CssClass="form-input"
                         placeholder="Enter password"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="rfvPassword" runat="server"
+                        ControlToValidate="txtPassword"
+                        ErrorMessage="Password is required."
+                        CssClass="field-validation-error"
+                        Display="Dynamic"
+                        ValidationGroup="AdminLoginGroup" />
                 </div>
 
                 <asp:Button ID="btnSubmit" runat="server" Text="Sign In to Admin Panel" CssClass="admin-submit-btn"
-                    OnClick="btnSubmit_Click" />
+                    OnClick="btnSubmit_Click" ValidationGroup="AdminLoginGroup" />
 
                 <div class="demo-box">
                     <div class="demo-header">

@@ -12,9 +12,18 @@ Inherits="IGNITE.AuthOnboarding.SignUp" %>
       rel="stylesheet"
       type="text/css"
     />
+    <style>
+      .field-validation-error {
+        display: block;
+        color: #ED595A;
+        font-size: 12px;
+        font-weight: 600;
+        margin-top: 5px;
+      }
+    </style>
   </head>
   <body>
-    <form id="form1" runat="server" method="post" novalidate>
+    <form id="form1" runat="server">
       <main class="auth-shell">
         <section class="auth-aside" aria-labelledby="aside-title">
           <a class="brand" href="../MainScreen/Home.aspx"
@@ -48,44 +57,114 @@ Inherits="IGNITE.AuthOnboarding.SignUp" %>
               <%= Server.HtmlEncode(StatusMessage) %>
             </p>
             <label for="fullName">Your name</label>
-            <input
+            <asp:TextBox
               id="fullName"
-              name="fullName"
-              type="text"
+              runat="server"
+              ClientIDMode="Static"
               autocomplete="name"
-              value="<%= Server.HtmlEncode(FullNameValue) %>"
+            ></asp:TextBox>
+            <asp:RequiredFieldValidator
+              ID="rfvFullName"
+              runat="server"
+              ControlToValidate="fullName"
+              ErrorMessage="Your name is required."
+              CssClass="field-validation-error"
+              Display="Dynamic"
+              ValidationGroup="SignUpGroup"
             />
+
             <label for="email">Email address</label>
-            <input
+            <asp:TextBox
               id="email"
-              name="email"
-              type="text"
+              runat="server"
+              ClientIDMode="Static"
               autocomplete="email"
-              value="<%= Server.HtmlEncode(EmailValue) %>"
+            ></asp:TextBox>
+            <asp:RequiredFieldValidator
+              ID="rfvEmail"
+              runat="server"
+              ControlToValidate="email"
+              ErrorMessage="Email address is required."
+              CssClass="field-validation-error"
+              Display="Dynamic"
+              ValidationGroup="SignUpGroup"
             />
+            <asp:RegularExpressionValidator
+              ID="revEmail"
+              runat="server"
+              ControlToValidate="email"
+              ValidationExpression="^[\w\.-]+@[\w\.-]+\.\w+$"
+              ErrorMessage="Please enter a valid email address."
+              CssClass="field-validation-error"
+              Display="Dynamic"
+              ValidationGroup="SignUpGroup"
+            />
+
             <label for="password">Create a password</label>
-            <input
+            <asp:TextBox
               id="password"
-              name="password"
-              type="password"
+              runat="server"
+              TextMode="Password"
+              ClientIDMode="Static"
               autocomplete="new-password"
-            />
+            ></asp:TextBox>
             <p class="field-hint">Use at least 8 characters.</p>
-            <label for="confirmPassword">Confirm password</label>
-            <input
-              id="confirmPassword"
-              name="confirmPassword"
-              type="password"
-              autocomplete="new-password"
+            <asp:RequiredFieldValidator
+              ID="rfvPassword"
+              runat="server"
+              ControlToValidate="password"
+              ErrorMessage="Password is required."
+              CssClass="field-validation-error"
+              Display="Dynamic"
+              ValidationGroup="SignUpGroup"
             />
-            <button
-              class="button button-primary"
-              type="submit"
-              name="intent"
-              value="signup"
-            >
-              Create account
-            </button>
+            <asp:RegularExpressionValidator
+              ID="revPassword"
+              runat="server"
+              ControlToValidate="password"
+              ValidationExpression=".{8,}"
+              ErrorMessage="Your password must be at least 8 characters."
+              CssClass="field-validation-error"
+              Display="Dynamic"
+              ValidationGroup="SignUpGroup"
+            />
+
+            <label for="confirmPassword">Confirm password</label>
+            <asp:TextBox
+              id="confirmPassword"
+              runat="server"
+              TextMode="Password"
+              ClientIDMode="Static"
+              autocomplete="new-password"
+            ></asp:TextBox>
+            <asp:RequiredFieldValidator
+              ID="rfvConfirmPassword"
+              runat="server"
+              ControlToValidate="confirmPassword"
+              ErrorMessage="Please confirm your password."
+              CssClass="field-validation-error"
+              Display="Dynamic"
+              ValidationGroup="SignUpGroup"
+            />
+            <asp:CompareValidator
+              ID="cmpPassword"
+              runat="server"
+              ControlToValidate="confirmPassword"
+              ControlToCompare="password"
+              ErrorMessage="The passwords do not match."
+              CssClass="field-validation-error"
+              Display="Dynamic"
+              ValidationGroup="SignUpGroup"
+            />
+
+            <asp:Button
+              ID="btnSignUp"
+              runat="server"
+              CssClass="button button-primary"
+              Text="Create account"
+              OnClick="btnSignUp_Click"
+              ValidationGroup="SignUpGroup"
+            />
             <p class="form-switch">
               Already have an account? <a href="Login.aspx">Sign in</a>
             </p>

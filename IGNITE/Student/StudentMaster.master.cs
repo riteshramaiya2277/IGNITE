@@ -61,14 +61,6 @@ namespace IGNITE.Student
             }
             xpProgressBar.Style["width"] = xpPercent + "%";
 
-            // 4. Notifications dot (Show red dot by default if notifications exist)
-            int unreadCount = 1;
-            int parsedNotif;
-            if (Session["UnreadNotifications"] != null && int.TryParse(Session["UnreadNotifications"].ToString(), out parsedNotif))
-            {
-                unreadCount = parsedNotif;
-            }
-            pnlNotifDot.Visible = (unreadCount > 0);
         }
 
         private void HighlightActiveNavigation()

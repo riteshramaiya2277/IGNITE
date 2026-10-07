@@ -17,6 +17,11 @@ namespace IGNITE.Admin
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
+            if (!Page.IsValid)
+            {
+                return;
+            }
+
             string adminId = (txtAdminId.Text ?? string.Empty).Trim();
             string password = (txtPassword.Text ?? string.Empty);
 

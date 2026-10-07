@@ -30,7 +30,6 @@ namespace IGNITE.Student
         protected global::System.Web.UI.WebControls.Literal litLevelNum;
         protected global::System.Web.UI.WebControls.Literal litXPText;
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl xpProgressBar;
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pnlNotifDot;
 
         protected global::System.Web.UI.WebControls.ContentPlaceHolder MainContent;
         protected global::System.Web.UI.WebControls.ContentPlaceHolder ScriptsContent;

@@ -7,20 +7,49 @@ namespace IGNITE.AuthOnboarding
 {
     public partial class Login : Page
     {
+        protected global::System.Web.UI.WebControls.TextBox email;
+        protected global::System.Web.UI.WebControls.TextBox password;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvEmail;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvPassword;
+        protected global::System.Web.UI.WebControls.Button btnSignIn;
+
         protected string StatusMessage { get; private set; } = string.Empty;
         protected string EmailValue { get; private set; } = string.Empty;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Request.HttpMethod != "POST")
+            if (IsPostBack)
             {
                 return;
             }
 
-            EmailValue = (Request.Form["email"] ?? string.Empty).Trim();
-            string password = Request.Form["password"] ?? string.Empty;
+            if (Request.HttpMethod == "POST")
+            {
+                ProcessLogin();
+            }
+        }
 
-            if (string.IsNullOrEmpty(EmailValue) || string.IsNullOrEmpty(password))
+        protected void btnSignIn_Click(object sender, EventArgs e)
+        {
+            ProcessLogin();
+        }
+
+        private void ProcessLogin()
+        {
+            if (!Page.IsValid)
+            {
+                return;
+            }
+
+            EmailValue = (email != null && !string.IsNullOrEmpty(email.Text))
+                ? email.Text.Trim()
+                : (Request.Form["email"] ?? string.Empty).Trim();
+
+            string passwordVal = (password != null && !string.IsNullOrEmpty(password.Text))
+                ? password.Text
+                : (Request.Form["password"] ?? string.Empty);
+
+            if (string.IsNullOrEmpty(EmailValue) || string.IsNullOrEmpty(passwordVal))
             {
                 StatusMessage = "Enter your ID / email address and password.";
                 return;
@@ -30,7 +59,7 @@ namespace IGNITE.AuthOnboarding
             bool isAdminId = string.Equals(EmailValue, "admin@ignite.com", StringComparison.OrdinalIgnoreCase) ||
                              string.Equals(EmailValue, "admin", StringComparison.OrdinalIgnoreCase);
 
-            if (isAdminId && (password == "Admin@123" || password == "admin123" || password == "admin"))
+            if (isAdminId && (passwordVal == "Admin@123" || passwordVal == "admin123" || passwordVal == "admin"))
             {
                 FormsAuthentication.SetAuthCookie("Admin", false);
                 Session["IGNITE.Authenticated"] = true;
@@ -50,7 +79,7 @@ namespace IGNITE.AuthOnboarding
                                string.Equals(EmailValue, "ritesh", StringComparison.OrdinalIgnoreCase) ||
                                string.Equals(EmailValue, "riteshramaiya2277", StringComparison.OrdinalIgnoreCase);
 
-            if (isRiteshUser && (password == "11111111" || password == "Student@123" || password == "student123"))
+            if (isRiteshUser && (passwordVal == "11111111" || passwordVal == "Student@123" || passwordVal == "student123"))
             {
                 FormsAuthentication.SetAuthCookie("Ritesh Ramaiya", false);
                 Session["IGNITE.Authenticated"] = true;
@@ -68,7 +97,7 @@ namespace IGNITE.AuthOnboarding
             bool isDemoStudent = string.Equals(EmailValue, "student@ignite.com", StringComparison.OrdinalIgnoreCase) ||
                                 string.Equals(EmailValue, "student", StringComparison.OrdinalIgnoreCase);
 
-            if (isDemoStudent && (password == "Student@123" || password == "student123" || password == "student" || password == "11111111"))
+            if (isDemoStudent && (passwordVal == "Student@123" || passwordVal == "student123" || passwordVal == "student" || passwordVal == "11111111"))
             {
                 FormsAuthentication.SetAuthCookie("Alex Mercer", false);
                 Session["IGNITE.Authenticated"] = true;
@@ -92,7 +121,7 @@ namespace IGNITE.AuthOnboarding
             string savedEmail = Session["IGNITE.Auth.Email"] as string;
             byte[] salt = Session["IGNITE.Auth.Salt"] as byte[];
             byte[] passwordHash = Session["IGNITE.Auth.PasswordHash"] as byte[];
-            if (!string.Equals(savedEmail, EmailValue, StringComparison.OrdinalIgnoreCase) || salt == null || passwordHash == null || !AuthSecurity.VerifyPassword(password, salt, passwordHash))
+            if (!string.Equals(savedEmail, EmailValue, StringComparison.OrdinalIgnoreCase) || salt == null || passwordHash == null || !AuthSecurity.VerifyPassword(passwordVal, salt, passwordHash))
             {
                 StatusMessage = "Those sign-in details do not match an account in this browser session.";
                 return;

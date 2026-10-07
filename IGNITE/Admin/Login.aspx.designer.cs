@@ -12,7 +12,9 @@ namespace IGNITE.Admin
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl pnlError;
         protected global::System.Web.UI.WebControls.Literal litErrorMessage;
         protected global::System.Web.UI.WebControls.TextBox txtAdminId;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvAdminId;
         protected global::System.Web.UI.WebControls.TextBox txtPassword;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvPassword;
         protected global::System.Web.UI.WebControls.Button btnSubmit;
     }
 }
