@@ -1254,8 +1254,239 @@
     align-items: center;
     gap: 10px;
     z-index: 10000;
+    animation: toastSlideUp 0.2s ease-out;
+}
+
+@keyframes toastSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .habit-toast.show {
     display: flex;
+}
+
+/* --------------------------------------------------------------------------
+   9. Filter Dropdown Menus
+   -------------------------------------------------------------------------- */
+.filter-dropdown-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.filter-dropdown-menu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 6px);
+    right: 0;
+    background-color: #FFFFFF;
+    border: 1px solid #DDD6CA;
+    border-radius: 14px;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+    min-width: 200px;
+    padding: 6px;
+    z-index: 120;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.filter-dropdown-menu.show {
+    display: flex;
+    animation: dropdownFade 0.15s ease-out;
+}
+
+@keyframes dropdownFade {
+    from {
+        opacity: 0;
+        transform: translateY(-4px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.filter-dropdown-item {
+    padding: 9px 14px;
+    font-size: 0.84rem;
+    font-weight: 600;
+    color: #57534E;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.12s, color 0.12s;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: none;
+    background: none;
+    text-align: left;
+    width: 100%;
+}
+
+.filter-dropdown-item:hover {
+    background-color: #FAF8F5;
+    color: #DF6A74;
+}
+
+.filter-dropdown-item.active {
+    background-color: #F8DFE1;
+    color: #C74856;
+    font-weight: 700;
+}
+
+/* --------------------------------------------------------------------------
+   10. Paused / Archived Habit Styling
+   -------------------------------------------------------------------------- */
+.habit-card-item.habit-paused {
+    opacity: 0.72;
+    border-style: dashed;
+    background-color: #F5F2EC;
+}
+
+.badge-paused {
+    background-color: #E7E5E4;
+    color: #57534E;
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    padding: 3px 8px;
+    border-radius: 9999px;
+    text-transform: uppercase;
+}
+
+.btn-tool-icon.btn-paused {
+    background-color: #DF6A74;
+    color: #FFFFFF;
+    border-color: #DF6A74;
+}
+
+/* --------------------------------------------------------------------------
+   11. Empty State for Tabs
+   -------------------------------------------------------------------------- */
+.habits-empty-state {
+    text-align: center;
+    padding: 48px 24px;
+    background-color: #EFECE6;
+    border-radius: 18px;
+    border: 1px dashed #DDD6CA;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.habits-empty-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #A8A29E;
+    margin-bottom: 4px;
+}
+
+.habits-empty-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #18181B;
+    margin: 0;
+}
+
+.habits-empty-desc {
+    font-size: 0.86rem;
+    color: #78716C;
+    max-width: 360px;
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* --------------------------------------------------------------------------
+   12. History Tab Timeline Log
+   -------------------------------------------------------------------------- */
+.history-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.history-item {
+    background-color: #EFECE6;
+    border-radius: 16px;
+    padding: 16px 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid rgba(221, 214, 203, 0.6);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.history-item:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.history-item-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.history-status-icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background-color: #DF6A74;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.history-item-info {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.history-habit-title {
+    font-size: 0.96rem;
+    font-weight: 700;
+    color: #18181B;
+}
+
+.history-habit-time {
+    font-size: 0.76rem;
+    color: #78716C;
+}
+
+.history-item-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.history-xp-pill {
+    background-color: #FFFBEB;
+    color: #B45309;
+    font-weight: 800;
+    font-size: 0.78rem;
+    padding: 4px 10px;
+    border-radius: 9999px;
+    border: 1px solid #FDE68A;
+}
+
+.modal-form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
 }

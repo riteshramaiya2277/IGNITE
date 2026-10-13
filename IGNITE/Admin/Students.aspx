@@ -557,7 +557,7 @@
 
         <!-- Results count -->
         <div class="results-count">
-            <strong><asp:Literal ID="litTotalCount" runat="server" Text="0"></asp:Literal></strong> students found
+            <strong><asp:Literal ID="litTotalCount" runat="server" Text="4"></asp:Literal></strong> students found
         </div>
 
         <!-- Students Table -->

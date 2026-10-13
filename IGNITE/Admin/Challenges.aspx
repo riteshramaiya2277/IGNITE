@@ -568,13 +568,13 @@
                 <input type="text" class="search-input-local" placeholder="Search challenges..." id="txtChallengeSearch"
                     onkeyup="filterChallengesTable()" />
             </div>
-            <a href="EditChallenge.aspx" class="btn-primary" title="Edit or Create Challenge">
-                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"
+            <a href="CreateChallenge.aspx" class="btn-primary" title="Create New Challenge">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"
                     stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;flex-shrink:0;">
-                    <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
-                    <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
                 </svg>
-                <span>Edit Challenge</span>
+                <span>Create New Challenge</span>
             </a>
         </div>
     </asp:Content>
@@ -606,33 +606,6 @@
                         <option value="title-asc">Title (A-Z)</option>
                         <option value="difficulty">Difficulty</option>
                     </select>
-        <!-- Table Container -->
-        <div class="table-container">
-            <table class="challenges-table">
-                <thead>
-                    <tr>
-                        <th style="width: 25%;">CHALLENGE TITLE</th>
-                        <th style="width: 15%;">CATEGORY</th>
-                        <th style="width: 10%;">DIFFICULTY</th>
-                        <th style="width: 15%;">REQUIREMENT</th>
-                        <th style="width: 15%;">TIMELINE</th>
-                        <th style="width: 10%;">XP REWARD</th>
-                        <th style="width: 10%;">STATUS</th>
-                        <th>ACTIONS</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <asp:PlaceHolder ID="phChallengesTable" runat="server"></asp:PlaceHolder>
-                </tbody>
-            </table>
-
-            <!-- Pagination -->
-            <div class="pagination">
-                <span class="pagination-text"><asp:Literal ID="litPaginationText" runat="server" Text="Showing 0-0 of 0 challenges"></asp:Literal></span>
-                <div class="pagination-controls">
-                    <asp:LinkButton ID="btnPrev" runat="server" CssClass="page-btn" OnClick="btnPrev_Click">&lt;</asp:LinkButton>
-                    <asp:PlaceHolder ID="phPageNumbers" runat="server"></asp:PlaceHolder>
-                    <asp:LinkButton ID="btnNext" runat="server" CssClass="page-btn" OnClick="btnNext_Click">&gt;</asp:LinkButton>
                 </div>
             </div>
 

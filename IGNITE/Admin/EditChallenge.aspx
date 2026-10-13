@@ -446,7 +446,7 @@
 
 <asp:Content ID="TopbarContent" ContentPlaceHolderID="TopbarContent" runat="server">
     <div style="display:flex; justify-content:space-between; align-items:center; width:100%;">
-        <h1 style="font-size: 20px; font-weight: 800; color: #1a1a1a; margin: 0; letter-spacing: -0.2px;">Create New Challenge</h1>
+        <h1 style="font-size: 20px; font-weight: 800; color: #1a1a1a; margin: 0; letter-spacing: -0.2px;">Edit Challenge</h1>
         
         <div style="display:flex; align-items:center; background:#FFF; border-radius:8px; padding:8px 14px; width:260px; border:1px solid #E0DCD3;">
             <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px; height:16px; flex-shrink:0;">

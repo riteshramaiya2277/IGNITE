@@ -2,6 +2,129 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="<%= ResolveUrl("~/Content/habit-detail.css") %>" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+        .habit-modal-backdrop {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.45);
+            backdrop-filter: blur(4px);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+        }
+        .habit-modal-backdrop.open {
+            display: flex !important;
+        }
+        .habit-modal-card {
+            background-color: #FAF8F5;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 500px;
+            padding: 28px 32px;
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.15);
+            border: 1px solid #DDD6CA;
+            animation: modalPop 0.2s ease-out;
+        }
+        @keyframes modalPop {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .habit-modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .habit-modal-title {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: #18181B;
+            margin: 0;
+        }
+        .habit-modal-close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #78716C;
+            cursor: pointer;
+            line-height: 1;
+            padding: 4px;
+        }
+        .habit-modal-close:hover {
+            color: #18181B;
+        }
+        .habit-form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-bottom: 16px;
+        }
+        .habit-form-label {
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: #44403C;
+        }
+        .habit-form-input {
+            padding: 10px 14px;
+            border-radius: 10px;
+            border: 1px solid #DDD6CA;
+            background-color: #FFFFFF;
+            font-family: inherit;
+            font-size: 0.88rem;
+            color: #18181B;
+            outline: none;
+            transition: border-color 0.15s ease, box-shadow 0.15s ease;
+        }
+        .habit-form-input:focus {
+            border-color: #DF6A74;
+            box-shadow: 0 0 0 3px rgba(223, 106, 116, 0.15);
+        }
+        .habit-form-input:disabled {
+            background-color: #F5F2EB;
+            color: #78716C;
+            cursor: not-allowed;
+        }
+        .habit-modal-footer {
+            display: flex;
+            justify-content: flex-end;
+            gap: 12px;
+            margin-top: 24px;
+        }
+        .btn-secondary-modal {
+            background: none;
+            border: 1px solid #DDD6CA;
+            border-radius: 9999px;
+            padding: 9px 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #78716C;
+            cursor: pointer;
+        }
+        .btn-secondary-modal:hover {
+            background-color: #EFECE6;
+            color: #18181B;
+        }
+        .btn-primary-modal {
+            background-color: #DF6A74;
+            color: #FFFFFF;
+            border: none;
+            border-radius: 9999px;
+            padding: 9px 24px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(223, 106, 116, 0.25);
+            transition: background-color 0.15s ease, transform 0.1s ease;
+        }
+        .btn-primary-modal:hover {
+            background-color: #D45B65;
+            transform: translateY(-1px);
+        }
+    </style>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="PageTitleContent" runat="server">
@@ -253,7 +376,7 @@
     </div>
 
     <!-- Edit Modal -->
-    <div class="habit-modal-backdrop" id="modalEditHabit">
+    <div class="habit-modal-backdrop" id="modalEditHabit" style="display: none;" onclick="handleModalBackdropClick(event)">
         <div class="habit-modal-card">
             <div class="habit-modal-header">
                 <h3 class="habit-modal-title">Edit Daily Deep Work</h3>
@@ -323,11 +446,29 @@
         }
 
         function openEditModal() {
-            document.getElementById('modalEditHabit').classList.add('open');
+            var modal = document.getElementById('modalEditHabit');
+            if (modal) {
+                modal.classList.add('open');
+                modal.style.display = 'flex';
+            }
         }
         function closeEditModal() {
-            document.getElementById('modalEditHabit').classList.remove('open');
+            var modal = document.getElementById('modalEditHabit');
+            if (modal) {
+                modal.classList.remove('open');
+                modal.style.display = 'none';
+            }
         }
+        function handleModalBackdropClick(e) {
+            if (e.target && e.target.id === 'modalEditHabit') {
+                closeEditModal();
+            }
+        }
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeEditModal();
+            }
+        });
         function saveEditHabit() {
             var newName = document.getElementById('editHabitName').value.trim();
             if (newName) {
