@@ -176,3 +176,98 @@
 .journal-mode-toggle .btn-toggle {
     text-decoration: none;
 }
+
+/* Note Card Action Dropdown */
+.note-card-header {
+    position: relative;
+}
+
+.note-menu-dropdown {
+    position: absolute;
+    top: 26px;
+    right: 0;
+    background-color: #ffffff;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    padding: 6px;
+    display: none;
+    flex-direction: column;
+    min-width: 140px;
+    z-index: 50;
+}
+
+.note-menu-dropdown.show {
+    display: flex;
+}
+
+.note-menu-item {
+    background: none;
+    border: none;
+    font-size: 12px;
+    font-weight: 600;
+    color: #444;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.15s;
+    font-family: inherit;
+}
+
+.note-menu-item:hover {
+    background-color: #f7f4ee;
+}
+
+.note-menu-item.danger {
+    color: #d9534f;
+}
+
+.note-menu-item.danger:hover {
+    background-color: #fcebeb;
+}
+
+/* Toast Notification */
+.toast-notice {
+    position: fixed;
+    bottom: 28px;
+    right: 32px;
+    background-color: #18181B;
+    color: #FFFFFF;
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+    display: none;
+    align-items: center;
+    gap: 10px;
+    z-index: 10000;
+    animation: toastSlide 0.25s ease;
+}
+
+.toast-notice.show {
+    display: flex;
+}
+
+@keyframes toastSlide {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.notes-empty-state {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 40px 20px;
+    color: #888;
+    font-size: 14px;
+}
