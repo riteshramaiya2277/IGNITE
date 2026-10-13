@@ -346,8 +346,16 @@
     padding: 6px 16px;
     font-size: 0.8rem;
     font-weight: 600;
-    color: #78716C;
-    cursor: default;
+    color: #57534E;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.btn-in-progress:hover {
+    background-color: #FFFFFF;
+    border-color: #DF6A74;
+    color: #DF6A74;
+    transform: translateY(-1px);
 }
 
 .btn-claim-reward {
@@ -596,4 +604,365 @@
 
 .quest-toast.show {
     display: flex;
+}
+
+/* ==========================================================================
+   Quests Interactive Modals (Flashcards, Course Module, Live Sessions)
+   ========================================================================== */
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(24, 24, 27, 0.5);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    padding: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-card {
+    background-color: #FAF8F5;
+    border: 1px solid #DDD6CB;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 540px;
+    padding: 28px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    transform: scale(0.95);
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal-overlay.active .modal-card {
+    transform: scale(1);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 1px solid #EAE4D9;
+    padding-bottom: 16px;
+}
+
+.modal-title-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.modal-title {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: #18181B;
+    margin: 0;
+}
+
+.modal-subtitle {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #78716C;
+    margin: 0;
+}
+
+.btn-close-modal {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background: transparent;
+    color: #78716C;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.btn-close-modal:hover {
+    background-color: #EFECE6;
+    color: #18181B;
+}
+
+.modal-body {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    font-size: 0.9rem;
+    color: #57534E;
+}
+
+/* Flashcard Viewer */
+.flashcard-box {
+    background-color: #FFFFFF;
+    border: 1.5px solid #E5DFD5;
+    border-radius: 16px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    min-height: 180px;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.flashcard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.flashcard-counter {
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    color: #DF6A74;
+    text-transform: uppercase;
+}
+
+.flashcard-prompt {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #18181B;
+    line-height: 1.45;
+    margin: 0;
+}
+
+.flashcard-answer-box {
+    background-color: #FAF8F5;
+    border-left: 3px solid #DF6A74;
+    padding: 14px 16px;
+    border-radius: 0 8px 8px 0;
+    font-size: 0.92rem;
+    color: #44403C;
+    line-height: 1.5;
+    display: none;
+}
+
+.flashcard-answer-box.revealed {
+    display: block;
+    animation: fadeIn 0.2s ease-out;
+}
+
+/* Module Lesson List */
+.module-lessons-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-height: 380px;
+    overflow-y: auto;
+    padding-right: 4px;
+}
+
+.lesson-row-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px 16px;
+    background-color: #FFFFFF;
+    border: 1px solid #E5DFD5;
+    border-radius: 12px;
+    transition: border-color 0.15s ease;
+}
+
+.lesson-row-item:hover {
+    border-color: #DF6A74;
+}
+
+.lesson-row-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.lesson-number-circle {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background-color: #EFECE6;
+    color: #78716C;
+    font-size: 0.78rem;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.lesson-row-item.completed .lesson-number-circle {
+    background-color: #D1FAE5;
+    color: #059669;
+}
+
+.lesson-title-text {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #18181B;
+}
+
+.lesson-duration {
+    font-size: 0.75rem;
+    color: #78716C;
+}
+
+.btn-complete-lesson {
+    background-color: #DF6A74;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 9999px;
+    padding: 6px 14px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+    white-space: nowrap;
+}
+
+.btn-complete-lesson:hover {
+    background-color: #D45B65;
+}
+
+.badge-lesson-done {
+    color: #10B981;
+    font-weight: 800;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* Sessions List */
+.sessions-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.session-card-item {
+    background-color: #FFFFFF;
+    border: 1px solid #E5DFD5;
+    border-radius: 14px;
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 14px;
+    transition: all 0.15s ease;
+}
+
+.session-card-item:hover {
+    border-color: #DF6A74;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+}
+
+.session-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.session-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #18181B;
+    margin: 0;
+}
+
+.session-meta-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.78rem;
+    color: #78716C;
+}
+
+.badge-session-time {
+    background-color: #FEF3C7;
+    color: #B45309;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: 700;
+}
+
+.btn-join-session {
+    background-color: #DF6A74;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 9999px;
+    padding: 8px 18px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+    white-space: nowrap;
+}
+
+.btn-join-session:hover {
+    background-color: #D45B65;
+}
+
+/* Modal Footers */
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    border-top: 1px solid #EAE4D9;
+    padding-top: 16px;
+}
+
+.btn-modal-action {
+    background-color: #DF6A74;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 9999px;
+    padding: 10px 22px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+
+.btn-modal-action:hover {
+    background-color: #D45B65;
+}
+
+.btn-modal-secondary {
+    background-color: transparent;
+    color: #78716C;
+    border: 1px solid #D8D1C5;
+    border-radius: 9999px;
+    padding: 10px 20px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.btn-modal-secondary:hover {
+    background-color: #EFECE6;
+    color: #18181B;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-4px); }
+    to { opacity: 1; transform: translateY(0); }
 }
